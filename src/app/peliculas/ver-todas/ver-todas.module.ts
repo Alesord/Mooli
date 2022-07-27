@@ -13,7 +13,7 @@ import { VerTodasPage } from './ver-todas.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    VerTodasPageRoutingModule
+    VerTodasPageRoutingModule,
   ],
   declarations: [VerTodasPage]
 })

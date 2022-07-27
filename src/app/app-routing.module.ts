@@ -8,11 +8,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: '**',
-    redirectTo: '/peliculas/tabs/ver-todas',
-    pathMatch: 'full'
-  },
-  {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then( m => m.AuthPageModule)
   },

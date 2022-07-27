@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from 'src/app/shared/models/movie.model';
+import { ImdbService } from 'src/app/shared/services/imdb.service';
 import { MovieFetcherService } from 'src/app/shared/services/movie-fetcher.service';
+import { Movie } from 'src/app/shared/models/imdbMovies.model';
 
 @Component({
   selector: 'app-ver-todas',
@@ -9,15 +10,17 @@ import { MovieFetcherService } from 'src/app/shared/services/movie-fetcher.servi
 })
 export class VerTodasPage implements OnInit {
 
-  loadedMovies: Movie[];
+  loadedMovies: any;
 
-  constructor (private movieFetcherService: MovieFetcherService) {}
+  constructor (
+    private movieFetcherService: MovieFetcherService,
+    private imdbService: ImdbService
+    ) {}
 
   ngOnInit() {
-  this.loadedMovies = this.movieFetcherService.loadMovieList();
-  console.log(this.loadedMovies)
   }
 
-  
+
+
 
 }
