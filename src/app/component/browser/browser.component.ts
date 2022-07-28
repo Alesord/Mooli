@@ -12,7 +12,7 @@ export class BrowserComponent implements OnInit {
 
   // @ViewChild('txtsearch') searchArtist!:ElementRef <HTMLInputElement>;
 
-
+ Test: boolean
 
   private debounceTimer?: NodeJS.Timeout
 
