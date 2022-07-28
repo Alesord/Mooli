@@ -15,4 +15,7 @@ export class ImdbService {
   getMovies(){
     return this.http.get(this.baseUrl)
   }
+
+
+  
 }
