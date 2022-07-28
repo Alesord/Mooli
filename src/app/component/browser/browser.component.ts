@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Subject, debounceTime } from 'rxjs';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators'
 import { ImdbService } from 'src/app/shared/services/imdb.service';
 
 @Component({
@@ -35,7 +36,7 @@ export class BrowserComponent implements OnInit {
       console.log(valor)
       this.onDebounce.emit(valor)
     })
-    }
+  }
   
       
     search(){
@@ -48,4 +49,4 @@ export class BrowserComponent implements OnInit {
       tecleo(){
         this.debouncer.next(this.termino)
     }
-    }
+}
