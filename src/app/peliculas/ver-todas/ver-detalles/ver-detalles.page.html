@@ -1,9 +1,48 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>ver-detalles</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/peliculas/tabs/ver-todas"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Vista Expandida</ion-title>
+    <ion-buttons slot="end"  *ngIf="loaded">
+      <ion-button (click)="toggleSeen()" [ngClass]="{toggledClass: seen == true}">
+        <ion-icon name="checkbox-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content *ngIf="loaded">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="7">
+        <ion-card>
+          <ion-img [src]=loadedMovie.image>
+          </ion-img>
+        </ion-card>
+      </ion-col>
+      <ion-col size="5">
+        <h3>
+          {{ loadedMovie.title }}
+        </h3>
+        <label class="secondary-text">
+          {{ loadedMovie.runtimeStr }}
+          <br>
+          {{ loadedMovie.genres}}
+        </label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <h4>De qué trata?</h4>
+          </ion-card-header>
+          <ion-card-content>
+            {{ loadedMovie.plot }}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
