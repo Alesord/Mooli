@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ImdbService } from 'src/app/shared/services/imdb.service';
+import { SeenService } from 'src/app/shared/services/seen.service';
 
 @Component({
   selector: 'app-ver-todas',
@@ -12,7 +13,8 @@ export class VerTodasPage implements OnInit {
   status: boolean = false;
 
   constructor (
-    private imdbService: ImdbService
+    private imdbService: ImdbService,
+    private seenService: SeenService
     ) {}
 
   ngOnInit() {

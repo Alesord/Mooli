@@ -45,12 +45,6 @@ export class VerDetallesPage implements OnInit {
     
   }
 
-  toggleSeen() {
-    this.seen = !this.seen; 
-    console.log(this.seen);
-    this.seenService.OnSendRequest(this.loadedId, this.seen);
-  }
-
   updateSeen() {
     this.seenService.OnGetSeen(this.loadedId).subscribe({next: (bool: boolean) => {
       this.seenObject = bool;
@@ -58,5 +52,13 @@ export class VerDetallesPage implements OnInit {
       console.log('El valor es ' + this.seen);
     }})
   }
+
+
+  toggleSeen() {
+    this.seen = !this.seen; 
+    console.log(this.seen);
+    this.seenService.OnSendRequest(this.loadedId, this.seen);
+  }
+
 
 }

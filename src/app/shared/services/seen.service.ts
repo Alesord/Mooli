@@ -18,6 +18,12 @@ export class SeenService {
     })
   }
 
+  OnUploadSeen(id: string, seen: boolean) {
+    this.http.post(this.baseUrl + id + '.json', {seen}).subscribe({next: (respuestaData => {
+        this.OnSendRequest(id, false);
+      })
+    })
+  }
   
   OnGetSeen(id: string) {
     return this.http.get(this.baseUrl + id + '.json')
