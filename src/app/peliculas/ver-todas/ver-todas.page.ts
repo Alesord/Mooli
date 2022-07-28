@@ -9,6 +9,7 @@ import { ImdbService } from 'src/app/shared/services/imdb.service';
 export class VerTodasPage implements OnInit {
 
   loadedMovies: any;
+  status: boolean = false;
 
   constructor (
     private imdbService: ImdbService
@@ -18,6 +19,7 @@ export class VerTodasPage implements OnInit {
   this.imdbService.getMovies().subscribe(res => {
     this.loadedMovies = res;
     console.log(this.loadedMovies[0])
+    this.status = true;
   })
   }
 
