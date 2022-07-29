@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'peliculas',
     loadChildren: () => import('./peliculas/peliculas.module').then( m => m.PeliculasPageModule)
+  },
+  {
+    path: 'agregar-a-lista',
+    loadChildren: () => import('./shared/modals/agregar-a-lista/agregar-a-lista.module').then( m => m.AgregarAListaPageModule)
   }
 ];
 

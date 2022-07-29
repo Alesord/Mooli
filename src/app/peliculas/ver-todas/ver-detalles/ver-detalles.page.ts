@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 import { Movie } from 'src/app/shared/models/imdbMovies.model';
 import { ImdbService } from 'src/app/shared/services/imdb.service';
 import { SeenService } from 'src/app/shared/services/seen.service';
@@ -18,12 +18,14 @@ export class VerDetallesPage implements OnInit {
   loaded: boolean = false;
   seen: any;
   seenObject: any;
+  option: string;
 
   constructor(
     private router: ActivatedRoute,
     private navCtrl: NavController,
     private imdbService: ImdbService,
-    private seenService: SeenService
+    private seenService: SeenService,
+    public toastController: ToastController
   ) { }
 
   ngOnInit() {
@@ -57,8 +59,24 @@ export class VerDetallesPage implements OnInit {
   toggleSeen() {
     this.seen = !this.seen; 
     console.log(this.seen);
+    if (this.seen == false) {
+      this.option = 'no vista'
+    } 
+    if (this.seen == true) {
+      this.option = 'vista'
+    }
+    this.presentToast();
     this.seenService.OnSendRequest(this.loadedId, this.seen);
   }
 
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Marcado como ' + this.option,
+      duration: 1000,
+      position: 'bottom'
+    });
+    toast.present()
+  }
 
+  
 }
