@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Movie } from '../models/imdbMovies.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImdbService {
-  private baseUrl = 'http://localhost:3001/items'
+  private baseUrl = environment.URL_BD_JSON;
   private movies: Movie[]
 
   constructor(private http: HttpClient) { }

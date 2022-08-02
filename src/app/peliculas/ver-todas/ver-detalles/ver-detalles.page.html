@@ -8,7 +8,17 @@
       <ion-button (click)="toggleSeen()" [ngClass]="{toggledClass: seen == true}">
         <ion-icon name="checkbox-outline"></ion-icon>
       </ion-button>
-    </ion-buttons>
+      
+      <ion-list>
+        <ion-item>
+          <ion-select placeholder="Añadir a lista" [(ngModel)]="chosenOpt" (ionChange)="onShow()" detail="false">
+            <div *ngFor="let item of loadedLists">
+              <ion-select-option value="{{ item.listName }}">{{ item.listName }}</ion-select-option>
+            </div>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-buttons>  
   </ion-toolbar>
 </ion-header>
 

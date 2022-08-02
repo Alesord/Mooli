@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
-import { Movie } from '../models/imdbMovies.model';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SeenService {
-  private baseUrl = 'https://mooli-3d0bf-default-rtdb.firebaseio.com/seenList/-N85rm2-iiM4AsN7ObzU/'
-  private movies: Movie[]
+  private baseUrl = environment.URL_BD_SEEN
 
   constructor(private http: HttpClient) { }
 
