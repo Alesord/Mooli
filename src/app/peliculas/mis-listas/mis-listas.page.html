@@ -1,9 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>mis-listas</ion-title>
+    <ion-title>Ver mis listas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-accordion-group *ngFor="let list of loadedLists">
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>{{list.listName}}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content" *ngFor="let content of list.listContent">
+          {{ content }}
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
 </ion-content>

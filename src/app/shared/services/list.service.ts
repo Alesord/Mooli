@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { List, Lista, ListAuth } from '../models/list.model';
+import { List, Lista, ListAuth, ListFull } from '../models/list.model';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -11,6 +11,7 @@ export class ListService {
 
 
   private baseUrl = environment.URL_BD_LIST
+  private plainUrl = environment.URL_BD_LIST_PLAIN
 
   constructor(private http: HttpClient) { }
 
@@ -51,11 +52,14 @@ export class ListService {
     }})
   }
 
+  getAllLists() {
+    return this.http.get<Lista[]>(this.plainUrl)
+  }
 
   getList(ind, movieId) {
     const gotList: string[] = [];
     let exist: boolean = false;
-    this.http.get('https://mooli-3d0bf-default-rtdb.firebaseio.com/users/-N8PnJ6s8FDh77vUleJp.json')
+    this.http.get(this.plainUrl)
     .pipe(map(res => {
       for (const key in res[ind].listContent){
         gotList.push(res[ind].listContent[key])

@@ -9,7 +9,8 @@ export const environment = {
   URL_VER_TODAS: `/peliculas/tabs/ver-todas/`,
   URL_BD_JSON: 'http://localhost:3001/items',
   URL_BD_SEEN: 'https://mooli-3d0bf-default-rtdb.firebaseio.com/seenList/-N85rm2-iiM4AsN7ObzU/',
-  URL_BD_LIST: 'https://mooli-3d0bf-default-rtdb.firebaseio.com/users/-N8PnJ6s8FDh77vUleJp/'
+  URL_BD_LIST: 'https://mooli-3d0bf-default-rtdb.firebaseio.com/users/-N8PnJ6s8FDh77vUleJp/',
+    URL_BD_LIST_PLAIN: 'https://mooli-3d0bf-default-rtdb.firebaseio.com/users/-N8PnJ6s8FDh77vUleJp.json'
   };
 
 /*
