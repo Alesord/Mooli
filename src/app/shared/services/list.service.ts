@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { List, Lista, ListAuth, ListFull } from '../models/list.model';
+import { Lista, } from '../models/list.model';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -41,6 +41,11 @@ export class ListService {
     return this.allLists;
   }
 
+  nuevaLista(data, folderName) {
+    this.http.put(this.baseUrl + folderName + '.json', data).subscribe({next: respuesta => {
+      console.log(respuesta);
+    }})
+  }
 
   newList(data: any, id: number) {
     this.http.put(this.baseUrl + id + '.json', data).subscribe({next: respuesta => {
@@ -53,7 +58,41 @@ export class ListService {
   }
 
   getAllLists() {
-    return this.http.get<Lista[]>(this.plainUrl)
+    let array: any[] = []
+    this.http.get(this.plainUrl).pipe(map(response => {
+      for (let k in response) {
+        array.push(response[k])
+      }
+    })).subscribe()
+    return array;
+  }
+
+
+  getAllLists2() {
+    let array: any[] = []
+    let arrayX: any[] = []
+    this.http.get(this.plainUrl).pipe(map(response => {
+      for (let k in response) {
+        array.push(response[k])
+      }
+      for (let x in array) {
+        arrayX.push({
+          nombre: array[x].nombre,
+          contenido: []
+        })
+        for (let cont in array[x].contenido) {
+          if (cont !== '0') { //Filtro para que no tire el 0 que se genera al crear una lista nueva siempre
+            arrayX[x].contenido.push({
+              id: cont,
+              imagen: array[x].contenido[cont].imagen,
+              titulo: array[x].contenido[cont].titulo
+            })
+          }
+        }
+      }
+    })).subscribe()
+    console.log(arrayX)
+    return arrayX;
   }
 
   getList(ind, movieId) {
@@ -85,8 +124,9 @@ export class ListService {
     })).subscribe()
   }
 
-  MovieToList(movieId: string, whichList: number) {
-    this.http.post(this.baseUrl + whichList, movieId ).subscribe({next: respuesta => {
+  MovieToList(chosenOpt: string, loadedId: string, data) {
+    this.http.put(this.baseUrl + '/' + chosenOpt +'/contenido/' + loadedId + '.json', data).subscribe({next: respuesta => {
+      console.log(respuesta)
     }})
   }
 }

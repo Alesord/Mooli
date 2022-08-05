@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController, ToastController } from '@ionic/angular';
-import { Movie } from 'src/app/shared/models/imdbMovies.model';
-import { List } from 'src/app/shared/models/list.model';
+import { MovieData } from 'src/app/shared/models/list.model';
 import { ImdbService } from 'src/app/shared/services/imdb.service';
 import { ListService } from 'src/app/shared/services/list.service';
 import { SeenService } from 'src/app/shared/services/seen.service';
@@ -24,6 +23,7 @@ export class VerDetallesPage implements OnInit {
   option: string;
   chosenOpt: string;
   indexOfList: any;
+  movieData: MovieData
 
   constructor(
     private router: ActivatedRoute,
@@ -47,9 +47,9 @@ export class VerDetallesPage implements OnInit {
         this.loaded = true
       })
     })
-    
-    this.loadedLists = this.listService.getMyList();
-    console.log(this.loadedLists[0])
+
+    this.loadedLists = this.listService.getAllLists();
+    console.log('Hola ' + this.loadedLists)
   }
 
   updateSeen() {
@@ -74,16 +74,20 @@ export class VerDetallesPage implements OnInit {
   }
 
   onShow() {
-    console.log(this.chosenOpt);
     this.indexOfList = this.loadedLists.findIndex(obj => {
-      return obj.listName === this.chosenOpt
+      return obj.nombreLista === this.chosenOpt
     })
+    this.chosenOpt = this.chosenOpt.toLowerCase().replace(/\s/g, '-')
     console.log('Seleccionaste la opcion ' +  this.indexOfList)
+    this.movieData = {
+      titulo: this.loadedMovie.title,
+      imagen: this.loadedMovie.image
+    }
     this.onSend();
   }
 
   onSend(){
-    this.listService.getList(this.indexOfList, this.loadedId)
+    this.listService.MovieToList(this.chosenOpt, this.loadedId, this.movieData)
   }
   onNew() {
     this.listService.newList(this.loadedLists[this.indexOfList], this.indexOfList)

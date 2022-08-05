@@ -1,20 +1,16 @@
-export interface List {
-    name: string;
-    listContent: string[]
-}
 
-export interface ListFull {
-    nameId: string;
-    list: List;
-
-}
-
-export interface ListAuth {
-    key: string,
-    listFull: ListFull[]
-}
 
 export interface Lista {
     listName: string;
     listContent: string[]
+}
+
+export interface movieList {
+    nombre: string;
+    contenido: string[];
+}
+
+export interface MovieData {
+    titulo: string;
+    imagen: string;
 }
