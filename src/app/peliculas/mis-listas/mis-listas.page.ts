@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { Lista } from 'src/app/shared/models/list.model';
 import { ImdbService } from 'src/app/shared/services/imdb.service';
 import { ListService } from 'src/app/shared/services/list.service';
 import { SeenService } from 'src/app/shared/services/seen.service';
+import { CrearListaComponent } from './crear-lista/crear-lista.component';
 
 @Component({
   selector: 'app-mis-listas',
@@ -12,24 +14,38 @@ import { SeenService } from 'src/app/shared/services/seen.service';
 })
 export class MisListasPage implements OnInit {
 
-  loadedMovies: any;
+  loadedMovies: any[] = [];
   loadedLists: any;
+  allIds: any[] = [];
+  isLoaded: boolean = false;
+  userKey: string = 'usuario1h18'
 
   constructor(
     private router: ActivatedRoute,
-    private imdbService: ImdbService,
-    private seenService: SeenService,
-    private listService: ListService
+    private listService: ListService,
+    private modalCtrl: ModalController
   ) { }
 
   ngOnInit() {
-    this.listService.getAllLists().subscribe({next: resp => {
-      console.log(resp)
-      this.loadedLists = resp;
-      console.log(this.loadedLists.listContent)
-    }})
-    console.log(this.loadedMovies)
+    this.loadedLists = this.listService.getAllLists2()
+    this.check()
+    this.isLoaded = true;
   }
 
+  onAddList() {
+    this.modalCtrl
+    .create({ component: CrearListaComponent, componentProps: {idUser: this.userKey} })
+    .then(modalElement => {
+      modalElement.present();
+    })
+  }
 
+  check() {
+    console.log('a')
+    console.log(this.loadedLists)
+  }
+
+  onOpenList() {
+    
+  }
 }
