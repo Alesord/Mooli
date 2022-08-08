@@ -24,7 +24,7 @@ export class VerDetallesPage implements OnInit {
   chosenOpt: string;
   indexOfList: any;
   movieData: MovieData
-
+// Prueba de push
   constructor(
     private router: ActivatedRoute,
     private navCtrl: NavController,
