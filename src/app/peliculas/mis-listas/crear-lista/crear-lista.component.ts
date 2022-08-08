@@ -1,0 +1,46 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
+import { movieList } from 'src/app/shared/models/list.model';
+import { ListService } from 'src/app/shared/services/list.service';
+
+@Component({
+  selector: 'app-crear-lista',
+  templateUrl: './crear-lista.component.html',
+  styleUrls: ['./crear-lista.component.scss'],
+})
+export class CrearListaComponent implements OnInit {
+
+  @Input() idUser: string;
+  nameId: string;
+  listaNueva: movieList;
+
+  listaForm = new FormGroup ({
+    nombreLista: new FormControl('', Validators.required),
+    contenidoLista: new FormControl()
+  })
+
+  constructor(
+    private modalCtrl: ModalController,
+    private listService: ListService
+  ) { }
+
+  ngOnInit() {}
+
+  onCancel() {
+    this.modalCtrl.dismiss();
+  }
+
+  onSubmit() {
+    this.nameId = this.listaForm.get('nombreLista').value.toLowerCase().replace(/\s/g, '-')
+    console.log(this.nameId)
+    this.listaNueva = {
+      nombre: this.listaForm.value.nombreLista,
+      contenido: ['']
+    }
+    this.listService.nuevaLista(this.listaNueva, this.nameId)
+    this.nameId = '';
+    this.listaForm.reset
+    this.onCancel();
+  }
+}
