@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ver mis listas</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onAddList()">
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-accordion-group *ngFor="let list of loadedLists">
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>{{list.nombre}}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content" *ngFor="let content of list.contenido" [routerLink]="['/', 'peliculas','tabs' ,'ver-todas', content.id]">
+          {{ content.titulo }}
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-content>
