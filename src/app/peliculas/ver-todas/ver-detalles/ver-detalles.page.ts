@@ -45,6 +45,7 @@ export class VerDetallesPage implements OnInit {
         this.loadedMovie = res;
         this.updateSeen();
         this.loaded = true
+        localStorage.setItem('movie', this.loadedMovie)
       })
     })
 

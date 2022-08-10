@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { IonModal, ModalController } from '@ionic/angular';
+import { ImdbService } from 'src/app/shared/services/imdb.service';
 
 @Component({
   selector: 'app-chart',
@@ -6,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chart.component.scss'],
 })
 export class ChartComponent implements OnInit {
+  
+  @ViewChild(IonModal) modal: IonModal;
 
-  constructor() { }
+  @Input() genero: string[]=[];
+  @Input() director: string[]=[];
 
-  ngOnInit() {}
+  constructor(private modalCtrl: ModalController,
+    private imdbService: ImdbService) { }
+  
+  ngOnInit() {
+  }
+  async close(){
+    await this.modalCtrl.dismiss()
+  }
+  async saveTest(){
+   
+        return this.modalCtrl.dismiss(this.genero, 'confirm')
+      }
+    
+   
 
 }
