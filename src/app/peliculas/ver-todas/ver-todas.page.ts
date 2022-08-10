@@ -9,7 +9,9 @@ import { SeenService } from 'src/app/shared/services/seen.service';
 })
 export class VerTodasPage implements OnInit {
 
+  title: number = 0
   loadedMovies: any;
+  loadedMovies2: any[];
   status: boolean = false;
 
   constructor (
@@ -18,11 +20,9 @@ export class VerTodasPage implements OnInit {
     ) {}
 
   ngOnInit() {
-  this.imdbService.getMovies().subscribe(res => {
-    this.loadedMovies = res;
-    console.log(this.loadedMovies[0])
-    this.status = true;
-  })
+  this.loadedMovies = this.imdbService.getMovies()
+  console.log(this.loadedMovies)
+  this.status = true;
   }
 
 

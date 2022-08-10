@@ -8,12 +8,19 @@ import { environment } from 'src/environments/environment';
 })
 export class ImdbService {
   private baseUrl = environment.URL_BD_JSON;
+  private expUrl = environment.URL_BD_JSON_EXP;
   private movies: Movie[]
 
   constructor(private http: HttpClient) { }
 
   getMovies(){
-    return this.http.get(this.baseUrl)
+    let x: any[] = []
+    this.http.get(this.baseUrl).subscribe(res => {
+      for(let key in res){
+        x.push(res[key])
+      }
+    })
+    return x;
   }
 
   findMoviee(id: string, array: Movie[]){
@@ -21,7 +28,11 @@ export class ImdbService {
   }
 
   findMovie(id: string) {
-    return this.http.get(this.baseUrl + '/' + id)
+    return this.http.get(this.expUrl + '/' + id + '.json')
   }
   
+  postM(data, id: string) {
+    this.http.put('https://mooli-3d0bf-default-rtdb.firebaseio.com/peliculasBD/' + id + '.json', data).subscribe()
+  }
+
 }
