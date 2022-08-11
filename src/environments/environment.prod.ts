@@ -4,11 +4,11 @@ export const environment = {
   production: true,
   __NOTA1: { "Mooli.All.Movies.Nav": "8100" },
   
-  URL_VER_TODAS: `/peliculas/tabs/ver-todas/`,
-  URL_BD_JSON: `${URL_MOOLI}/moviesDB/items.json`,
-    URL_BD_JSON_EXP: `${URL_MOOLI}/moviesDB/items/`,
-  URL_BD_SEEN: `${URL_MOOLI}/users/-N8PnJ6s8FDh77vUleJp/seenList/`,
-  URL_BD_LIST: `${URL_MOOLI}/users/-N8PnJ6s8FDh77vUleJp/listas/`,
-    URL_BD_LIST_PLAIN: `${URL_MOOLI}/users/-N8PnJ6s8FDh77vUleJp/listas.json`
+    URL_VER_TODAS: `/peliculas/tabs/ver-todas/`,
+    URL_BD_JSON: `${URL_MOOLI}/peliculasBD.json`,
+      URL_BD_JSON_EXP: `${URL_MOOLI}/peliculasBD/`,
+    URL_BD_SEEN: `${URL_MOOLI}/users/-N8PnJ6s8FDh77vUleJp/seenList/`,
+    URL_BD_LIST: `${URL_MOOLI}/users/-N8PnJ6s8FDh77vUleJp/listas/`,
+      URL_BD_LIST_PLAIN: `${URL_MOOLI}/users/-N8PnJ6s8FDh77vUleJp/listas.json`,
     
 };
