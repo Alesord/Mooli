@@ -11,18 +11,23 @@ export class ImdbService {
   private baseUrl = environment.URL_BD_JSON;
   private movies: Movie[]
 
-
   local=localStorage.getItem('movie')
+
   constructor(private http: HttpClient) { }
 
-  // if(localStorage.getItem('movie') !== undefined && localStorage.getItem('movie')){
-  //   console.log(this.local)
-  //   return this.local
-  // }else()=>{
+  movieLocalStorage(){
+  if(localStorage.getItem(this.local) !== undefined && localStorage.getItem(this.local)){
+  JSON.parse(localStorage.getItem(this.local))
+    console.log(this.local)
+    return this.local
+  }}
+  
   getMovies(){
+      // console.log(typeof(this.baseUrl))
     return this.http.get(this.baseUrl)
-    }
-    
+   
+  }
+  
       
 
 
@@ -34,4 +39,5 @@ export class ImdbService {
     return this.http.get(this.baseUrl + '/' + id)
   }
   
+
 }

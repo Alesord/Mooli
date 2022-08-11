@@ -17,14 +17,23 @@ export class VerTodasPage implements OnInit {
     private seenService: SeenService
     ) {}
 
+    local=localStorage.getItem('movie')
+
   ngOnInit() {
-  this.imdbService.getMovies().subscribe(res => {
+    if(localStorage.getItem(this.local) !== undefined && localStorage.getItem(this.local)){
+      this.loadedMovies = this.imdbService.movieLocalStorage() 
+      
+      console.log(this.loadedMovies[0])
+    }
+    else
+    {
+    this.imdbService.getMovies().subscribe(res => {
     this.loadedMovies = res;
-    console.log(this.loadedMovies[0])
+    console.log(this.loadedMovies)
     this.status = true;
   })
   }
-
+}
 
 
 

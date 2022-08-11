@@ -37,30 +37,40 @@ export class BuscarPage implements OnInit {
   }
   // console.log(navParams.get('genre')) 
 
+  local=localStorage.getItem('movie')
+
   ngOnInit() {
-    console.log(this.movie )
-      this.imdbService.getMovies().subscribe(res => {
-          this.loadedMovies = res;
-
-          // console.log(this.loadedMovies[0])
-          this.status = true;
-          for (let i in this.loadedMovies) {
-              for (let g of this.loadedMovies[i].genreList) {
-                  // console.log(x.value)
-                  this.searchGenre.push(g.value)
-                  this.filtersGenre = [...new Set(this.searchGenre)];
-                  // console.log(this.filtersGenre)
-              }
-              for (let d of this.loadedMovies[i].directorList){
-                this.searchDirector.push(d.name)
-                this.filtersDirector = [...new Set(this.searchDirector)]
-                // console.log(this.filtersDirector)
-              }
-          }
-      })
-
-      // this.presentingElement = document.querySelector('.ion-page');
-  }
+    if(localStorage.getItem(this.local) !== undefined && localStorage.getItem(this.local)){
+      this.loadedMovies = this.imdbService.movieLocalStorage() 
+      
+      console.log(this.loadedMovies[0])
+      this.status=true
+    }
+    else
+    {
+    this.imdbService.getMovies().subscribe(res => {
+    this.loadedMovies = res;
+    console.log(this.loadedMovies)
+    this.status = true;
+    })
+    }
+    
+    for (let i in this.loadedMovies) {
+      for (let g of this.loadedMovies[i].genreList) {
+         // console.log(x.value)
+         this.searchGenre.push(g.value)
+         this.filtersGenre = [...new Set(this.searchGenre)];
+         // console.log(this.filtersGenre)
+        }
+      for (let d of this.loadedMovies[i].directorList){
+        this.searchDirector.push(d.name)
+        this.filtersDirector = [...new Set(this.searchDirector)]
+            // console.log(this.filtersDirector)
+        }
+      }
+    }
+    // this.presentingElement = document.querySelector('.ion-page');
+  
 
   // searchCustomer(event){
   //   const text= event.target.value
@@ -92,6 +102,9 @@ export class BuscarPage implements OnInit {
 //      this.filterGenre = data
 //      console.log(this.filterGenre)
 //   }
+
+
+
 
   onFilterModal() {
       // const ev = event as CheckboxCustomEvent

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController, ToastController } from '@ionic/angular';
 import { MovieData } from 'src/app/shared/models/list.model';
@@ -34,6 +34,8 @@ export class VerDetallesPage implements OnInit {
     private listService: ListService
   ) { }
 
+  
+
   ngOnInit() {
     this.router.paramMap.subscribe(pM => {
       if (!pM.has('peliculaId')) {
@@ -45,7 +47,8 @@ export class VerDetallesPage implements OnInit {
         this.loadedMovie = res;
         this.updateSeen();
         this.loaded = true
-        localStorage.setItem('movie', this.loadedMovie)
+        localStorage.setItem('movie', JSON.stringify(this.loadedMovie))
+        
       })
     })
 
