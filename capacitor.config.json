@@ -1,6 +1,16 @@
 {
-	"appId": "com.Mooli.ionicAngular",
+	"appId": "com.mooli.devpush",
 	"appName": "Mooli",
 	"webDir": "www",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+	"plugins": {
+		"PushNotifications": {
+		  "presentationOptions": ["badge", "sound", "alert"]
+		},
+		"LocalNotifications": {
+			"smallIcon": "ic_stat_icon_config_sample",
+			"iconColor": "#488AFF",
+			"sound": "beep.wav"
+		  }
+	  }
 }

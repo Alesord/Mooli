@@ -14,6 +14,11 @@
     <ion-accordion value="first">
       <ion-item slot="header" color="light">
         <ion-label>{{list.nombre}}</ion-label>
+        <ion-buttons>
+          <ion-button slot="end" (click)="onDelete(list.nombre)">
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
       </ion-item>
       <div class="ion-padding" slot="content" *ngFor="let content of list.contenido" [routerLink]="['/', 'peliculas','tabs' ,'ver-todas', content.id]">
           {{ content.titulo }}

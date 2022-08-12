@@ -9,22 +9,17 @@ import { environment } from 'src/environments/environment';
 export class ImdbService {
   private baseUrl = environment.URL_BD_JSON;
   private expUrl = environment.URL_BD_JSON_EXP;
-  private movies: Movie[]
+  private movies: Movie[] = []
 
   constructor(private http: HttpClient) { }
 
   getMovies(){
-    let x: any[] = []
-    this.http.get(this.baseUrl).subscribe(res => {
-      for(let key in res){
-        x.push(res[key])
-      }
-    })
-    return x;
+    return this.http.get(this.baseUrl)
   }
 
-  findMoviee(id: string, array: Movie[]){
-    return array.find(p => p.id === id)
+  done(data){
+    console.log(data[0])
+    return data
   }
 
   findMovie(id: string) {

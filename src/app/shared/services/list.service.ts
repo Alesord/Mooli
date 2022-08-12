@@ -52,6 +52,10 @@ export class ListService {
     }})
   }
   
+  deleteList(id: string){
+    this.http.delete(this.baseUrl + id + '.json').subscribe(() => console.log('Borrado exitosamente'))
+  }
+
   newListDeep(data: any, id: number) {
     this.http.put(this.baseUrl + id + '/listContent.json', data).subscribe({next: respuesta => {
     }})
@@ -129,4 +133,5 @@ export class ListService {
       console.log(respuesta)
     }})
   }
+
 }

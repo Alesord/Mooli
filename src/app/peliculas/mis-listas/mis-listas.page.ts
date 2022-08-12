@@ -21,15 +21,17 @@ export class MisListasPage implements OnInit {
   userKey: string = 'usuario1h18'
 
   constructor(
-    private router: ActivatedRoute,
     private listService: ListService,
     private modalCtrl: ModalController
   ) { }
 
   ngOnInit() {
-    this.loadedLists = this.listService.getAllLists2()
-    this.check()
-    this.isLoaded = true;
+  }
+
+  ionViewWillEnter() {
+      console.log('Entrando a mis listas')
+      this.loadedLists = this.listService.getAllLists2()
+      this.isLoaded = true;
   }
 
   onAddList() {
@@ -37,15 +39,16 @@ export class MisListasPage implements OnInit {
     .create({ component: CrearListaComponent, componentProps: {idUser: this.userKey} })
     .then(modalElement => {
       modalElement.present();
+      modalElement.onDidDismiss().then((data) => {
+        if (data.data[0]) {
+          this.loadedLists.push({nombre: data.data[1], contenido: ['']})
+        }
+      })
     })
   }
 
-  check() {
-    console.log('a')
-    console.log(this.loadedLists)
-  }
-
-  onOpenList() {
-    
+  onDelete(listNombre: string){
+    let listId: string = listNombre.toLowerCase().replace(/\s/g, '-')
+    this.listService.deleteList(listId)
   }
 }
