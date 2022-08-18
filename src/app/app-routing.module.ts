@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -13,11 +14,13 @@ const routes: Routes = [
   },
   {
     path: 'peliculas',
-    loadChildren: () => import('./peliculas/peliculas.module').then( m => m.PeliculasPageModule)
+    loadChildren: () => import('./peliculas/peliculas.module').then( m => m.PeliculasPageModule),
+    canLoad: [AuthGuard]
   },
   {
     path: 'agregar-a-lista',
-    loadChildren: () => import('./shared/modals/agregar-a-lista/agregar-a-lista.module').then( m => m.AgregarAListaPageModule)
+    loadChildren: () => import('./shared/modals/agregar-a-lista/agregar-a-lista.module').then( m => m.AgregarAListaPageModule),
+    canLoad: [AuthGuard]
   }
 ];
 

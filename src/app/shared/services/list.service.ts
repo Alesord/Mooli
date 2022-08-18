@@ -1,21 +1,26 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Lista, } from '../models/list.model';
 import { map } from 'rxjs/operators';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListService {
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService
+    ) { }
 
+  private userId: string = this.authService.userKey;
+  private baseUrl = `${environment.URL_USERS}/${this.userId}/listas`
+  private plainUrl = `${environment.URL_USERS}/${this.userId}/listas.json`
+  // URL_BD_SEEN2: `${URL_MOOLI}/users/-N8PnJ6s8FDh77vUleJp/seenList/`,
+  // URL_BD_LIST2: `${URL_MOOLI}/users/-N8PnJ6s8FDh77vUleJp/listas/`,
+  // URL_BD_LIST_PLAIN2: `${URL_MOOLI}/users/-N8PnJ6s8FDh77vUleJp/listas.json`,
+  // URL_USERS: `${URL_MOOLI}/users/`
 
-  private baseUrl = environment.URL_BD_LIST
-  private plainUrl = environment.URL_BD_LIST_PLAIN
-
-  constructor(private http: HttpClient) { }
-
-  userId: string = 'a1';
 
   newList(data: any, id: number) {
    this.http.put(this.baseUrl + id + '.json', data)
