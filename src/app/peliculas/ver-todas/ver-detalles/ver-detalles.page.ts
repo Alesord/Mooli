@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController, ToastController } from '@ionic/angular';
+import { Subject } from 'rxjs';
+import { map, takeUntil } from 'rxjs/operators';
 import { MovieData } from 'src/app/shared/models/list.model';
 import { ImdbService } from 'src/app/shared/services/imdb.service';
 import { ListService } from 'src/app/shared/services/list.service';
@@ -11,11 +13,11 @@ import { SeenService } from 'src/app/shared/services/seen.service';
   templateUrl: './ver-detalles.page.html',
   styleUrls: ['./ver-detalles.page.scss'],
 })
-export class VerDetallesPage implements OnInit {
+export class VerDetallesPage implements OnInit, OnDestroy {
 
   loadedMovie: any;
   loadedMovies: any;
-  loadedLists: any;
+  loadedLists: any[] = [];
   loadedId: string;
   loaded: boolean = false;
   seen: any;
@@ -23,7 +25,8 @@ export class VerDetallesPage implements OnInit {
   option: string;
   chosenOpt: string;
   indexOfList: any;
-  movieData: MovieData
+  movieData: MovieData;
+  unsub: Subject<void> = new Subject()
 // Prueba de push
   constructor(
     private router: ActivatedRoute,
@@ -35,25 +38,36 @@ export class VerDetallesPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.router.paramMap.subscribe(pM => {
+    this.router.paramMap
+    .pipe(takeUntil(this.unsub))
+    .subscribe(pM => {
       if (!pM.has('peliculaId')) {
         this.navCtrl.navigateBack('/peliculas/tabs/ver-todas')
       }
       this.loadedId = pM.get('peliculaId');
 
-      this.imdbService.findMovie(this.loadedId).subscribe(res => {
+      this.imdbService.findMovie(this.loadedId)
+      .pipe(takeUntil(this.unsub))
+      .subscribe(res => {
         this.loadedMovie = res;
         this.updateSeen();
         this.loaded = true
       })
     })
-
-    this.loadedLists = this.listService.getAllLists();
-    console.log('Hola ' + this.loadedLists)
+    this.listService.displayExistingLists().pipe(map(response => {
+      for (let k in response) {
+        this.loadedLists.push(response[k])
+        console.log(this.loadedLists)
+      }
+    }))
+    .pipe(takeUntil(this.unsub))
+    .subscribe();
   }
 
   updateSeen() {
-    this.seenService.OnGetSeen(this.loadedId).subscribe({next: (bool: boolean) => {
+    this.seenService.OnGetSeen(this.loadedId)
+    .pipe(takeUntil(this.unsub))
+    .subscribe({next: (bool: boolean) => {
       this.seenObject = bool;
       this.seen = this.seenObject.seen;
     }})
@@ -70,7 +84,9 @@ export class VerDetallesPage implements OnInit {
       this.option = 'vista'
     }
     this.presentToast();
-    this.seenService.OnSendRequest(this.loadedId, this.seen);
+    this.seenService.OnSendRequest(this.loadedId, this.seen)
+    .pipe(takeUntil(this.unsub))
+    .subscribe()
   }
 
   onShow() {
@@ -88,6 +104,8 @@ export class VerDetallesPage implements OnInit {
 
   onSend(){
     this.listService.MovieToList(this.chosenOpt, this.loadedId, this.movieData)
+    .pipe(takeUntil(this.unsub))
+    .subscribe()
   }
   onNew() {
     this.listService.newList(this.loadedLists[this.indexOfList], this.indexOfList)
@@ -102,5 +120,13 @@ export class VerDetallesPage implements OnInit {
     toast.present()
   }
 
-  
+  ionViewDidLeave() {
+    this.unsub.next();
+    this.unsub.unsubscribe();
+  }
+
+  ngOnDestroy() {
+    this.unsub.next();
+    this.unsub.unsubscribe();
+  }
 }

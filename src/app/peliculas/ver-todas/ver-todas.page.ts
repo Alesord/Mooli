@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { Movie } from 'src/app/shared/models/imdbMovies.model';
 import { ImdbService } from 'src/app/shared/services/imdb.service';
 import { NotificationsService } from 'src/app/shared/services/notifications.service';
@@ -9,13 +11,13 @@ import { SeenService } from 'src/app/shared/services/seen.service';
   templateUrl: './ver-todas.page.html',
   styleUrls: ['./ver-todas.page.scss'],
 })
-export class VerTodasPage implements OnInit {
+export class VerTodasPage implements OnInit, OnDestroy {
 
   title: number = 0
   loadedMovies: Movie[] = [];
   moviesIds: string[]
   status: boolean = false;
-
+  unsub: Subject<void> = new Subject()
   constructor (
     private imdbService: ImdbService,
     private seenService: SeenService,
@@ -23,7 +25,9 @@ export class VerTodasPage implements OnInit {
     ) {}
 
   ngOnInit() {
-  this.imdbService.getMovies().subscribe(res => {
+  this.imdbService.getMovies()
+  .pipe(takeUntil(this.unsub))
+  .subscribe(res => {
     for(let key in res){
       this.loadedMovies.push(res[key])
     }
@@ -44,5 +48,14 @@ export class VerTodasPage implements OnInit {
   }
   
 
+  ionViewDidLeave() {
+    this.unsub.next();
+    this.unsub.unsubscribe();
+  }
+
+  ngOnDestroy() {
+    this.unsub.next();
+    this.unsub.unsubscribe();
+  }
 
 }

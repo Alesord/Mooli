@@ -11,17 +11,7 @@ export class SeenService {
   constructor(private http: HttpClient) { }
 
   OnSendRequest(id: string, seen: boolean) {
-    this.http.put(this.baseUrl + id + '.json', {seen}).subscribe({next: (respuestaData => {
-        console.log('Se ha posteado ' + respuestaData);
-      })
-    })
-  }
-
-  OnUploadSeen(id: string, seen: boolean) {
-    this.http.post(this.baseUrl + id + '.json', {seen}).subscribe({next: (respuestaData => {
-        this.OnSendRequest(id, false);
-      })
-    })
+    return this.http.put(this.baseUrl + id + '.json', {seen})
   }
   
   OnGetSeen(id: string) {

@@ -17,62 +17,23 @@ export class ListService {
 
   userId: string = 'a1';
 
-  allLists: Lista[] = [
-    {
-      listName: 'Lista por ver',
-      listContent: [
-        'tt0441773',
-        'tt10648342',
-        'tt5251328',
-        'tt9411972'
-      ]
-    },
-    {
-      listName: 'Lista de las buenas',
-      listContent: [
-        'tt10648342',
-        'tt1649418'
-      ]
-    },
-  ]
-
-  getMyList() {
-    console.log(this.allLists + 'askdjaslkdjaslk')
-    return this.allLists;
-  }
-
-  nuevaLista(data, folderName) {
-    this.http.put(this.baseUrl + folderName + '.json', data).subscribe({next: respuesta => {
-      console.log(respuesta);
-    }})
-  }
-
   newList(data: any, id: number) {
-    this.http.put(this.baseUrl + id + '.json', data).subscribe({next: respuesta => {
-    }})
+   this.http.put(this.baseUrl + id + '.json', data)
+  }
+  
+  OnCreateNewList(data, folderName) {
+   this.http.put(this.baseUrl + folderName + '.json', data)
   }
   
   deleteList(id: string){
-    this.http.delete(this.baseUrl + id + '.json').subscribe(() => console.log('Borrado exitosamente'))
+    return this.http.delete(this.baseUrl + id + '.json')
   }
 
-  newListDeep(data: any, id: number) {
-    this.http.put(this.baseUrl + id + '/listContent.json', data).subscribe({next: respuesta => {
-    }})
+  displayExistingLists() {
+    return this.http.get(this.plainUrl)
   }
 
   getAllLists() {
-    let array: any[] = []
-    this.http.get(this.plainUrl).pipe(map(response => {
-      for (let k in response) {
-        array.push(response[k])
-      }
-    })).subscribe()
-    return array;
-  }
-
-
-  getAllLists2() {
     let array: any[] = []
     let arrayX: any[] = []
     this.http.get(this.plainUrl).pipe(map(response => {
@@ -95,7 +56,6 @@ export class ListService {
         }
       }
     })).subscribe()
-    console.log(arrayX)
     return arrayX;
   }
 
@@ -124,14 +84,13 @@ export class ListService {
         return s;
       }, [])
       console.log(x)
-      this.newListDeep(x, ind)
+      this.http.put(this.baseUrl + ind + '/listContent.json', x).subscribe({next: respuesta => {
+      }})
     })).subscribe()
   }
 
   MovieToList(chosenOpt: string, loadedId: string, data) {
-    this.http.put(this.baseUrl + '/' + chosenOpt +'/contenido/' + loadedId + '.json', data).subscribe({next: respuesta => {
-      console.log(respuesta)
-    }})
+    return this.http.put(this.baseUrl + '/' + chosenOpt +'/contenido/' + loadedId + '.json', data)
   }
 
 }

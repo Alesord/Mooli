@@ -40,7 +40,7 @@ export class CrearListaComponent implements OnInit {
       nombre: this.listaForm.value.nombreLista,
       contenido: ['']
     }
-    this.listService.nuevaLista(this.listaNueva, this.nameId)
+    this.listService.OnCreateNewList(this.listaNueva, this.nameId)
     this.nameId = '';
     this.listaForm.reset
     this.createDetector = true;

@@ -14,3 +14,8 @@ export interface MovieData {
     titulo: string;
     imagen: string;
 }
+
+export interface LoadedList {
+    contenido: string[];
+    nombre: string;
+}
