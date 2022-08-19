@@ -20,7 +20,7 @@ export const environment = {
  
   __NOTA2: { "Metodo.Provisional.Nav.User.Multiple": "8100" }, 
     
-    URL_USERS: `${URL_MOOLI}/users/`
+    URL_USERS: `${URL_MOOLI}/users`
 };
 /*
  * For easier debugging in development mode, you can import the following file

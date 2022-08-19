@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Lista } from 'src/app/shared/models/list.model';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { ImdbService } from 'src/app/shared/services/imdb.service';
 import { ListService } from 'src/app/shared/services/list.service';
 import { SeenService } from 'src/app/shared/services/seen.service';
@@ -25,7 +26,9 @@ export class MisListasPage implements OnInit, OnDestroy {
 
   constructor(
     private listService: ListService,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -59,14 +62,14 @@ export class MisListasPage implements OnInit, OnDestroy {
     .subscribe()
   }
 
-  
-  ionViewDidLeave() {
-    this.unsub.next();
-    this.unsub.unsubscribe();
+  onLogout() {
+    this.authService.logout()
+    this.router.navigateByUrl('/auth');
   }
 
   ngOnDestroy() {
     this.unsub.next();
     this.unsub.unsubscribe();
   }
+
 }

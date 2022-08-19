@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Movie } from 'src/app/shared/models/imdbMovies.model';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { ImdbService } from 'src/app/shared/services/imdb.service';
 import { NotificationsService } from 'src/app/shared/services/notifications.service';
 import { SeenService } from 'src/app/shared/services/seen.service';
@@ -20,8 +22,9 @@ export class VerTodasPage implements OnInit, OnDestroy {
   unsub: Subject<void> = new Subject()
   constructor (
     private imdbService: ImdbService,
-    private seenService: SeenService,
     private notificationsService: NotificationsService,
+    private authService: AuthService,
+    private router: Router
     ) {}
 
   ngOnInit() {
@@ -47,10 +50,9 @@ export class VerTodasPage implements OnInit, OnDestroy {
     this.notificationsService.createNotification(notifTitle, notifBody, randomMovieTitle, randomMovieId )
   }
   
-
-  ionViewDidLeave() {
-    this.unsub.next();
-    this.unsub.unsubscribe();
+  onLogout() {
+    this.authService.logout();
+    this.router.navigateByUrl('/auth');
   }
 
   ngOnDestroy() {

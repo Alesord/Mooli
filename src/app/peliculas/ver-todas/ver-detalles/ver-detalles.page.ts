@@ -107,9 +107,6 @@ export class VerDetallesPage implements OnInit, OnDestroy {
     .pipe(takeUntil(this.unsub))
     .subscribe()
   }
-  onNew() {
-    this.listService.newList(this.loadedLists[this.indexOfList], this.indexOfList)
-  }
 
   async presentToast() {
     const toast = await this.toastController.create({
@@ -118,11 +115,6 @@ export class VerDetallesPage implements OnInit, OnDestroy {
       position: 'bottom'
     });
     toast.present()
-  }
-
-  ionViewDidLeave() {
-    this.unsub.next();
-    this.unsub.unsubscribe();
   }
 
   ngOnDestroy() {
