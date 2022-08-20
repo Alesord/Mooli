@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { timeStamp } from 'console';
+import { of, timer } from 'rxjs';
+import { finalize, map, switchMap, takeWhile } from 'rxjs/operators';
 import { ImdbService } from 'src/app/shared/services/imdb.service';
 import { SeenService } from 'src/app/shared/services/seen.service';
 
@@ -14,27 +17,33 @@ export class VerTodasPage implements OnInit {
 
   constructor (
     private imdbService: ImdbService,
-    private seenService: SeenService
     ) {}
 
-    local=localStorage.getItem('movie')
+    // local=localStorage.getItem('movie')
 
   ngOnInit() {
-    if(localStorage.getItem(this.local) !== undefined && localStorage.getItem(this.local)){
-      this.loadedMovies = this.imdbService.movieLocalStorage() 
-      
-      console.log(this.loadedMovies[0])
+    if(localStorage.getItem('movie') !== null ){
+      this.loadedMovies = this.imdbService.getMovieLocalStorage() 
+      this.status = true;
+      console.log(this.loadedMovies)
+      console.log('Soy la Local Storage')
+
     }
     else
     {
+      // console.log(this.imdbService.getItemLS())
     this.imdbService.getMovies().subscribe(res => {
     this.loadedMovies = res;
     console.log(this.loadedMovies)
     this.status = true;
+    for(let i in this.loadedMovies){
+      this.imdbService.localStorage(this.loadedMovies)
+        
+    }
+    console.log('Soy el service')
   })
+
   }
 }
-
-
 
 }

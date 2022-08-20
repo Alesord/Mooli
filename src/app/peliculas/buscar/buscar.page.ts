@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonModal, ModalController } from '@ionic/angular';
+import { CheckboxCustomEvent, IonModal, ModalController } from '@ionic/angular';
 import { ChartComponent } from 'src/app/component/chart/chart.component';
 import { ImdbService } from 'src/app/shared/services/imdb.service';
 
@@ -19,7 +19,7 @@ export class BuscarPage implements OnInit {
   filtradoD= '';
   loadedGenres: '';
   searchGenre: string[] = [];
-  filtersGenre: string[] = []
+  filtersGenre: string[] = [];
   searchDirector: string[] = [];
   filtersDirector: string[] = [];
   //   @Input() genreInput: string;
@@ -40,34 +40,41 @@ export class BuscarPage implements OnInit {
   local=localStorage.getItem('movie')
 
   ngOnInit() {
-    if(localStorage.getItem(this.local) !== undefined && localStorage.getItem(this.local)){
-      this.loadedMovies = this.imdbService.movieLocalStorage() 
-      
-      console.log(this.loadedMovies[0])
+    if(localStorage.getItem('movie') !== undefined){
+      this.loadedMovies = this.imdbService.getMovieLocalStorage() 
       this.status=true
+      console.log('LS')
+      this.filters()
+
     }
     else
     {
     this.imdbService.getMovies().subscribe(res => {
     this.loadedMovies = res;
-    console.log(this.loadedMovies)
+    // console.log(this.loadedMovies)
     this.status = true;
+    this.filters()
     })
+    console.log('Sv')
     }
     
-    for (let i in this.loadedMovies) {
-      for (let g of this.loadedMovies[i].genreList) {
-         // console.log(x.value)
-         this.searchGenre.push(g.value)
-         this.filtersGenre = [...new Set(this.searchGenre)];
-         // console.log(this.filtersGenre)
+    }
+
+
+    filters(){
+      for (let i in this.loadedMovies) {
+        for (let g of this.loadedMovies[i].genreList) {
+           // console.log(x.value)
+           this.searchGenre.push(g.value)
+           this.filtersGenre = [...new Set(this.searchGenre)];
+           // console.log(this.filtersGenre)
+          }
+        for (let d of this.loadedMovies[i].directorList){
+          this.searchDirector.push(d.name)
+          this.filtersDirector = [...new Set(this.searchDirector)]
+              // console.log(this.filtersDirector)
+          }
         }
-      for (let d of this.loadedMovies[i].directorList){
-        this.searchDirector.push(d.name)
-        this.filtersDirector = [...new Set(this.searchDirector)]
-            // console.log(this.filtersDirector)
-        }
-      }
     }
     // this.presentingElement = document.querySelector('.ion-page');
   
@@ -106,7 +113,7 @@ export class BuscarPage implements OnInit {
 
 
 
-  onFilterModal() {
+  filterModal() {
       // const ev = event as CheckboxCustomEvent
       this.modalCtrl
       .create({
@@ -120,16 +127,19 @@ export class BuscarPage implements OnInit {
       .then(modal =>{
         modal.present();
         return modal.onDidDismiss()})
-      .then((res: { role: string; }) =>{
+      .then((res: 
+        {
+          role: string;
+        }) =>{
         if(res.role === 'confirm') {
-          console.log('filter!')
+          console.log(res)
           this.filterGenre = res
           console.log(this.filterGenre)
 
-          const genre = this.filterGenre
-          this.filtrado = genre
-          const director = this.filterGenre
-          this.filtradoD = director
+          // const genre = this.filterGenre
+          // this.filtrado = genre
+          // const director = this.filterGenre
+          // this.filtradoD = director
         }
       })
       

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Movie } from '../models/imdbMovies.model';
 import { environment } from 'src/environments/environment';
-import { ElementFinder } from 'protractor';
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +15,15 @@ export class ImdbService {
 
   constructor(private http: HttpClient) { }
 
-  movieLocalStorage(){
-  if(localStorage.getItem(this.local) !== undefined && localStorage.getItem(this.local)){
-  JSON.parse(localStorage.getItem(this.local))
-    console.log(this.local)
-    return this.local
-  }}
+  getMovieLocalStorage(){
+  return JSON.parse(localStorage.getItem('movie'));
+    // console.log(this.local)
+    
+  };
+
+  // getItemLS(){
+  //   localStorage.getItem(this.local)
+  // }
   
   getMovies(){
       // console.log(typeof(this.baseUrl))
@@ -28,16 +31,25 @@ export class ImdbService {
    
   }
   
-      
-
-
-  findMoviee(id: string, array: Movie[]){
-    return array.find(p => p.id === id)
-  }
+  idLs: string[]=[]
 
   findMovie(id: string) {
+    // if(localStorage.getItem('movie') !== undefined){
+    //   for(let x of localStorage.getItem('movie')){
+    //     this.idLs.push(x.id)
+    //   }
+    // }
+    // else
+    // {
     return this.http.get(this.baseUrl + '/' + id)
-  }
-  
+    // }
+}
 
+  localStorage(x: string){
+  // JSON.stringify
+    return localStorage.setItem('movie', JSON.stringify((x)));
+  // JSON.parse
+     
+  // JSON.parse(localStorage.getItem('movie'));
+};
 }
