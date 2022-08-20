@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Todas las Peliculas</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onLogout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+ <ion-grid *ngIf="status">
+  <ion-row offset="1">
+    <ion-col size="6" *ngFor="let movie of loadedMovies">
+      <ion-card [routerLink]="['/', 'peliculas','tabs' ,'ver-todas', movie.id]">
+        <ion-img src="{{ movie.image }}"></ion-img>
+        <ion-card-header>
+          <ion-label class="ion-text-center">{{ movie.title }}</ion-label>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-buttons>
+            <ion-button [routerLink]="['/', 'peliculas','tabs' ,'ver-todas', movie.id]">
+              <ion-icon name="arrow-forward-outline" color="primary"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+ </ion-grid>
+</ion-content>

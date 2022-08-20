@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "276942498861",
+    "firebase_url": "https://mooli-3d0bf-default-rtdb.firebaseio.com",
+    "project_id": "mooli-3d0bf",
+    "storage_bucket": "mooli-3d0bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276942498861:android:90a457eac359b3bf3a5ca4",
+        "android_client_info": {
+          "package_name": "com.mooli.devpush"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "276942498861-etlklh6ascm9e4bnb7g82f3im98snn8a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsVR-J6hrIt4YKwoEo_ZhhIKeJc0b_nuo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "276942498861-etlklh6ascm9e4bnb7g82f3im98snn8a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

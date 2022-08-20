@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registráte</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="registerForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-md="6" offset-md="3" class="ion-text-center">
+          <ion-item>
+            <ion-label position="floating">Username</ion-label>
+            <ion-input formControlName='username' autocomplete="new-password"></ion-input>
+            <span slot="error" *ngIf="alreadyRegistered">Usuario ya registrado</span>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-md="6" offset-md="3" class="ion-text-center">
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input type="password" formControlName='password' autocomplete="new-password"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" color="primary" (click)="register()" [disabled]="!registerForm.valid">
+            Registrarme
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
