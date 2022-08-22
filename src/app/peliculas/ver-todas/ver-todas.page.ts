@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { timeStamp } from 'console';
-import { of, timer } from 'rxjs';
-import { finalize, map, switchMap, takeWhile } from 'rxjs/operators';
+
 import { ImdbService } from 'src/app/shared/services/imdb.service';
-import { SeenService } from 'src/app/shared/services/seen.service';
 
 @Component({
   selector: 'app-ver-todas',
@@ -19,10 +16,10 @@ export class VerTodasPage implements OnInit {
     private imdbService: ImdbService,
     ) {}
 
-    // local=localStorage.getItem('movie')
+    movie= localStorage.getItem('movie')
 
   ngOnInit() {
-    if(localStorage.getItem('movie') !== null ){
+    if( this.movie !== null ){
       this.loadedMovies = this.imdbService.getMovieLocalStorage() 
       this.status = true;
       console.log(this.loadedMovies)

@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NavController, ToastController } from '@ionic/angular';
+import { IonModal, ModalController, NavController, ToastController } from '@ionic/angular';
 import { MovieData } from 'src/app/shared/models/list.model';
+import { CalendarPage } from 'src/app/shared/native/calendar/calendar.page';
 import { ImdbService } from 'src/app/shared/services/imdb.service';
 import { ListService } from 'src/app/shared/services/list.service';
 import { SeenService } from 'src/app/shared/services/seen.service';
@@ -31,10 +32,13 @@ export class VerDetallesPage implements OnInit {
     private imdbService: ImdbService,
     private seenService: SeenService,
     public toastController: ToastController,
-    private listService: ListService
-  ) { }
+    private listService: ListService,
+    private modalCtrl: ModalController
+  ) { };
 
+  @ViewChild(IonModal) modal: IonModal;
   
+  movie = JSON.parse(localStorage.getItem('movie'))
 
   ngOnInit() {
     this.router.paramMap.subscribe(pM => {
@@ -43,13 +47,22 @@ export class VerDetallesPage implements OnInit {
       }
       this.loadedId = pM.get('peliculaId');
 
+      if(this.movie !== null){
+        this.loadedMovie = this.imdbService.findMovieLs(this.loadedId)
+        console.log(this.loadedId)
+        console.log(this.loadedMovie)
+        this.updateSeen()
+        this.loaded = true
+      }
+      else{
       this.imdbService.findMovie(this.loadedId).subscribe(res => {
         this.loadedMovie = res;
+        console.log(this.loadedMovie)
         this.updateSeen();
         this.loaded = true
-        localStorage.setItem('movie', JSON.stringify(this.loadedMovie))
         
       })
+    }
     })
 
     this.loadedLists = this.listService.getAllLists();
@@ -84,7 +97,7 @@ export class VerDetallesPage implements OnInit {
     this.chosenOpt = this.chosenOpt.toLowerCase().replace(/\s/g, '-')
     console.log('Seleccionaste la opcion ' +  this.indexOfList)
     this.movieData = {
-      titulo: this.loadedMovie.title,
+      titulo: this.loadedMovie.title, 
       imagen: this.loadedMovie.image
     }
     this.onSend();
@@ -106,5 +119,23 @@ export class VerDetallesPage implements OnInit {
     toast.present()
   }
 
+
+  calendarModal(){
+    this.modalCtrl
+    .create({
+      component: CalendarPage
+    })
+    .then(modal =>{
+      modal.present();
+      return modal.onDidDismiss()})
+    .then((res:
+      {
+        role:string
+      })=>{
+        if(res.role === 'confirm'){
+          
+        }
+      })
+  }
   
 }

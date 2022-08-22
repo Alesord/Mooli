@@ -8,6 +8,9 @@
       <ion-button (click)="toggleSeen()" [ngClass]="{toggledClass: seen == true}">
         <ion-icon name="checkbox-outline"></ion-icon>
       </ion-button>
+      <ion-button (click)="calendarModal()" margin>
+        <ion-icon name="calendar-outline"></ion-icon>
+      </ion-button>
       <ion-list>
         <ion-item>
           <ion-select placeholder="Añadir a lista" [(ngModel)]="chosenOpt" (ionChange)="onShow()" detail="false">
@@ -26,7 +29,7 @@
     <ion-row>
       <ion-col size="7">
         <ion-card>
-          <ion-img [src]=loadedMovie.image>
+          <ion-img [src]=loadedMovie.image> 
           </ion-img>
         </ion-card>
       </ion-col>

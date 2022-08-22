@@ -14,9 +14,11 @@ export class ImdbService {
   local=localStorage.getItem('movie')
 
   constructor(private http: HttpClient) { }
-
+  
+  movie = JSON.parse(localStorage.getItem('movie'))
+  
   getMovieLocalStorage(){
-  return JSON.parse(localStorage.getItem('movie'));
+  return this.movie;
     // console.log(this.local)
     
   };
@@ -32,17 +34,29 @@ export class ImdbService {
   }
   
   idLs: string[]=[]
+  test: string
+
+  findMovieLs(id: string){
+    
+    // if(this.movie.id === id){
+    //   this.test = this.movie
+    // }
+    
+    for(let x of this.movie){
+      if(x.id === id){
+        this.test= x
+      }
+    }
+    return this.test
+    
+    // for(let x of this.movie){
+    //   this.idLs.push(x.id)   
+    // }
+    // return this.idLs
+  }
 
   findMovie(id: string) {
-    // if(localStorage.getItem('movie') !== undefined){
-    //   for(let x of localStorage.getItem('movie')){
-    //     this.idLs.push(x.id)
-    //   }
-    // }
-    // else
-    // {
     return this.http.get(this.baseUrl + '/' + id)
-    // }
 }
 
   localStorage(x: string){

@@ -18,7 +18,11 @@ const routes: Routes = [
   {
     path: 'agregar-a-lista',
     loadChildren: () => import('./shared/modals/agregar-a-lista/agregar-a-lista.module').then( m => m.AgregarAListaPageModule)
+  },  {
+    path: 'calendar',
+    loadChildren: () => import('./shared/native/calendar/calendar.module').then( m => m.CalendarPageModule)
   }
+
 ];
 
 @NgModule({

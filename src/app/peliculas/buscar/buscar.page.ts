@@ -51,7 +51,7 @@ export class BuscarPage implements OnInit {
     {
     this.imdbService.getMovies().subscribe(res => {
     this.loadedMovies = res;
-    // console.log(this.loadedMovies)
+    console.log(this.loadedMovies)
     this.status = true;
     this.filters()
     })
@@ -138,6 +138,7 @@ export class BuscarPage implements OnInit {
 
           // const genre = this.filterGenre
           // this.filtrado = genre
+          
           // const director = this.filterGenre
           // this.filtradoD = director
         }
