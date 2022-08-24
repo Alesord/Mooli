@@ -27,6 +27,7 @@
     "@capacitor/local-notifications": "^4.0.1",
     "@capacitor/push-notifications": "^4.0.1",
     "@capacitor/status-bar": "4.0.1",
+    "@capacitor/storage": "^1.2.5",
     "@ionic-native/calendar": "^4.20.0",
     "@ionic/angular": "^6.1.9",
     "rxjs": "~6.6.0",

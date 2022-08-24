@@ -31,20 +31,10 @@ export class RegisterComponent implements OnInit {
       })
   })
 
-  register(){
-    this.alreadyRegistered = false;
-    this.authService.checkLogin().subscribe({next: respuesta => {
-      for (let i of Object.values(respuesta)) {
-        if (i.login === this.registerForm.controls.username.value) {
-          this.alreadyRegistered = true;
-          this.registerForm.reset()
-          return
-        }
-      }
-      if (!this.alreadyRegistered) {
-        this.authService.register(this.registerForm.value.username, this.registerForm.value.password)
-      }
-    }})
+  registrar() {
+    this.authService.registrar(this.registerForm.value.username, this.registerForm.value.password).subscribe(res => {
+      console.log(res)
+    })
   }
 
   onCancel() {

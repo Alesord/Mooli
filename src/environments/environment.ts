@@ -7,6 +7,7 @@ const URL_MOOLI: string = `https://mooli-3d0bf-default-rtdb.firebaseio.com`
 
 export const environment = {
   production: false,
+  firebaseAPIKey: 'AIzaSyBsVR-J6hrIt4YKwoEo_ZhhIKeJc0b_nuo',
   __NOTA1: { "Mooli.All.Movies.Nav": "8100" },
 
     URL_FLAT: URL_MOOLI,

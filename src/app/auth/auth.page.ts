@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
+import { switchMap, take, tap } from 'rxjs/operators';
 import { AuthService } from '../shared/services/auth.service';
 import { RegisterComponent } from './register/register.component';
 
@@ -16,9 +17,14 @@ export class AuthPage implements OnInit {
     private authService: AuthService,
     private router: Router,
     private modalCtrl: ModalController,
+    private alertController: AlertController
   ) { }
 
   ngOnInit() {
+    this.authService.autoLogin2()
+    console.log('--------')
+    console.log(this.authService.autoLogin2())
+    console.log('--------')
     this.loginForm.reset()
   }
 
@@ -36,16 +42,19 @@ export class AuthPage implements OnInit {
   })
 
   onLogin() {
-    this.authService.checkLogin().subscribe({next: respuesta => {
-      for (let i of Object.values(respuesta)) {
-        if (i.login === this.loginForm.controls.username.value) {
-          this.authService.login(i.token)
-          console.log('Credenciales correctas: iniciando sesion')
-          this.router.navigateByUrl('/peliculas')
-          return
-        }
+    this.authService.iniciarSesion(this.loginForm.value.username, this.loginForm.value.password)
+    .subscribe(res => {
+      console.log(res.localId)
+    },
+    error => {
+      let errorMsg = error.error.error.message
+      console.log(error)
+      if (errorMsg === 'EMAIL_NOT_FOUND') {
+        this.showAlert('mail no registrado')
+      } else if (errorMsg === 'INVALID_PASSWORD') {
+        this.showAlert('Contraseña incorrecta, prueba nuevamente')
       }
-    }})
+    })
   }
 
   onRegister() {
@@ -56,5 +65,14 @@ export class AuthPage implements OnInit {
       modalElement.onDidDismiss().then((data) => {
       })
     })
+  }
+
+  showAlert(msg: string) {
+    this.alertController.create({
+      header: 'Fallo al iniciar sesión',
+      message: msg,
+      buttons: ['Ok']
+    })
+    .then(alertElement => alertElement.present())
   }
 }
