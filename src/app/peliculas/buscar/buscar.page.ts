@@ -133,13 +133,14 @@ export class BuscarPage implements OnInit {
       .then((res: 
         {
           role: string;
+          data: string
         }) =>{
         if(res.role === 'confirm' ) {
-          this.filterGenre = res
+          this.filterGenre = res.data
           console.log(this.filterGenre)
           
-          const genre = this.filterGenre
-          return  this.filtrado = genre
+          // const genre = this.filterGenre
+          // return  this.filtrado = genre
           
           // const director = this.filterGenre
           // this.filtradoD = director
