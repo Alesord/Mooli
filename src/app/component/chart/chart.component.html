@@ -27,11 +27,14 @@
     <ion-label>Generos</ion-label>
   </ion-item>
     <div class="ion-padding" slot="content">  
-  <ion-list >
+  <ion-list [(ngModel)]="g">
     <!-- *ngFor="let i of genero" -->
-    <ion-item >
-      <ion-label class="ion-text-wrap" for="genero">{{genero}}</ion-label>
-      <ion-checkbox id="genero" (ionChange)="($event)"></ion-checkbox>
+    <ion-item *ngFor="let g of genero">
+       <ion-label>{{g}}</ion-label>
+        <!-- <ion-select ="true"> -->
+          
+          <ion-checkbox (ionChange)="TestG(g)"></ion-checkbox>
+      <!-- </ion-select>  -->
     </ion-item>
   </ion-list>
 </div>
@@ -41,10 +44,13 @@
     <ion-label>Directores</ion-label>
   </ion-item>
   <div class="ion-padding" slot="content">
-    <ion-list>
-      <ion-item>
-      <ion-label class="ion-text-wrap" for="director">{{director}}</ion-label>
-      <ion-checkbox id="director" (ionChange)="($event)"></ion-checkbox>
+    <ion-list [(ngModel)]="g">
+      <ion-item *ngFor="let d of director">
+        <ion-label>{{d}}</ion-label>
+          <ion-checkbox  (ionChange)="TestG(g)"></ion-checkbox>
+      <!-- <ion-select [(ngModel)]="test" multiple="true">
+        <ion-select-option>{{director}}</ion-select-option> -->
+      <!-- </ion-select> -->
     </ion-item>
     </ion-list>
   </div>

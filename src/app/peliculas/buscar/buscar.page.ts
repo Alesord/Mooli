@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { CheckboxCustomEvent, IonModal, ModalController } from '@ionic/angular';
 import { ChartComponent } from 'src/app/component/chart/chart.component';
 import { ImdbService } from 'src/app/shared/services/imdb.service';
+
 
 @Component({
   selector: 'app-buscar',
@@ -24,6 +25,8 @@ export class BuscarPage implements OnInit {
   filtersDirector: string[] = [];
   //   @Input() genreInput: string;
   // presentingElement = null;
+
+
 
   @ViewChild(IonModal) modal: IonModal;
 
@@ -131,13 +134,12 @@ export class BuscarPage implements OnInit {
         {
           role: string;
         }) =>{
-        if(res.role === 'confirm') {
-          console.log(res)
+        if(res.role === 'confirm' ) {
           this.filterGenre = res
           console.log(this.filterGenre)
-
-          // const genre = this.filterGenre
-          // this.filtrado = genre
+          
+          const genre = this.filterGenre
+          return  this.filtrado = genre
           
           // const director = this.filterGenre
           // this.filtradoD = director
