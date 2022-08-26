@@ -52,7 +52,6 @@ export class VerTodasPage implements OnInit, OnDestroy {
   
   onLogout() {
     this.authService.logout();
-    this.router.navigateByUrl('/auth');
   }
 
   ngOnDestroy() {

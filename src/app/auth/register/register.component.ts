@@ -34,6 +34,7 @@ export class RegisterComponent implements OnInit {
   registrar() {
     this.authService.registrar(this.registerForm.value.username, this.registerForm.value.password).subscribe(res => {
       console.log(res)
+      this.modalCtrl.dismiss()
     })
   }
 

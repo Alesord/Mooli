@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Storage } from '@capacitor/storage'
 import { BehaviorSubject, from } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { User, Usuario } from '../models/user.model';
 
-interface AuthResponseData {
+export interface AuthResponseData {
   kind: string;
   idToken: string;
   email: string;
@@ -20,12 +21,15 @@ interface AuthResponseData {
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router
+    ) {}
 
   url: string = environment.URL_FLAT;
   firebaseAPIKey: string = environment.firebaseAPIKey;
   private _userAutenticado: boolean = false;
-  private _userKey: string = '-JPFHCKSQLECIGSLMOKI';
+  public userKey: string = '';
   private _user = new BehaviorSubject<Usuario>(null);
 
   get userIsAuthenticated() {
@@ -53,12 +57,10 @@ export class AuthService {
     }))
   }
 
-  get userKey() {
-    return this._userKey
-  }
-
   logout() {
     this._userAutenticado = false;
+    Storage.remove({key: 'authData'})
+    this.router.navigateByUrl('/auth');
   }
 
   registrar(email: string, password: string) {
@@ -77,62 +79,36 @@ export class AuthService {
     .pipe(tap(this.setUserData.bind(this)))
   }
 
-  autoLogin2() {
-    let x: boolean = false;
-    const loadData = Storage.get({key: 'authData'})
-    let storedData: Usuario
-    console.log(!loadData)
-    loadData.then(res => {
-      storedData = (JSON.parse(res.value))
-      if (!storedData) {
-        console.log('No hay data guardada, iniciar sesion')
-      } else {
-        console.log('Data encontrada, cargando')
-        const expirationTime = new Date(storedData.tokenExpDate)
-        if (expirationTime <= new Date()) {
-          this._userAutenticado = false;
-          console.log(this._userAutenticado)
+  async autoLogin2(): Promise<boolean> {
+  console.log('Intentando autologin')
+  const storedData = await Storage.get({key: 'authData'})
+  const loadedData = JSON.parse(storedData.value)
 
-        } else {
-          const user = new Usuario(storedData.userId, storedData.email, storedData.token, storedData.tokenExpDate)
-          console.log(user)
-          this._userAutenticado = true;
-          console.log(this._userAutenticado)
-        }
-      }
-    })
-    console.log(this._userAutenticado)
-    return x;
-  }
-  autoLogin() {
-    console.log('Entrando en autologin')
-    return from(Storage.get({key: 'authData'}))
-    .pipe(map(storedData => {
-      //If chek para ver si no hay data en el storage
-      if (!storedData || !storedData.value) {
-        return null;
-      }
-      const parsedData = JSON.parse(storedData.value) as { userId: string; token: string; tokenExpDate: string; email: string};
-      const expirationTime = new Date(parsedData.tokenExpDate);
-      //check para ver si queda tiempo de expiracion
-      if (expirationTime <= new Date()) {
-        return null
-      };
-      const user = new Usuario(parsedData.userId, parsedData.email, parsedData.token, expirationTime);
-      console.log(user)
-      return user
-    }),
-    tap(user => {
-      if (user) {
-        console.log('next user')
-        this._user.next(user);
-      }
-    }),
-    map(user => {
-      console.log('return !!user')
-      return !!user;
-    })
+  if(!loadedData){
+    console.log('No data')
+  }else{
+    console.log('Si hay data, cargando...')
+    const expirationTime = new Date(loadedData.tokenExpDate)
+    if (expirationTime <= new Date()){
+      console.log('Token expirado.')
+      this._userAutenticado = false;
+      return false
+    }
+    //Se crea una constante usuario con los datos traidos, por ahora solo se usa el userId
+    const usuario = new Usuario(
+      loadedData.userId,
+      loadedData.email,
+      loadedData.token,
+      expirationTime
     )
+    console.log('Cambiando user...')
+    if (!this._user.getValue()) {
+      this._user.next(usuario);
+      this._userAutenticado = true;
+    }
+    return usuario ? true : false
+  }
+   
   }
 
   private storeAuthData(userId: string, token: string, tokenExpDate: string, email: string) {

@@ -16,11 +16,6 @@ export class ListService {
   private userId: string = this.authService.userKey;
   private baseUrl = `${environment.URL_USERS}/${this.userId}/listas/`
   private plainUrl = `${environment.URL_USERS}/${this.userId}/listas.json`
-  // URL_BD_SEEN2: `${URL_MOOLI}/users/-N8PnJ6s8FDh77vUleJp/seenList/`,
-  // URL_BD_LIST2: `${URL_MOOLI}/users/-N8PnJ6s8FDh77vUleJp/listas/`,
-  // URL_BD_LIST_PLAIN2: `${URL_MOOLI}/users/-N8PnJ6s8FDh77vUleJp/listas.json`,
-  // URL_USERS: `${URL_MOOLI}/users/`
-
 
   OnCreateNewList(data, folderName) {
     console.log('poniendo lista en ' + this.baseUrl + folderName + '.json', data)

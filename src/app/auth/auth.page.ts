@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, ModalController } from '@ionic/angular';
-import { switchMap, take, tap } from 'rxjs/operators';
-import { AuthService } from '../shared/services/auth.service';
+import { AlertController, LoadingController, ModalController } from '@ionic/angular';
+import { Observable } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
+import { AuthResponseData, AuthService } from '../shared/services/auth.service';
 import { RegisterComponent } from './register/register.component';
 
 @Component({
@@ -17,15 +18,21 @@ export class AuthPage implements OnInit {
     private authService: AuthService,
     private router: Router,
     private modalCtrl: ModalController,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private loadingCtrl: LoadingController
   ) { }
 
+  isLoading: boolean = false;
+
   ngOnInit() {
-    this.authService.autoLogin2()
-    console.log('--------')
-    console.log(this.authService.autoLogin2())
-    console.log('--------')
-    this.loginForm.reset()
+    this.loginForm.reset() 
+    console.log('El usuario está autenticado? : ' + this.authService.userAutenticado)
+    console.log(this.authService.autoLogin2().then(res => {
+      console.log(!!res)
+      if (!!res) {
+        this.router.navigateByUrl('/peliculas')
+      }
+    }))
   }
 
   loginForm = new FormGroup({
@@ -42,18 +49,31 @@ export class AuthPage implements OnInit {
   })
 
   onLogin() {
-    this.authService.iniciarSesion(this.loginForm.value.username, this.loginForm.value.password)
-    .subscribe(res => {
-      console.log(res.localId)
-    },
-    error => {
-      let errorMsg = error.error.error.message
-      console.log(error)
-      if (errorMsg === 'EMAIL_NOT_FOUND') {
-        this.showAlert('mail no registrado')
-      } else if (errorMsg === 'INVALID_PASSWORD') {
-        this.showAlert('Contraseña incorrecta, prueba nuevamente')
-      }
+    this.isLoading = true;
+    this.loadingCtrl.create({
+      keyboardClose: true,
+      spinner: 'bubbles',
+      message: 'Iniciando sesión...'
+    }).then(loadingEl => {
+      loadingEl.present()
+      this.authService.iniciarSesion(this.loginForm.value.username, this.loginForm.value.password)
+        .subscribe(res => {
+          this.authService.userKey = res.localId
+          console.log(this.authService.userKey)
+          this.router.navigateByUrl('/peliculas')
+          loadingEl.dismiss()
+        },
+          error => {
+            loadingEl.dismiss()
+            let errorMsg = error.error.error.message
+            console.log(error)
+            if (errorMsg === 'EMAIL_NOT_FOUND') {
+              this.showAlert('mail no registrado')
+            } else if (errorMsg === 'INVALID_PASSWORD') {
+              this.showAlert('Contraseña incorrecta, prueba nuevamente')
+            }
+          })
+    this.loginForm.reset() 
     })
   }
 
