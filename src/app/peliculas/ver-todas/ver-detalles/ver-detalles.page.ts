@@ -1,12 +1,13 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NavController, ToastController } from '@ionic/angular';
+import { IonModal, NavController, ToastController } from '@ionic/angular';
 import { Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 import { MovieData } from 'src/app/shared/models/list.model';
 import { ImdbService } from 'src/app/shared/services/imdb.service';
 import { ListService } from 'src/app/shared/services/list.service';
 import { SeenService } from 'src/app/shared/services/seen.service';
+import { OverlayEventDetail } from '@ionic/core/components';
 
 @Component({
   selector: 'app-ver-detalles',
@@ -15,6 +16,7 @@ import { SeenService } from 'src/app/shared/services/seen.service';
 })
 export class VerDetallesPage implements OnInit, OnDestroy {
 
+  @ViewChild(IonModal) modal: IonModal;
   loadedMovie: any;
   loadedMovies: any;
   loadedLists: any[] = [];
@@ -27,6 +29,10 @@ export class VerDetallesPage implements OnInit, OnDestroy {
   indexOfList: any;
   movieData: MovieData;
   unsub: Subject<void> = new Subject()
+  name: string;
+  message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
+  date: Date;
+
 // Prueba de push
   constructor(
     private router: ActivatedRoute,
@@ -102,6 +108,10 @@ export class VerDetallesPage implements OnInit, OnDestroy {
     this.onSend();
   }
 
+  makeReminder() {
+
+  }
+
   onSend(){
     this.listService.MovieToList(this.chosenOpt, this.loadedId, this.movieData)
     .pipe(takeUntil(this.unsub))
@@ -120,5 +130,21 @@ export class VerDetallesPage implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.unsub.next();
     this.unsub.unsubscribe();
+  }
+
+  cancel() {
+    this.modal.dismiss(null, 'cancel');
+  }
+
+  confirm() {
+    this.modal.dismiss(this.name, 'confirm');
+  }
+
+  onWillDismiss(event: Event) {
+    const ev = event as CustomEvent<OverlayEventDetail<string>>;
+    if (ev.detail.role === 'confirm') {
+      console.log(this.date)
+      
+    }
   }
 }

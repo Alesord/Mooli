@@ -101,7 +101,8 @@ export class AuthService {
       loadedData.token,
       expirationTime
     )
-    console.log('Cambiando user...')
+    console.log(loadedData.userId)
+    this.userKey = loadedData.userId
     if (!this._user.getValue()) {
       this._user.next(usuario);
       this._userAutenticado = true;
