@@ -10,17 +10,16 @@ export class ChartComponent implements OnInit {
   
   @ViewChild(IonModal) modal: IonModal;
 
-  @Input() genero : string[]=[];
-  @Input() director: string[]=[];
+  @Input() generos : string[];
+  @Input() directores : string[];
   fGenre: string[]=[];
 
 
   constructor(private modalCtrl: ModalController) { }
   
-  g: string[]=[]
+  filtro: string[]=[]
   // d: string
-  ngOnInit() {
-    
+  ngOnInit() {    
   }
   async close(){
     await this.modalCtrl.dismiss()
@@ -30,16 +29,20 @@ export class ChartComponent implements OnInit {
         return this.modalCtrl.dismiss(this.fGenre, 'confirm')
         // this.d
       }
-TestG(g){
-  console.log(event['detail']['checked'])
-  console.log
+TestG(ev){
   if(event['detail']['checked']){
-  this.g.push(g)
-  console.log(this.g)
-  this.fGenre = [...new Set(this.g)]}
+  this.filtro.push(ev)
+  console.log(this.filtro)
+  this.fGenre = [...new Set(this.filtro)]}
   else{
-    this.g.pop()
-  this.fGenre = [...new Set(this.g)]}
+    for(let i of this.filtro){
+      if(i === ev){
+        this.filtro.splice(ev , 1)
+      }
+    }
+    console.log(this.filtro)
+  this.fGenre = [...new Set(this.filtro)]
+  }
 
   }
 }

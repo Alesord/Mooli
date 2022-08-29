@@ -13,11 +13,9 @@ export class BuscarPage implements OnInit {
 
   status: boolean = false;
   loadedMovies: any;
-  filterGenre: any;
-  filterDirector: any;
+  filterGenre: string;
+  filterDirector: string;
   searchTitle = '';
-  filtrado= '';
-  filtradoD= '';
   loadedGenres: '';
   searchGenre: string[] = [];
   filtersGenre: string[] = [];
@@ -54,31 +52,30 @@ export class BuscarPage implements OnInit {
     {
     this.imdbService.getMovies().subscribe(res => {
     this.loadedMovies = res;
-    console.log(this.loadedMovies)
+    console.log(this.loadedMovies);
     this.status = true;
-    this.filters()
-    })
+    this.filters();
+    });
     console.log('Sv')
-    }
-    
-    }
+    };  
+  };
+  
 
 
     filters(){
       for (let i in this.loadedMovies) {
         for (let g of this.loadedMovies[i].genreList) {
-           // console.log(x.value)
-           this.searchGenre.push(g.value)
+           this.searchGenre.push(g.value);
            this.filtersGenre = [...new Set(this.searchGenre)];
            // console.log(this.filtersGenre)
-          }
+          };
         for (let d of this.loadedMovies[i].directorList){
-          this.searchDirector.push(d.name)
-          this.filtersDirector = [...new Set(this.searchDirector)]
+          this.searchDirector.push(d.name);
+          this.filtersDirector = [...new Set(this.searchDirector)];
               // console.log(this.filtersDirector)
-          }
-        }
-    }
+          };
+        };
+    };
     // this.presentingElement = document.querySelector('.ion-page');
   
 
@@ -92,9 +89,9 @@ export class BuscarPage implements OnInit {
   //   }
   // }
   searchMovie(event) {
-      const text = event.target.value
-      this.searchTitle = text
-  }
+      const text = event.target.value;
+      this.searchTitle = text;
+  };
 
 //   cancel() {
 //       return this.modalCtrl.dismiss(null, 'cancel');
@@ -122,9 +119,9 @@ export class BuscarPage implements OnInit {
       .create({
           component: ChartComponent,
           componentProps: {
-              genero: this.filtersGenre,
-              director: this.filtersDirector,
-              status: this.status
+            generos: this.filtersGenre,
+            directores: this.filtersDirector,
+            status: this.status
           }
       })
       .then(modal =>{
@@ -132,20 +129,20 @@ export class BuscarPage implements OnInit {
         return modal.onDidDismiss()})
       .then((res: 
         {
-          role: string;
+          role: string,
           data: string
         }) =>{
         if(res.role === 'confirm' ) {
-          this.filterGenre = res.data
-          console.log(this.filterGenre)
+          this.filterGenre = res.data;
+          console.log(this.filterGenre);
           
           // const genre = this.filterGenre
           // return  this.filtrado = genre
           
           // const director = this.filterGenre
           // this.filtradoD = director
-        }
-      })
+        };
+      });
       
-    }
-  }
+    };
+  };

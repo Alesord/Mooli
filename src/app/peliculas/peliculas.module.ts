@@ -13,7 +13,7 @@ import { PeliculasPage } from './peliculas.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    PeliculasPageRoutingModule
+    PeliculasPageRoutingModule,
   ],
   declarations: [PeliculasPage]
 })

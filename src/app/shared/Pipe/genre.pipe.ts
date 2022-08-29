@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { GenreList, Movie } from '../models/imdbMovies.model';
+import { Movie } from '../models/imdbMovies.model';
 
 
 @Pipe({
@@ -7,32 +7,60 @@ import { GenreList, Movie } from '../models/imdbMovies.model';
 })
 export class GeneroPipe implements PipeTransform {
 
-  transform(movie: Movie[] , genre: string): Movie[] {
+  mensaje: 'La combinación que buscaste no existe'
+
   
-    // if( genre !== null ) {
-    //     return genreList.filter(res=>{
-    //         return res.value.includes(genre)
-    //     });
-    // }
-    if(genre === undefined ){
+  transform(movie: Movie[] , data: string): Movie[] {
+    
+    let peliculasFiltradas: any[]=[]
+
+    if(data !== undefined){
+      console.log(data)
+        movie.filter(res=>{
+          res.genres.includes(data)
+          peliculasFiltradas.push()
+          // console.log(peliculasFiltradas)
+        })
+        return peliculasFiltradas
+    };
+    if(data === undefined){
       return movie
     }
-    else
-    // if(genre == movie[index].genres)
-    {
-      return movie.filter(res=>{
-        return res.genres.includes(genre)
-      })
-    }
+
+  }
+}
+  // if( dato !== null ) {
+    //     return datoList.filter(res=>{
+      //         return res.value.includes(dato)
+      //     });
+      // }
+    // else if(dato = movie[i].directors){
+    //    movie.filter(res=>{
+    //      res.datos.includes(dato)
+    //   })
+    // }
+    // else if(dato == movie[i].datos && movie[i].directors){
+      
+    //   movie.filter(res=>{
+    //     res.datos.includes(dato)
+    //     res.directors.includes(dato)})
+      
+    //     if(movie.length >= 1){
+    //     return  movie.filter(res=>{
+    //       res.datos.includes(dato)
+    //       res.directors.includes(dato)
+    //     })
+    //   }
+    // }
     // else
     // {
     //   return movie.filter(res=>{
-    //     return res.directors.includes(genre)
+    //     return res.directors.includes(dato)
     //   })
     // }
     
       
-  }
+  
 
-}
+
 // movie: Movie[]
