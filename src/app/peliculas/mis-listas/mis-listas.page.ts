@@ -6,6 +6,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Lista } from 'src/app/shared/models/list.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { ImdbService } from 'src/app/shared/services/imdb.service';
+import { LevelUpService } from 'src/app/shared/services/level-up.service';
 import { ListService } from 'src/app/shared/services/list.service';
 import { SeenService } from 'src/app/shared/services/seen.service';
 import { CrearListaComponent } from './crear-lista/crear-lista.component';
@@ -17,19 +18,21 @@ import { CrearListaComponent } from './crear-lista/crear-lista.component';
 })
 export class MisListasPage implements OnInit, OnDestroy {
 
-  loadedMovies: any[] = [];
-  loadedLists: any;
-  allIds: any[] = [];
-  isLoaded: boolean = false;
-  userKey: string = 'usuario1h18'
-  unsub: Subject<void> = new Subject()
-
   constructor(
     private listService: ListService,
     private modalCtrl: ModalController,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    public levelUpService: LevelUpService,
   ) { }
+
+  loadedMovies: any[] = [];
+  loadedLists: any;
+  allIds: any[] = [];
+  isLoaded: boolean = false;
+  isLevel2: boolean = this.levelUpService.getLevelUp();
+  userKey: string = 'usuario1h18'
+  unsub: Subject<void> = new Subject()
 
   ngOnInit() {
   }

@@ -5,7 +5,7 @@
       <ion-button (click)="onLogout()">
         <ion-icon name="log-out-outline"></ion-icon>
       </ion-button>
-      <ion-button (click)="onAddList()">
+      <ion-button *ngIf="this.levelUpService.getLevelUp()" (click)="onAddList()">
         <ion-icon name="add-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
