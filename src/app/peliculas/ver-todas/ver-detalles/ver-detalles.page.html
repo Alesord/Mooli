@@ -68,13 +68,16 @@
           </ion-buttons>
           <ion-title>Crear recordatorio</ion-title>
           <ion-buttons slot="end">
-            <ion-button (click)="confirm()" [strong]="true">Confirmar</ion-button>
+            <ion-button (click)="setReminder()" [strong]="true">Confirmar</ion-button>
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
       <ion-content class="ion-padding">
         <ion-item>
-          <ion-datetime
+          <ion-datetime 
+          displayFormat="MM/DD/YYYY" 
+          pickerFormat="MMMM YYYY"
+          min="{{ todayDate }}"
           [(ngModel)]="date"
           ></ion-datetime>
         </ion-item>

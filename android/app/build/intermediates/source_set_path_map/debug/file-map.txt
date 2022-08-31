@@ -34,3 +34,4 @@ io.ionic.starter.app-packaged_res-32 C:\Users\Alejandro\Documents\Ayi group\Inde
 io.ionic.starter.app-packaged_res-33 C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\packaged_res\debug
 io.ionic.starter.app-packaged_res-34 C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\packaged_res\debug
 io.ionic.starter.app-packaged_res-35 C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\status-bar\android\build\intermediates\packaged_res\debug
+io.ionic.starter.app-packaged_res-36 C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\storage\android\build\intermediates\packaged_res\debug

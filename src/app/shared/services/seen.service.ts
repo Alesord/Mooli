@@ -16,7 +16,7 @@ export class SeenService {
   private baseUrl = `${environment.URL_USERS}/${this.userId}/seenList/`
   
   OnSendRequest(id: string, seen: boolean) {
-    return this.http.put(this.baseUrl + id + '.json', {seen})
+    return this.http.patch(this.baseUrl + id + '.json', {seen})
   }
   
   OnGetSeen(id: string) {

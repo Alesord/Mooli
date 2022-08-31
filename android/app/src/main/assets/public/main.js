@@ -11,9 +11,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppRoutingModule": () => (/* binding */ AppRoutingModule)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ 4929);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 2560);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ 124);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ 4929);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ 124);
+/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./auth/auth.guard */ 3870);
+
 
 
 
@@ -29,21 +31,23 @@ const routes = [
     },
     {
         path: 'peliculas',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_peliculas_peliculas_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./peliculas/peliculas.module */ 5362)).then(m => m.PeliculasPageModule)
+        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_peliculas_peliculas_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./peliculas/peliculas.module */ 5362)).then(m => m.PeliculasPageModule),
+        canLoad: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_0__.AuthGuard]
     },
     {
         path: 'agregar-a-lista',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_shared_modals_agregar-a-lista_agregar-a-lista_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./shared/modals/agregar-a-lista/agregar-a-lista.module */ 6896)).then(m => m.AgregarAListaPageModule)
+        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_shared_modals_agregar-a-lista_agregar-a-lista_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./shared/modals/agregar-a-lista/agregar-a-lista.module */ 6896)).then(m => m.AgregarAListaPageModule),
+        canLoad: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_0__.AuthGuard]
     }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
-AppRoutingModule = (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_1__.NgModule)({
+AppRoutingModule = (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.NgModule)({
         imports: [
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule.forRoot(routes, { preloadingStrategy: _angular_router__WEBPACK_IMPORTED_MODULE_2__.PreloadAllModules })
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterModule.forRoot(routes, { preloadingStrategy: _angular_router__WEBPACK_IMPORTED_MODULE_3__.PreloadAllModules })
         ],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule]
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterModule]
     })
 ], AppRoutingModule);
 
@@ -128,6 +132,267 @@ AppModule = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
 
 /***/ }),
 
+/***/ 3870:
+/*!************************************!*\
+  !*** ./src/app/auth/auth.guard.ts ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "AuthGuard": () => (/* binding */ AuthGuard)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ 4929);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ 124);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ 4139);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ 9095);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ 8759);
+/* harmony import */ var _shared_services_auth_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../shared/services/auth.service */ 629);
+
+
+
+
+
+
+let AuthGuard = class AuthGuard {
+    constructor(authService, router) {
+        this.authService = authService;
+        this.router = router;
+    }
+    canLoad(route, segments) {
+        return this.authService.userIsAuthenticated.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.switchMap)(isAuthenticated => {
+            console.log('Entrando en auth guard');
+            if (!isAuthenticated) {
+                console.log('Trying autologin');
+                console.log(this.authService.autoLogin2());
+                return this.authService.autoLogin2().then(data => {
+                    console.log('la data es: ' + data);
+                    return data;
+                });
+            }
+            else {
+                console.log((0,rxjs__WEBPACK_IMPORTED_MODULE_2__.of)(isAuthenticated));
+                return (0,rxjs__WEBPACK_IMPORTED_MODULE_2__.of)(isAuthenticated);
+            }
+        }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.tap)(isAuthenticated => {
+            console.log(isAuthenticated);
+            if (!isAuthenticated) {
+                this.router.navigateByUrl('/auth');
+            }
+        }));
+    }
+};
+AuthGuard.ctorParameters = () => [
+    { type: _shared_services_auth_service__WEBPACK_IMPORTED_MODULE_0__.AuthService },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__.Router }
+];
+AuthGuard = (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.Injectable)({
+        providedIn: 'root'
+    })
+], AuthGuard);
+
+
+
+/***/ }),
+
+/***/ 3709:
+/*!*********************************************!*\
+  !*** ./src/app/shared/models/user.model.ts ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Usuario": () => (/* binding */ Usuario)
+/* harmony export */ });
+class Usuario {
+    constructor(userId, email, _token, tokenExpDate) {
+        this.userId = userId;
+        this.email = email;
+        this._token = _token;
+        this.tokenExpDate = tokenExpDate;
+    }
+    get token() {
+        if (!this.tokenExpDate || this.tokenExpDate <= new Date()) {
+            return null;
+        }
+        return this._token;
+    }
+}
+
+
+/***/ }),
+
+/***/ 629:
+/*!*************************************************!*\
+  !*** ./src/app/shared/services/auth.service.ts ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "AuthService": () => (/* binding */ AuthService)
+/* harmony export */ });
+/* harmony import */ var C_Users_Alejandro_Documents_Ayi_group_Indep_Proyectos_Mooli_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! tslib */ 4929);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common/http */ 8987);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ 124);
+/* harmony import */ var _capacitor_storage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @capacitor/storage */ 460);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ 4505);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ 6942);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ 8759);
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/environments/environment */ 2340);
+/* harmony import */ var _models_user_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../models/user.model */ 3709);
+
+
+
+
+
+
+
+
+
+
+let AuthService = class AuthService {
+  constructor(http, router) {
+    this.http = http;
+    this.router = router;
+    this.url = src_environments_environment__WEBPACK_IMPORTED_MODULE_2__.environment.URL_FLAT;
+    this.firebaseAPIKey = src_environments_environment__WEBPACK_IMPORTED_MODULE_2__.environment.firebaseAPIKey;
+    this._userAutenticado = false;
+    this.userKey = '';
+    this._user = new rxjs__WEBPACK_IMPORTED_MODULE_4__.BehaviorSubject(null);
+  }
+
+  get userIsAuthenticated() {
+    return this._user.asObservable().pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(user => {
+      if (user) {
+        return !!user.token;
+      } else {
+        return false;
+      }
+    }));
+  }
+
+  get userAutenticado() {
+    return this._userAutenticado;
+  }
+
+  get userId() {
+    return this._user.asObservable().pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(usuario => {
+      if (usuario) {
+        return usuario.userId;
+      } else {
+        return false;
+      }
+    }));
+  }
+
+  logout() {
+    this._userAutenticado = false;
+    _capacitor_storage__WEBPACK_IMPORTED_MODULE_1__.Storage.remove({
+      key: 'authData'
+    });
+    this.router.navigateByUrl('/auth');
+  }
+
+  registrar(email, password) {
+    return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this.firebaseAPIKey}`, {
+      email: email,
+      password: password,
+      returnSecureToken: true
+    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.tap)(this.setUserData.bind(this)));
+  }
+
+  iniciarSesion(email, password) {
+    this._userAutenticado = true;
+    return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.firebaseAPIKey}`, {
+      email: email,
+      password: password,
+      returnSecureToken: true
+    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.tap)(this.setUserData.bind(this)));
+  }
+
+  autoLogin2() {
+    var _this = this;
+
+    return (0,C_Users_Alejandro_Documents_Ayi_group_Indep_Proyectos_Mooli_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+      console.log('Intentando autologin');
+      const storedData = yield _capacitor_storage__WEBPACK_IMPORTED_MODULE_1__.Storage.get({
+        key: 'authData'
+      });
+      const loadedData = JSON.parse(storedData.value);
+
+      if (!loadedData) {
+        console.log('No data');
+      } else {
+        console.log('Si hay data, cargando...');
+        const expirationTime = new Date(loadedData.tokenExpDate);
+
+        if (expirationTime <= new Date()) {
+          console.log('Token expirado.');
+          _this._userAutenticado = false;
+          return false;
+        } //Se crea una constante usuario con los datos traidos, por ahora solo se usa el userId
+
+
+        const usuario = new _models_user_model__WEBPACK_IMPORTED_MODULE_3__.Usuario(loadedData.userId, loadedData.email, loadedData.token, expirationTime);
+        console.log(loadedData.userId);
+        _this.userKey = loadedData.userId;
+
+        if (!_this._user.getValue()) {
+          _this._user.next(usuario);
+
+          _this._userAutenticado = true;
+        }
+
+        return usuario ? true : false;
+      }
+    })();
+  }
+
+  storeAuthData(userId, token, tokenExpDate, email) {
+    const data = {
+      userId: userId,
+      token: token,
+      tokenExpDate: tokenExpDate,
+      email: email
+    };
+    _capacitor_storage__WEBPACK_IMPORTED_MODULE_1__.Storage.set({
+      key: 'authData',
+      value: JSON.stringify(data)
+    });
+  }
+
+  setUserData(userData) {
+    const expirationTime = new Date(new Date().getTime() + +userData.expiresIn * 1000);
+
+    this._user.next(new _models_user_model__WEBPACK_IMPORTED_MODULE_3__.Usuario(userData.localId, userData.email, userData.idToken, expirationTime));
+
+    this.storeAuthData(userData.localId, userData.idToken, expirationTime.toISOString(), userData.email);
+  }
+
+};
+
+AuthService.ctorParameters = () => [{
+  type: _angular_common_http__WEBPACK_IMPORTED_MODULE_7__.HttpClient
+}, {
+  type: _angular_router__WEBPACK_IMPORTED_MODULE_8__.Router
+}];
+
+AuthService = (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__decorate)([(0,_angular_core__WEBPACK_IMPORTED_MODULE_10__.Injectable)({
+  providedIn: 'root'
+})], AuthService);
+
+
+/***/ }),
+
 /***/ 2340:
 /*!*****************************************!*\
   !*** ./src/environments/environment.ts ***!
@@ -146,13 +411,18 @@ __webpack_require__.r(__webpack_exports__);
 const URL_MOOLI = `https://mooli-3d0bf-default-rtdb.firebaseio.com`;
 const environment = {
     production: false,
+    firebaseAPIKey: 'AIzaSyBsVR-J6hrIt4YKwoEo_ZhhIKeJc0b_nuo',
     __NOTA1: { "Mooli.All.Movies.Nav": "8100" },
+    URL_FLAT: URL_MOOLI,
     URL_VER_TODAS: `/peliculas/tabs/ver-todas/`,
     URL_BD_JSON: `${URL_MOOLI}/peliculasBD.json`,
     URL_BD_JSON_EXP: `${URL_MOOLI}/peliculasBD/`,
     URL_BD_SEEN: `${URL_MOOLI}/users/-N8PnJ6s8FDh77vUleJp/seenList/`,
     URL_BD_LIST: `${URL_MOOLI}/users/-N8PnJ6s8FDh77vUleJp/listas/`,
     URL_BD_LIST_PLAIN: `${URL_MOOLI}/users/-N8PnJ6s8FDh77vUleJp/listas.json`,
+    // https://mooli-3d0bf-default-rtdb.firebaseio.com/users/-N8PnJ6s8FDh77vUleJp
+    __NOTA2: { "Metodo.Provisional.Nav.User.Multiple": "8100" },
+    URL_USERS: `${URL_MOOLI}/users`
 };
 /*
  * For easier debugging in development mode, you can import the following file
@@ -444,7 +714,7 @@ module.exports = webpackAsyncContext;
 /***/ ((module) => {
 
 "use strict";
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHAuY29tcG9uZW50LnNjc3MifQ== */";
+module.exports = "ion-toolbar {\n  --min-height:50px!important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5jb21wb25lbnQuc2NzcyIsIi4uXFwuLlxcLi5cXC4uXFwuLlxcLi5cXEF5aSUyMGdyb3VwXFxJbmRlcFxcUHJveWVjdG9zXFxNb29saVxcc3JjXFxhcHBcXGFwcC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLDJCQUFBO0FDQ0oiLCJmaWxlIjoiYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLXRvb2xiYXJ7XHJcbiAgICAtLW1pbi1oZWlnaHQ6NTBweCFpbXBvcnRhbnQ7XHJcbiAgfSIsImlvbi10b29sYmFyIHtcbiAgLS1taW4taGVpZ2h0OjUwcHghaW1wb3J0YW50O1xufSJdfQ== */";
 
 /***/ }),
 

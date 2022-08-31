@@ -8,6 +8,8 @@ import { ImdbService } from 'src/app/shared/services/imdb.service';
 import { ListService } from 'src/app/shared/services/list.service';
 import { SeenService } from 'src/app/shared/services/seen.service';
 import { OverlayEventDetail } from '@ionic/core/components';
+import { CalendarService } from 'src/app/shared/services/calendar.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-ver-detalles',
@@ -31,7 +33,8 @@ export class VerDetallesPage implements OnInit, OnDestroy {
   unsub: Subject<void> = new Subject()
   name: string;
   message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
-  date: Date;
+  date: any;
+  todayDate: string = moment().format('YYYY-MM-DD')
 
 // Prueba de push
   constructor(
@@ -40,7 +43,8 @@ export class VerDetallesPage implements OnInit, OnDestroy {
     private imdbService: ImdbService,
     private seenService: SeenService,
     public toastController: ToastController,
-    private listService: ListService
+    private listService: ListService,
+    private calendarService: CalendarService 
   ) { }
 
   ngOnInit() {
@@ -57,7 +61,7 @@ export class VerDetallesPage implements OnInit, OnDestroy {
       .subscribe(res => {
         this.loadedMovie = res;
         this.updateSeen();
-        this.loaded = true
+        this.loaded = true;
       })
     })
     this.listService.displayExistingLists().pipe(map(response => {
@@ -108,8 +112,13 @@ export class VerDetallesPage implements OnInit, OnDestroy {
     this.onSend();
   }
 
-  makeReminder() {
-
+  setReminder() {
+    console.log(this.date)
+    console.log('Reminder set to: ' + moment(this.date).format('YYYY-MM-DD'))
+    this.calendarService.onAddReminder(this.loadedId, this.date).subscribe(next => {
+      console.log(next)
+      this.confirm()
+    })
   }
 
   onSend(){
@@ -127,11 +136,6 @@ export class VerDetallesPage implements OnInit, OnDestroy {
     toast.present()
   }
 
-  ngOnDestroy() {
-    this.unsub.next();
-    this.unsub.unsubscribe();
-  }
-
   cancel() {
     this.modal.dismiss(null, 'cancel');
   }
@@ -144,7 +148,12 @@ export class VerDetallesPage implements OnInit, OnDestroy {
     const ev = event as CustomEvent<OverlayEventDetail<string>>;
     if (ev.detail.role === 'confirm') {
       console.log(this.date)
-      
     }
   }
+
+  ngOnDestroy() {
+    this.unsub.next();
+    this.unsub.unsubscribe();
+  }
+
 }

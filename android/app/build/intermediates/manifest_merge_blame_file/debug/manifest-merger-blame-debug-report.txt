@@ -11,276 +11,279 @@
 9-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:3:5-67
-11-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:3:22-64
+11-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:5:5-67
+11-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:5:22-64
 12    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-12-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:4:5-79
-12-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:4:22-76
-13    <uses-permission android:name="android.permission.INTERNET" />
-13-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:3:5-67
-13-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:3:22-64
-14    <uses-permission android:name="android.permission.VIBRATE" />
-14-->[:capacitor-haptics] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\haptics\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-66
-14-->[:capacitor-haptics] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\haptics\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-63
-15    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-15-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-81
-15-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-78
-16    <uses-permission android:name="android.permission.WAKE_LOCK" />
-16-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-68
-16-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-65
-17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
-17-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:25:5-79
-17-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:25:22-76
-18    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-18-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:28:5-82
-18-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:28:22-79
-19
-20    <application
-20-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:5:5-15:19
-21        android:allowBackup="true"
-21-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:5:18-44
-22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-22-->[androidx.core:core:1.8.0] C:\Users\Alejandro\.gradle\caches\transforms-3\0d4249d9f661c4c44bb5f0f8b0f9182b\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
-23        android:debuggable="true"
-24        android:icon="@mipmap/ic_launcher"
-24-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:5:45-79
-25        android:label="@string/app_name"
-25-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:5:80-112
-26        android:roundIcon="@mipmap/ic_launcher_round"
-26-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:5:113-158
-27        android:supportsRtl="true"
-27-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:5:159-185
-28        android:theme="@style/AppTheme"
-28-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:5:186-217
-29        android:usesCleartextTraffic="true" >
-29-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:5:218-253
-30        <activity
-30-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:6:9-11:20
-31            android:name="io.ionic.starter.MainActivity"
-31-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:6:236-280
-32            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
-32-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:6:19-135
-33            android:exported="true"
-33-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:6:136-159
-34            android:label="@string/title_activity_main"
-34-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:6:160-203
-35            android:launchMode="singleTask"
-35-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:6:204-235
-36            android:theme="@style/AppTheme.NoActionBarLaunch" >
-36-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:6:281-330
-37            <intent-filter>
-37-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:7:13-10:29
-38                <action android:name="android.intent.action.MAIN" />
-38-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:8:17-69
-38-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:8:25-66
-39
-40                <category android:name="android.intent.category.LAUNCHER" />
-40-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:9:17-77
-40-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:9:27-74
-41            </intent-filter>
-42        </activity>
-43
-44        <provider
-45            android:name="androidx.core.content.FileProvider"
-45-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:12:131-180
-46            android:authorities="com.mooli.devpush.fileprovider"
-46-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:12:19-70
-47            android:exported="false"
-47-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:12:71-95
-48            android:grantUriPermissions="true" >
-48-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:12:96-130
-49            <meta-data
-49-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:13:13-112
-50                android:name="android.support.FILE_PROVIDER_PATHS"
-50-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:13:24-74
-51                android:resource="@xml/file_paths" />
-51-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:13:75-109
-52        </provider>
-53
-54        <receiver android:name="com.capacitorjs.plugins.localnotifications.TimedNotificationPublisher" />
-54-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:9-106
-54-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:19-103
-55        <receiver android:name="com.capacitorjs.plugins.localnotifications.NotificationDismissReceiver" />
-55-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:9-107
-55-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:19-104
-56        <receiver
-56-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:9-24:20
-57            android:name="com.capacitorjs.plugins.localnotifications.LocalNotificationRestoreReceiver"
-57-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-103
-58            android:directBootAware="true"
-58-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-43
-59            android:exported="false" >
-59-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-37
-60            <intent-filter>
-60-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:13-23:29
-61                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
-61-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:17-86
-61-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:25-83
-62                <action android:name="android.intent.action.BOOT_COMPLETED" />
-62-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:21:17-79
-62-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:21:25-76
-63                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
-63-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:22:17-82
-63-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:22:25-79
-64            </intent-filter>
-65        </receiver>
-66
-67        <service
-67-->[:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-16:19
-68            android:name="com.capacitorjs.plugins.pushnotifications.MessagingService"
-68-->[:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-86
-69            android:exported="false" >
-69-->[:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-37
-70            <intent-filter>
-70-->[:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-15:29
-71                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-71-->[:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:17-78
-71-->[:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:25-75
-72            </intent-filter>
-73        </service>
-74
-75        <receiver
-75-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:31:9-38:20
-76            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-76-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:32:13-78
-77            android:exported="true"
-77-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:33:13-36
-78            android:permission="com.google.android.c2dm.permission.SEND" >
-78-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:34:13-73
-79            <intent-filter>
-79-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:35:13-37:29
-80                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-80-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:36:17-81
-80-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:36:25-78
-81            </intent-filter>
-82        </receiver>
-83        <!--
-84             FirebaseMessagingService performs security checks at runtime,
-85             but set to not exported to explicitly avoid allowing another app to call it.
-86        -->
-87        <service
-87-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:44:9-51:19
-88            android:name="com.google.firebase.messaging.FirebaseMessagingService"
-88-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:45:13-82
-89            android:directBootAware="true"
-89-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:46:13-43
-90            android:exported="false" >
-90-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:47:13-37
-91            <intent-filter android:priority="-500" >
-91-->[:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-15:29
-92                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-92-->[:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:17-78
-92-->[:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:25-75
-93            </intent-filter>
-94        </service>
-95        <service
-95-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:52:9-58:19
-96            android:name="com.google.firebase.components.ComponentDiscoveryService"
-96-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:53:13-84
-97            android:directBootAware="true"
-97-->[com.google.firebase:firebase-common:20.1.1] C:\Users\Alejandro\.gradle\caches\transforms-3\5138f63c41ec6fd7e4deb21f89780399\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:35:13-43
-98            android:exported="false" >
-98-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:54:13-37
-99            <meta-data
-99-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:55:13-57:85
-100                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
-100-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:56:17-119
-101                android:value="com.google.firebase.components.ComponentRegistrar" />
-101-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:57:17-82
+12-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:6:5-79
+12-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:6:22-76
+13
+14    <!-- Permissions -->
+15
+16    <uses-permission android:name="android.permission.INTERNET" />
+16-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:5:5-67
+16-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:5:22-64
+17    <uses-permission android:name="android.permission.VIBRATE" />
+17-->[:capacitor-haptics] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\haptics\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-66
+17-->[:capacitor-haptics] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\haptics\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-63
+18    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+18-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-81
+18-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-78
+19    <uses-permission android:name="android.permission.WAKE_LOCK" />
+19-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-68
+19-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-65
+20    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+20-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:25:5-79
+20-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:25:22-76
+21    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+21-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:28:5-82
+21-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:28:22-79
+22
+23    <application
+23-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:7:5-40:19
+24        android:allowBackup="true"
+24-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:8:9-35
+25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+25-->[androidx.core:core:1.8.0] C:\Users\Alejandro\.gradle\caches\transforms-3\0d4249d9f661c4c44bb5f0f8b0f9182b\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
+26        android:debuggable="true"
+27        android:icon="@mipmap/ic_launcher"
+27-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:9:9-43
+28        android:label="@string/app_name"
+28-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:10:9-41
+29        android:roundIcon="@mipmap/ic_launcher_round"
+29-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:11:9-54
+30        android:supportsRtl="true"
+30-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:12:9-35
+31        android:theme="@style/AppTheme"
+31-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:13:9-40
+32        android:usesCleartextTraffic="true" >
+32-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:14:9-44
+33        <activity
+33-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:16:9-29:20
+34            android:name="io.ionic.starter.MainActivity"
+34-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:18:13-57
+35            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
+35-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:17:13-129
+36            android:exported="true"
+36-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:22:13-36
+37            android:label="@string/title_activity_main"
+37-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:19:13-56
+38            android:launchMode="singleTask"
+38-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:21:13-44
+39            android:theme="@style/AppTheme.NoActionBarLaunch" >
+39-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:20:13-62
+40            <intent-filter>
+40-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:24:13-27:29
+41                <action android:name="android.intent.action.MAIN" />
+41-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:25:17-69
+41-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:25:25-66
+42
+43                <category android:name="android.intent.category.LAUNCHER" />
+43-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:26:17-77
+43-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:26:27-74
+44            </intent-filter>
+45        </activity>
+46
+47        <provider
+48            android:name="androidx.core.content.FileProvider"
+48-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:32:13-62
+49            android:authorities="com.mooli.devpush.fileprovider"
+49-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:33:13-64
+50            android:exported="false"
+50-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:34:13-37
+51            android:grantUriPermissions="true" >
+51-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:35:13-47
+52            <meta-data
+52-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:36:13-38:64
+53                android:name="android.support.FILE_PROVIDER_PATHS"
+53-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:37:17-67
+54                android:resource="@xml/file_paths" />
+54-->C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:38:17-51
+55        </provider>
+56
+57        <receiver android:name="com.capacitorjs.plugins.localnotifications.TimedNotificationPublisher" />
+57-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:9-106
+57-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:19-103
+58        <receiver android:name="com.capacitorjs.plugins.localnotifications.NotificationDismissReceiver" />
+58-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:9-107
+58-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:19-104
+59        <receiver
+59-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:9-24:20
+60            android:name="com.capacitorjs.plugins.localnotifications.LocalNotificationRestoreReceiver"
+60-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-103
+61            android:directBootAware="true"
+61-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-43
+62            android:exported="false" >
+62-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-37
+63            <intent-filter>
+63-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:13-23:29
+64                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+64-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:17-86
+64-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:25-83
+65                <action android:name="android.intent.action.BOOT_COMPLETED" />
+65-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:21:17-79
+65-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:21:25-76
+66                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+66-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:22:17-82
+66-->[:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:22:25-79
+67            </intent-filter>
+68        </receiver>
+69
+70        <service
+70-->[:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-16:19
+71            android:name="com.capacitorjs.plugins.pushnotifications.MessagingService"
+71-->[:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-86
+72            android:exported="false" >
+72-->[:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-37
+73            <intent-filter>
+73-->[:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-15:29
+74                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+74-->[:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:17-78
+74-->[:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:25-75
+75            </intent-filter>
+76        </service>
+77
+78        <receiver
+78-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:31:9-38:20
+79            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+79-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:32:13-78
+80            android:exported="true"
+80-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:33:13-36
+81            android:permission="com.google.android.c2dm.permission.SEND" >
+81-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:34:13-73
+82            <intent-filter>
+82-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:35:13-37:29
+83                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+83-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:36:17-81
+83-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:36:25-78
+84            </intent-filter>
+85        </receiver>
+86        <!--
+87             FirebaseMessagingService performs security checks at runtime,
+88             but set to not exported to explicitly avoid allowing another app to call it.
+89        -->
+90        <service
+90-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:44:9-51:19
+91            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+91-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:45:13-82
+92            android:directBootAware="true"
+92-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:46:13-43
+93            android:exported="false" >
+93-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:47:13-37
+94            <intent-filter android:priority="-500" >
+94-->[:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-15:29
+95                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+95-->[:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:17-78
+95-->[:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:25-75
+96            </intent-filter>
+97        </service>
+98        <service
+98-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:52:9-58:19
+99            android:name="com.google.firebase.components.ComponentDiscoveryService"
+99-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:53:13-84
+100            android:directBootAware="true"
+100-->[com.google.firebase:firebase-common:20.1.1] C:\Users\Alejandro\.gradle\caches\transforms-3\5138f63c41ec6fd7e4deb21f89780399\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:35:13-43
+101            android:exported="false" >
+101-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:54:13-37
 102            <meta-data
-102-->[com.google.firebase:firebase-datatransport:18.1.4] C:\Users\Alejandro\.gradle\caches\transforms-3\33de30ff5c9dd90c268d5e0c3965a34c\transformed\jetified-firebase-datatransport-18.1.4\AndroidManifest.xml:28:13-30:85
-103                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
-103-->[com.google.firebase:firebase-datatransport:18.1.4] C:\Users\Alejandro\.gradle\caches\transforms-3\33de30ff5c9dd90c268d5e0c3965a34c\transformed\jetified-firebase-datatransport-18.1.4\AndroidManifest.xml:29:17-115
+102-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:55:13-57:85
+103                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+103-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:56:17-119
 104                android:value="com.google.firebase.components.ComponentRegistrar" />
-104-->[com.google.firebase:firebase-datatransport:18.1.4] C:\Users\Alejandro\.gradle\caches\transforms-3\33de30ff5c9dd90c268d5e0c3965a34c\transformed\jetified-firebase-datatransport-18.1.4\AndroidManifest.xml:30:17-82
+104-->[com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:57:17-82
 105            <meta-data
-105-->[com.google.firebase:firebase-installations:17.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\adccee1a84a267afcc5f44b3e9cb6307\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:18:13-20:85
-106                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-106-->[com.google.firebase:firebase-installations:17.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\adccee1a84a267afcc5f44b3e9cb6307\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:19:17-127
+105-->[com.google.firebase:firebase-datatransport:18.1.4] C:\Users\Alejandro\.gradle\caches\transforms-3\33de30ff5c9dd90c268d5e0c3965a34c\transformed\jetified-firebase-datatransport-18.1.4\AndroidManifest.xml:28:13-30:85
+106                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+106-->[com.google.firebase:firebase-datatransport:18.1.4] C:\Users\Alejandro\.gradle\caches\transforms-3\33de30ff5c9dd90c268d5e0c3965a34c\transformed\jetified-firebase-datatransport-18.1.4\AndroidManifest.xml:29:17-115
 107                android:value="com.google.firebase.components.ComponentRegistrar" />
-107-->[com.google.firebase:firebase-installations:17.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\adccee1a84a267afcc5f44b3e9cb6307\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:20:17-82
-108        </service>
-109
-110        <activity
-110-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\21263c8fd96109c5399b59077362b28f\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
-111            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-111-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\21263c8fd96109c5399b59077362b28f\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:19-85
-112            android:exported="false"
-112-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\21263c8fd96109c5399b59077362b28f\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:22:19-43
-113            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-113-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\21263c8fd96109c5399b59077362b28f\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:21:19-78
-114
-115        <provider
-115-->[com.google.firebase:firebase-common:20.1.1] C:\Users\Alejandro\.gradle\caches\transforms-3\5138f63c41ec6fd7e4deb21f89780399\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:26:9-31:39
-116            android:name="com.google.firebase.provider.FirebaseInitProvider"
-116-->[com.google.firebase:firebase-common:20.1.1] C:\Users\Alejandro\.gradle\caches\transforms-3\5138f63c41ec6fd7e4deb21f89780399\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:27:13-77
-117            android:authorities="com.mooli.devpush.firebaseinitprovider"
-117-->[com.google.firebase:firebase-common:20.1.1] C:\Users\Alejandro\.gradle\caches\transforms-3\5138f63c41ec6fd7e4deb21f89780399\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:28:13-72
-118            android:directBootAware="true"
-118-->[com.google.firebase:firebase-common:20.1.1] C:\Users\Alejandro\.gradle\caches\transforms-3\5138f63c41ec6fd7e4deb21f89780399\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:29:13-43
-119            android:exported="false"
-119-->[com.google.firebase:firebase-common:20.1.1] C:\Users\Alejandro\.gradle\caches\transforms-3\5138f63c41ec6fd7e4deb21f89780399\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:30:13-37
-120            android:initOrder="100" />
-120-->[com.google.firebase:firebase-common:20.1.1] C:\Users\Alejandro\.gradle\caches\transforms-3\5138f63c41ec6fd7e4deb21f89780399\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:31:13-36
-121
-122        <meta-data
-122-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\4df4e58314384721580aade34f2865ce\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:21:9-23:69
-123            android:name="com.google.android.gms.version"
-123-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\4df4e58314384721580aade34f2865ce\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:22:13-58
-124            android:value="@integer/google_play_services_version" />
-124-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\4df4e58314384721580aade34f2865ce\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:23:13-66
-125
-126        <provider
-126-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\f4944b5407b552542b0fe673a15b273d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
-127            android:name="androidx.startup.InitializationProvider"
-127-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\f4944b5407b552542b0fe673a15b273d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
-128            android:authorities="com.mooli.devpush.androidx-startup"
-128-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\f4944b5407b552542b0fe673a15b273d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
-129            android:exported="false" >
-129-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\f4944b5407b552542b0fe673a15b273d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
-130            <meta-data
-130-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\f4944b5407b552542b0fe673a15b273d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
-131                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-131-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\f4944b5407b552542b0fe673a15b273d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
-132                android:value="androidx.startup" />
-132-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\f4944b5407b552542b0fe673a15b273d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+107-->[com.google.firebase:firebase-datatransport:18.1.4] C:\Users\Alejandro\.gradle\caches\transforms-3\33de30ff5c9dd90c268d5e0c3965a34c\transformed\jetified-firebase-datatransport-18.1.4\AndroidManifest.xml:30:17-82
+108            <meta-data
+108-->[com.google.firebase:firebase-installations:17.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\adccee1a84a267afcc5f44b3e9cb6307\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:18:13-20:85
+109                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+109-->[com.google.firebase:firebase-installations:17.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\adccee1a84a267afcc5f44b3e9cb6307\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:19:17-127
+110                android:value="com.google.firebase.components.ComponentRegistrar" />
+110-->[com.google.firebase:firebase-installations:17.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\adccee1a84a267afcc5f44b3e9cb6307\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:20:17-82
+111        </service>
+112
+113        <activity
+113-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\21263c8fd96109c5399b59077362b28f\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
+114            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+114-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\21263c8fd96109c5399b59077362b28f\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:19-85
+115            android:exported="false"
+115-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\21263c8fd96109c5399b59077362b28f\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:22:19-43
+116            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+116-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\21263c8fd96109c5399b59077362b28f\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:21:19-78
+117
+118        <provider
+118-->[com.google.firebase:firebase-common:20.1.1] C:\Users\Alejandro\.gradle\caches\transforms-3\5138f63c41ec6fd7e4deb21f89780399\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:26:9-31:39
+119            android:name="com.google.firebase.provider.FirebaseInitProvider"
+119-->[com.google.firebase:firebase-common:20.1.1] C:\Users\Alejandro\.gradle\caches\transforms-3\5138f63c41ec6fd7e4deb21f89780399\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:27:13-77
+120            android:authorities="com.mooli.devpush.firebaseinitprovider"
+120-->[com.google.firebase:firebase-common:20.1.1] C:\Users\Alejandro\.gradle\caches\transforms-3\5138f63c41ec6fd7e4deb21f89780399\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:28:13-72
+121            android:directBootAware="true"
+121-->[com.google.firebase:firebase-common:20.1.1] C:\Users\Alejandro\.gradle\caches\transforms-3\5138f63c41ec6fd7e4deb21f89780399\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:29:13-43
+122            android:exported="false"
+122-->[com.google.firebase:firebase-common:20.1.1] C:\Users\Alejandro\.gradle\caches\transforms-3\5138f63c41ec6fd7e4deb21f89780399\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:30:13-37
+123            android:initOrder="100" />
+123-->[com.google.firebase:firebase-common:20.1.1] C:\Users\Alejandro\.gradle\caches\transforms-3\5138f63c41ec6fd7e4deb21f89780399\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:31:13-36
+124
+125        <meta-data
+125-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\4df4e58314384721580aade34f2865ce\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:21:9-23:69
+126            android:name="com.google.android.gms.version"
+126-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\4df4e58314384721580aade34f2865ce\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:22:13-58
+127            android:value="@integer/google_play_services_version" />
+127-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\4df4e58314384721580aade34f2865ce\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:23:13-66
+128
+129        <provider
+129-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\f4944b5407b552542b0fe673a15b273d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+130            android:name="androidx.startup.InitializationProvider"
+130-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\f4944b5407b552542b0fe673a15b273d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
+131            android:authorities="com.mooli.devpush.androidx-startup"
+131-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\f4944b5407b552542b0fe673a15b273d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
+132            android:exported="false" >
+132-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\f4944b5407b552542b0fe673a15b273d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
 133            <meta-data
-133-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Alejandro\.gradle\caches\transforms-3\a6ebe1c416f1dd5706a30739450a39f9\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
-134                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-134-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Alejandro\.gradle\caches\transforms-3\a6ebe1c416f1dd5706a30739450a39f9\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+133-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\f4944b5407b552542b0fe673a15b273d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+134                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+134-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\f4944b5407b552542b0fe673a15b273d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
 135                android:value="androidx.startup" />
-135-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Alejandro\.gradle\caches\transforms-3\a6ebe1c416f1dd5706a30739450a39f9\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
-136        </provider>
-137
-138        <service
-138-->[com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b8aacee0ba1866c7b0f96f23963ed368\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:29:9-35:19
-139            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-139-->[com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b8aacee0ba1866c7b0f96f23963ed368\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:30:13-103
-140            android:exported="false" >
-140-->[com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b8aacee0ba1866c7b0f96f23963ed368\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:31:13-37
-141            <meta-data
-141-->[com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b8aacee0ba1866c7b0f96f23963ed368\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:32:13-34:39
-142                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-142-->[com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b8aacee0ba1866c7b0f96f23963ed368\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:33:17-94
-143                android:value="cct" />
-143-->[com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b8aacee0ba1866c7b0f96f23963ed368\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:34:17-36
-144        </service>
-145        <service
-145-->[com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b73ca5da648d83bd6aa81dfce24b5c38\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:26:9-30:19
-146            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-146-->[com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b73ca5da648d83bd6aa81dfce24b5c38\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:27:13-117
-147            android:exported="false"
-147-->[com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b73ca5da648d83bd6aa81dfce24b5c38\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:28:13-37
-148            android:permission="android.permission.BIND_JOB_SERVICE" >
-148-->[com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b73ca5da648d83bd6aa81dfce24b5c38\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:29:13-69
-149        </service>
-150
-151        <receiver
-151-->[com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b73ca5da648d83bd6aa81dfce24b5c38\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:32:9-34:40
-152            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-152-->[com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b73ca5da648d83bd6aa81dfce24b5c38\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:33:13-132
-153            android:exported="false" />
-153-->[com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b73ca5da648d83bd6aa81dfce24b5c38\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:34:13-37
-154    </application>
-155
-156</manifest>
+135-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\f4944b5407b552542b0fe673a15b273d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+136            <meta-data
+136-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Alejandro\.gradle\caches\transforms-3\a6ebe1c416f1dd5706a30739450a39f9\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+137                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+137-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Alejandro\.gradle\caches\transforms-3\a6ebe1c416f1dd5706a30739450a39f9\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+138                android:value="androidx.startup" />
+138-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Alejandro\.gradle\caches\transforms-3\a6ebe1c416f1dd5706a30739450a39f9\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+139        </provider>
+140
+141        <service
+141-->[com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b8aacee0ba1866c7b0f96f23963ed368\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:29:9-35:19
+142            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+142-->[com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b8aacee0ba1866c7b0f96f23963ed368\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:30:13-103
+143            android:exported="false" >
+143-->[com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b8aacee0ba1866c7b0f96f23963ed368\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:31:13-37
+144            <meta-data
+144-->[com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b8aacee0ba1866c7b0f96f23963ed368\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:32:13-34:39
+145                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+145-->[com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b8aacee0ba1866c7b0f96f23963ed368\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:33:17-94
+146                android:value="cct" />
+146-->[com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b8aacee0ba1866c7b0f96f23963ed368\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:34:17-36
+147        </service>
+148        <service
+148-->[com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b73ca5da648d83bd6aa81dfce24b5c38\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:26:9-30:19
+149            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+149-->[com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b73ca5da648d83bd6aa81dfce24b5c38\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:27:13-117
+150            android:exported="false"
+150-->[com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b73ca5da648d83bd6aa81dfce24b5c38\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:28:13-37
+151            android:permission="android.permission.BIND_JOB_SERVICE" >
+151-->[com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b73ca5da648d83bd6aa81dfce24b5c38\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:29:13-69
+152        </service>
+153
+154        <receiver
+154-->[com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b73ca5da648d83bd6aa81dfce24b5c38\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:32:9-34:40
+155            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+155-->[com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b73ca5da648d83bd6aa81dfce24b5c38\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:33:13-132
+156            android:exported="false" />
+156-->[com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b73ca5da648d83bd6aa81dfce24b5c38\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:34:13-37
+157    </application>
+158
+159</manifest>

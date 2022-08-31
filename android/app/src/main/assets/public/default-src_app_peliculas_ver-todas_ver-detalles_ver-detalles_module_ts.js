@@ -91,15 +91,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "VerDetallesPage": () => (/* binding */ VerDetallesPage)
 /* harmony export */ });
 /* harmony import */ var C_Users_Alejandro_Documents_Ayi_group_Indep_Proyectos_Mooli_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! tslib */ 4929);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! tslib */ 4929);
 /* harmony import */ var _ver_detalles_page_html_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ver-detalles.page.html?ngResource */ 7807);
 /* harmony import */ var _ver_detalles_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ver-detalles.page.scss?ngResource */ 7004);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/core */ 2560);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ 124);
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic/angular */ 3819);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/router */ 124);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic/angular */ 3819);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs */ 2218);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs/operators */ 5921);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ 6942);
 /* harmony import */ var src_app_shared_services_imdb_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/imdb.service */ 8697);
 /* harmony import */ var src_app_shared_services_list_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/list.service */ 2499);
 /* harmony import */ var src_app_shared_services_seen_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/seen.service */ 82);
+/* harmony import */ var src_app_shared_services_calendar_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/calendar.service */ 8864);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ 6908);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+
+
+
+
 
 
 
@@ -112,35 +122,44 @@ __webpack_require__.r(__webpack_exports__);
 
 let VerDetallesPage = class VerDetallesPage {
   // Prueba de push
-  constructor(router, navCtrl, imdbService, seenService, toastController, listService) {
+  constructor(router, navCtrl, imdbService, seenService, toastController, listService, calendarService) {
     this.router = router;
     this.navCtrl = navCtrl;
     this.imdbService = imdbService;
     this.seenService = seenService;
     this.toastController = toastController;
     this.listService = listService;
+    this.calendarService = calendarService;
+    this.loadedLists = [];
     this.loaded = false;
+    this.unsub = new rxjs__WEBPACK_IMPORTED_MODULE_8__.Subject();
+    this.message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
+    this.todayDate = moment__WEBPACK_IMPORTED_MODULE_7__().format('YYYY-MM-DD');
   }
 
   ngOnInit() {
-    this.router.paramMap.subscribe(pM => {
+    this.router.paramMap.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_9__.takeUntil)(this.unsub)).subscribe(pM => {
       if (!pM.has('peliculaId')) {
         this.navCtrl.navigateBack('/peliculas/tabs/ver-todas');
       }
 
       this.loadedId = pM.get('peliculaId');
-      this.imdbService.findMovie(this.loadedId).subscribe(res => {
+      this.imdbService.findMovie(this.loadedId).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_9__.takeUntil)(this.unsub)).subscribe(res => {
         this.loadedMovie = res;
         this.updateSeen();
         this.loaded = true;
       });
     });
-    this.loadedLists = this.listService.getAllLists();
-    console.log('Hola ' + this.loadedLists);
+    this.listService.displayExistingLists().pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_10__.map)(response => {
+      for (let k in response) {
+        this.loadedLists.push(response[k]);
+        console.log(this.loadedLists);
+      }
+    })).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_9__.takeUntil)(this.unsub)).subscribe();
   }
 
   updateSeen() {
-    this.seenService.OnGetSeen(this.loadedId).subscribe({
+    this.seenService.OnGetSeen(this.loadedId).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_9__.takeUntil)(this.unsub)).subscribe({
       next: bool => {
         this.seenObject = bool;
         this.seen = this.seenObject.seen;
@@ -161,7 +180,7 @@ let VerDetallesPage = class VerDetallesPage {
     }
 
     this.presentToast();
-    this.seenService.OnSendRequest(this.loadedId, this.seen);
+    this.seenService.OnSendRequest(this.loadedId, this.seen).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_9__.takeUntil)(this.unsub)).subscribe();
   }
 
   onShow() {
@@ -177,12 +196,17 @@ let VerDetallesPage = class VerDetallesPage {
     this.onSend();
   }
 
-  onSend() {
-    this.listService.MovieToList(this.chosenOpt, this.loadedId, this.movieData);
+  setReminder() {
+    console.log(this.date);
+    console.log('Reminder set to: ' + moment__WEBPACK_IMPORTED_MODULE_7__(this.date).format('YYYY-MM-DD'));
+    this.calendarService.onAddReminder(this.loadedId, this.date).subscribe(next => {
+      console.log(next);
+      this.confirm();
+    });
   }
 
-  onNew() {
-    this.listService.newList(this.loadedLists[this.indexOfList], this.indexOfList);
+  onSend() {
+    this.listService.MovieToList(this.chosenOpt, this.loadedId, this.movieData).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_9__.takeUntil)(this.unsub)).subscribe();
   }
 
   presentToast() {
@@ -198,23 +222,52 @@ let VerDetallesPage = class VerDetallesPage {
     })();
   }
 
+  cancel() {
+    this.modal.dismiss(null, 'cancel');
+  }
+
+  confirm() {
+    this.modal.dismiss(this.name, 'confirm');
+  }
+
+  onWillDismiss(event) {
+    const ev = event;
+
+    if (ev.detail.role === 'confirm') {
+      console.log(this.date);
+    }
+  }
+
+  ngOnDestroy() {
+    this.unsub.next();
+    this.unsub.unsubscribe();
+  }
+
 };
 
 VerDetallesPage.ctorParameters = () => [{
-  type: _angular_router__WEBPACK_IMPORTED_MODULE_6__.ActivatedRoute
+  type: _angular_router__WEBPACK_IMPORTED_MODULE_11__.ActivatedRoute
 }, {
-  type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.NavController
+  type: _ionic_angular__WEBPACK_IMPORTED_MODULE_12__.NavController
 }, {
   type: src_app_shared_services_imdb_service__WEBPACK_IMPORTED_MODULE_3__.ImdbService
 }, {
   type: src_app_shared_services_seen_service__WEBPACK_IMPORTED_MODULE_5__.SeenService
 }, {
-  type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.ToastController
+  type: _ionic_angular__WEBPACK_IMPORTED_MODULE_12__.ToastController
 }, {
   type: src_app_shared_services_list_service__WEBPACK_IMPORTED_MODULE_4__.ListService
+}, {
+  type: src_app_shared_services_calendar_service__WEBPACK_IMPORTED_MODULE_6__.CalendarService
 }];
 
-VerDetallesPage = (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__decorate)([(0,_angular_core__WEBPACK_IMPORTED_MODULE_9__.Component)({
+VerDetallesPage.propDecorators = {
+  modal: [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_13__.ViewChild,
+    args: [_ionic_angular__WEBPACK_IMPORTED_MODULE_12__.IonModal]
+  }]
+};
+VerDetallesPage = (0,tslib__WEBPACK_IMPORTED_MODULE_14__.__decorate)([(0,_angular_core__WEBPACK_IMPORTED_MODULE_13__.Component)({
   selector: 'app-ver-detalles',
   template: _ver_detalles_page_html_ngResource__WEBPACK_IMPORTED_MODULE_1__,
   styles: [_ver_detalles_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_2__]
@@ -233,71 +286,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ListService": () => (/* binding */ ListService)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ 4929);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ 8987);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tslib */ 4929);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ 8987);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 2560);
 /* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/environments/environment */ 2340);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ 6942);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 6942);
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./auth.service */ 629);
+
 
 
 
 
 
 let ListService = class ListService {
-    constructor(http) {
+    constructor(http, authService) {
         this.http = http;
-        this.baseUrl = src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.URL_BD_LIST;
-        this.plainUrl = src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.URL_BD_LIST_PLAIN;
-        this.userId = 'a1';
-        this.allLists = [
-            {
-                listName: 'Lista por ver',
-                listContent: [
-                    'tt0441773',
-                    'tt10648342',
-                    'tt5251328',
-                    'tt9411972'
-                ]
-            },
-            {
-                listName: 'Lista de las buenas',
-                listContent: [
-                    'tt10648342',
-                    'tt1649418'
-                ]
-            },
-        ];
+        this.authService = authService;
+        this.userId = this.authService.userKey;
+        this.baseUrl = `${src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.URL_USERS}/${this.userId}/listas/`;
+        this.plainUrl = `${src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.URL_USERS}/${this.userId}/listas.json`;
     }
-    getMyList() {
-        console.log(this.allLists + 'askdjaslkdjaslk');
-        return this.allLists;
+    OnCreateNewList(data, folderName) {
+        console.log('poniendo lista en ' + this.baseUrl + folderName + '.json', data);
+        return this.http.put(this.baseUrl + folderName + '.json', data);
     }
-    nuevaLista(data, folderName) {
-        this.http.put(this.baseUrl + folderName + '.json', data).subscribe({ next: respuesta => {
-                console.log(respuesta);
-            } });
+    deleteList(id) {
+        return this.http.delete(this.baseUrl + id + '.json');
     }
-    newList(data, id) {
-        this.http.put(this.baseUrl + id + '.json', data).subscribe({ next: respuesta => {
-            } });
-    }
-    newListDeep(data, id) {
-        this.http.put(this.baseUrl + id + '/listContent.json', data).subscribe({ next: respuesta => {
-            } });
+    displayExistingLists() {
+        return this.http.get(this.plainUrl);
     }
     getAllLists() {
         let array = [];
-        this.http.get(this.plainUrl).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.map)(response => {
-            for (let k in response) {
-                array.push(response[k]);
-            }
-        })).subscribe();
-        return array;
-    }
-    getAllLists2() {
-        let array = [];
         let arrayX = [];
-        this.http.get(this.plainUrl).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.map)(response => {
+        this.http.get(this.plainUrl).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.map)(response => {
             for (let k in response) {
                 array.push(response[k]);
             }
@@ -317,14 +339,13 @@ let ListService = class ListService {
                 }
             }
         })).subscribe();
-        console.log(arrayX);
         return arrayX;
     }
     getList(ind, movieId) {
         const gotList = [];
         let exist = false;
         this.http.get(this.plainUrl)
-            .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.map)(res => {
+            .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.map)(res => {
             for (const key in res[ind].listContent) {
                 gotList.push(res[ind].listContent[key]);
                 console.log(gotList);
@@ -345,23 +366,72 @@ let ListService = class ListService {
                 return s;
             }, []);
             console.log(x);
-            this.newListDeep(x, ind);
+            this.http.put(this.baseUrl + ind + '/listContent.json', x).subscribe({ next: respuesta => {
+                } });
         })).subscribe();
     }
     MovieToList(chosenOpt, loadedId, data) {
-        this.http.put(this.baseUrl + '/' + chosenOpt + '/contenido/' + loadedId + '.json', data).subscribe({ next: respuesta => {
-                console.log(respuesta);
-            } });
+        return this.http.put(this.baseUrl + '/' + chosenOpt + '/contenido/' + loadedId + '.json', data);
     }
 };
 ListService.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpClient }
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__.HttpClient },
+    { type: _auth_service__WEBPACK_IMPORTED_MODULE_1__.AuthService }
 ];
-ListService = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.Injectable)({
+ListService = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_5__.Injectable)({
         providedIn: 'root'
     })
 ], ListService);
+
+
+
+/***/ }),
+
+/***/ 82:
+/*!*************************************************!*\
+  !*** ./src/app/shared/services/seen.service.ts ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "SeenService": () => (/* binding */ SeenService)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ 4929);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ 8987);
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/environments/environment */ 2340);
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./auth.service */ 629);
+
+
+
+
+
+let SeenService = class SeenService {
+    constructor(http, authService) {
+        this.http = http;
+        this.authService = authService;
+        // URL_BD_SEEN: `${URL_MOOLI}/users/-N8PnJ6s8FDh77vUleJp/seenList/`,
+        this.userId = this.authService.userKey;
+        this.baseUrl = `${src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.URL_USERS}/${this.userId}/seenList/`;
+    }
+    OnSendRequest(id, seen) {
+        return this.http.patch(this.baseUrl + id + '.json', { seen });
+    }
+    OnGetSeen(id) {
+        return this.http.get(this.baseUrl + id + '.json');
+    }
+};
+SeenService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpClient },
+    { type: _auth_service__WEBPACK_IMPORTED_MODULE_1__.AuthService }
+];
+SeenService = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.Injectable)({
+        providedIn: 'root'
+    })
+], SeenService);
 
 
 
@@ -383,7 +453,7 @@ module.exports = ".secondary-text {\n  color: gray;\n}\n\n.toggledClass {\n  col
   \************************************************************************************/
 /***/ ((module) => {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"/peliculas/tabs/ver-todas\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>Vista expandida</ion-title>\r\n    <ion-buttons slot=\"end\"  *ngIf=\"loaded\">\r\n      <ion-button (click)=\"toggleSeen()\" [ngClass]=\"{toggledClass: seen == true}\">\r\n        <ion-icon name=\"checkbox-outline\"></ion-icon>\r\n      </ion-button>\r\n      <ion-list>\r\n        <ion-item>\r\n          <ion-select placeholder=\"Añadir a lista\" [(ngModel)]=\"chosenOpt\" (ionChange)=\"onShow()\" detail=\"false\">\r\n            <div *ngFor=\"let item of loadedLists\">\r\n              <ion-select-option value=\"{{ item.nombre }}\">{{ item.nombre }}</ion-select-option>\r\n            </div>\r\n          </ion-select>\r\n        </ion-item>\r\n      </ion-list>\r\n    </ion-buttons>  \r\n  </ion-toolbar>\r\n</ion-header>\r\n<!-- Contenido -->\r\n<ion-content *ngIf=\"loaded\">\r\n  <ion-grid>\r\n    <ion-row>\r\n      <ion-col size=\"7\">\r\n        <ion-card>\r\n          <ion-img [src]=loadedMovie.image>\r\n          </ion-img>\r\n        </ion-card>\r\n      </ion-col>\r\n      <ion-col size=\"5\">\r\n        <h3>\r\n          {{ loadedMovie.title }}\r\n        </h3>\r\n        <label class=\"secondary-text\">\r\n          {{ loadedMovie.runtimeStr }}\r\n          <br>\r\n          {{ loadedMovie.genres}}\r\n        </label>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n      <ion-col>\r\n        <ion-card>\r\n          <ion-card-header>\r\n            <h4>De qué trata?</h4>\r\n          </ion-card-header>\r\n          <ion-card-content>\r\n            {{ loadedMovie.plot }}\r\n          </ion-card-content>\r\n        </ion-card>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n</ion-content>";
+module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"/peliculas/tabs/ver-todas\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-list>\r\n      <ion-item>\r\n        <ion-select placeholder=\"Añadir a lista\" [(ngModel)]=\"chosenOpt\" (ionChange)=\"onShow()\" detail=\"false\">\r\n          <div *ngFor=\"let item of loadedLists\">\r\n            <ion-select-option value=\"{{ item.nombre }}\">{{ item.nombre }}</ion-select-option>\r\n          </div>\r\n        </ion-select>\r\n      </ion-item>\r\n    </ion-list>\r\n    <ion-buttons slot=\"end\" *ngIf=\"loaded\">\r\n      <ion-button id=\"open-modal\" expand=\"block\">\r\n        <ion-icon name=\"calendar-outline\"></ion-icon>\r\n      </ion-button>\r\n      <ion-button (click)=\"toggleSeen()\" [ngClass]=\"{toggledClass: seen == true}\">\r\n        <ion-icon name=\"checkbox-outline\"></ion-icon>\r\n      </ion-button>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<!-- Contenido -->\r\n<ion-content *ngIf=\"loaded\">\r\n  <ion-grid>\r\n    <ion-row>\r\n      <ion-col size=\"7\">\r\n        <ion-card>\r\n          <ion-img [src]=loadedMovie.image>\r\n          </ion-img>\r\n        </ion-card>\r\n      </ion-col>\r\n      <ion-col size=\"5\">\r\n        <h3>\r\n          {{ loadedMovie.title }}\r\n        </h3>\r\n        <label class=\"secondary-text\">\r\n          {{ loadedMovie.runtimeStr }}\r\n          <br>\r\n          {{ loadedMovie.genres}}\r\n        </label>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n      <ion-col>\r\n        <ion-card>\r\n          <ion-card-header>\r\n            <h4>De qué trata?</h4>\r\n          </ion-card-header>\r\n          <ion-card-content>\r\n            {{ loadedMovie.plot }}\r\n          </ion-card-content>\r\n        </ion-card>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n  <!--Inline modal-->\r\n  <ion-modal trigger=\"open-modal\" (willDismiss)=\"onWillDismiss($event)\">\r\n    <ng-template>\r\n      <ion-header>\r\n        <ion-toolbar>\r\n          <ion-buttons slot=\"start\">\r\n            <ion-button (click)=\"cancel()\">Cancelar</ion-button>\r\n          </ion-buttons>\r\n          <ion-title>Crear recordatorio</ion-title>\r\n          <ion-buttons slot=\"end\">\r\n            <ion-button (click)=\"setReminder()\" [strong]=\"true\">Confirmar</ion-button>\r\n          </ion-buttons>\r\n        </ion-toolbar>\r\n      </ion-header>\r\n      <ion-content class=\"ion-padding\">\r\n        <ion-item>\r\n          <ion-datetime \r\n          displayFormat=\"MM/DD/YYYY\" \r\n          pickerFormat=\"MMMM YYYY\"\r\n          min=\"{{ todayDate }}\"\r\n          [(ngModel)]=\"date\"\r\n          ></ion-datetime>\r\n        </ion-item>\r\n      </ion-content>\r\n    </ng-template>\r\n  </ion-modal>\r\n</ion-content>";
 
 /***/ })
 

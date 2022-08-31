@@ -29,11 +29,11 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_peliculas_ver-todas_ver-todas_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./ver-todas/ver-todas.module */ 7294)).then(m => m.VerTodasPageModule)
+                        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_shared_services_calendar_service_ts-src_app_shared_services_imdb_service_ts-n-94c50b"), __webpack_require__.e("src_app_peliculas_ver-todas_ver-todas_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./ver-todas/ver-todas.module */ 7294)).then(m => m.VerTodasPageModule)
                     },
                     {
                         path: ':peliculaId',
-                        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_peliculas_ver-todas_ver-detalles_ver-detalles_module_ts"), __webpack_require__.e("common")]).then(__webpack_require__.bind(__webpack_require__, /*! ./ver-todas/ver-detalles/ver-detalles.module */ 9183)).then(m => m.VerDetallesPageModule)
+                        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_shared_services_calendar_service_ts-src_app_shared_services_imdb_service_ts-n-94c50b"), __webpack_require__.e("default-src_app_peliculas_ver-todas_ver-detalles_ver-detalles_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./ver-todas/ver-detalles/ver-detalles.module */ 9183)).then(m => m.VerDetallesPageModule)
                     }
                 ]
             },

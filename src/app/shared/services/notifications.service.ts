@@ -40,11 +40,11 @@ export class NotificationsService {
     }
   }
 
-  createNotification(title: string, body: string, movieTitle: string, id: string) {
+  createNotification(title: string, body: string, movieTitle: string) {
     LocalNotifications.schedule({
       notifications: [
         {
-          title: title + movieTitle,
+          title: title,
           body: body,
           id: 1,
         }
