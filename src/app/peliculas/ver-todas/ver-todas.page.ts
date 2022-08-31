@@ -43,6 +43,8 @@ export class VerTodasPage implements OnInit, OnDestroy {
   })
   this.status = true;
   this.notificationsService.inicializar()
+
+  
   }
 
   onNotificationCreate() {

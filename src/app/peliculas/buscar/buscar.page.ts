@@ -43,12 +43,13 @@ export class BuscarPage implements OnInit {
   local=localStorage.getItem('movie')
 
   ngOnInit() {
-    if(localStorage.getItem('movie') !== undefined){
+    if(localStorage.getItem('movie') !== null){
       this.loadedMovies = this.imdbService.getMovieLocalStorage() 
       this.status=true
       console.log('LS')
       this.filters()
-
+      console.log('AAJSLKDJASKLDJASLK')
+      console.log(localStorage.getItem('movie'))
     }
     else
     {
