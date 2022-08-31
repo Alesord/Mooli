@@ -3,33 +3,33 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/peliculas/tabs/ver-todas"></ion-back-button>
     </ion-buttons>
-    <ion-list>
-      <ion-item>
-        <ion-select placeholder="Añadir a lista" [(ngModel)]="chosenOpt" (ionChange)="onShow()" detail="false">
-          <div *ngFor="let item of loadedLists">
-            <ion-select-option value="{{ item.nombre }}">{{ item.nombre }}</ion-select-option>
-          </div>
-        </ion-select>
-      </ion-item>
-    </ion-list>
-    <ion-buttons slot="end" *ngIf="loaded">
-      <ion-button id="open-modal" expand="block">
-        <ion-icon name="calendar-outline"></ion-icon>
-      </ion-button>
+    <ion-title>Vista expandida</ion-title>
+    <ion-buttons slot="end"  *ngIf="loaded">
       <ion-button (click)="toggleSeen()" [ngClass]="{toggledClass: seen == true}">
         <ion-icon name="checkbox-outline"></ion-icon>
       </ion-button>
-    </ion-buttons>
+      <ion-button (click)="calendarModal()" margin>
+        <ion-icon name="calendar-outline"></ion-icon>
+      </ion-button>
+      <ion-list>
+        <ion-item>
+          <ion-select placeholder="Añadir a lista" [(ngModel)]="chosenOpt" (ionChange)="onShow()" detail="false">
+            <div *ngFor="let item of loadedLists">
+              <ion-select-option value="{{ item.nombre }}">{{ item.nombre }}</ion-select-option>
+            </div>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-buttons>  
   </ion-toolbar>
 </ion-header>
-
 <!-- Contenido -->
 <ion-content *ngIf="loaded">
   <ion-grid>
     <ion-row>
       <ion-col size="7">
         <ion-card>
-          <ion-img [src]=loadedMovie.image>
+          <ion-img [src]=loadedMovie.image> 
           </ion-img>
         </ion-card>
       </ion-col>
@@ -57,31 +57,4 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
-  <!--Inline modal-->
-  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
-    <ng-template>
-      <ion-header>
-        <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-button (click)="cancel()">Cancelar</ion-button>
-          </ion-buttons>
-          <ion-title>Crear recordatorio</ion-title>
-          <ion-buttons slot="end">
-            <ion-button (click)="setReminder()" [strong]="true">Confirmar</ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding">
-        <ion-item>
-          <ion-datetime 
-          displayFormat="MM/DD/YYYY" 
-          pickerFormat="MMMM YYYY"
-          min="{{ todayDate }}"
-          [(ngModel)]="date"
-          ></ion-datetime>
-        </ion-item>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
 </ion-content>

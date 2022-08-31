@@ -1,11 +1,13 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Ver mis listas</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="onLogout()">
-        <ion-icon name="log-out-outline"></ion-icon>
+    <ion-buttons slot="start">
+      <ion-button slot="start">
+        <ion-menu-button menu="main-menu"></ion-menu-button>
       </ion-button>
-      <ion-button *ngIf="this.levelUpService.getLevelUp()" (click)="onAddList()">
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button slot="end" (click)="onAddList()">
         <ion-icon name="add-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -17,11 +19,6 @@
     <ion-accordion value="first">
       <ion-item slot="header" color="light">
         <ion-label>{{list.nombre}}</ion-label>
-        <ion-buttons>
-          <ion-button slot="end" (click)="onDelete(list.nombre)">
-            <ion-icon name="trash-outline"></ion-icon>
-          </ion-button>
-        </ion-buttons>
       </ion-item>
       <div class="ion-padding" slot="content" *ngFor="let content of list.contenido" [routerLink]="['/', 'peliculas','tabs' ,'ver-todas', content.id]">
           {{ content.titulo }}

@@ -35,6 +35,10 @@ const routes: Routes = [
     path: '',
     redirectTo: '/peliculas/tabs/ver-todas',
     pathMatch: 'full'
+  },
+  {
+    path: 'buscar',
+    loadChildren: () => import('./buscar/buscar.module').then( m => m.BuscarPageModule)
   }
 ];
 

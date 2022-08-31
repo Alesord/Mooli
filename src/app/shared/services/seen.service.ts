@@ -1,22 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SeenService {
-  constructor(
-    private http: HttpClient,
-    private authService: AuthService
-    ) { }
-  // URL_BD_SEEN: `${URL_MOOLI}/users/-N8PnJ6s8FDh77vUleJp/seenList/`,
-  private userId: string = this.authService.userKey;
-  private baseUrl = `${environment.URL_USERS}/${this.userId}/seenList/`
-  
+  private baseUrl = environment.URL_BD_SEEN
+
+  constructor(private http: HttpClient) { }
+
   OnSendRequest(id: string, seen: boolean) {
-    return this.http.patch(this.baseUrl + id + '.json', {seen})
+    this.http.put(this.baseUrl + id + '.json', {seen}).subscribe({next: (respuestaData => {
+        console.log('Se ha posteado ' + respuestaData);
+      })
+    })
+  }
+
+  OnUploadSeen(id: string, seen: boolean) {
+    this.http.post(this.baseUrl + id + '.json', {seen}).subscribe({next: (respuestaData => {
+        this.OnSendRequest(id, false);
+      })
+    })
   }
   
   OnGetSeen(id: string) {

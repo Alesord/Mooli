@@ -12,7 +12,6 @@ import { ListService } from 'src/app/shared/services/list.service';
 export class CrearListaComponent implements OnInit {
 
   @Input() idUser: string;
-  createDetector: boolean = false;
   nameId: string;
   listaNueva: movieList;
 
@@ -29,8 +28,7 @@ export class CrearListaComponent implements OnInit {
   ngOnInit() {}
 
   onCancel() {
-    this.modalCtrl.dismiss([this.createDetector,  this.listaNueva.nombre]);
-    this.createDetector = false;
+    this.modalCtrl.dismiss();
   }
 
   onSubmit() {
@@ -40,10 +38,9 @@ export class CrearListaComponent implements OnInit {
       nombre: this.listaForm.value.nombreLista,
       contenido: ['']
     }
-    this.listService.OnCreateNewList(this.listaNueva, this.nameId).subscribe()
+    this.listService.nuevaLista(this.listaNueva, this.nameId)
     this.nameId = '';
     this.listaForm.reset
-    this.createDetector = true;
     this.onCancel();
   }
 }

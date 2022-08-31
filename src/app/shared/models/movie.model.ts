@@ -4,3 +4,8 @@ export interface Movie {
     description: string;
 
 }
+
+export interface Filtros {
+    directorUsuario: string,
+    generoUsuario: string,
+}

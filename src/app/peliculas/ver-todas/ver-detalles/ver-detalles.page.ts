@@ -1,27 +1,22 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IonModal, NavController, ToastController } from '@ionic/angular';
-import { Subject } from 'rxjs';
-import { map, takeUntil } from 'rxjs/operators';
+import { IonModal, ModalController, NavController, ToastController } from '@ionic/angular';
 import { MovieData } from 'src/app/shared/models/list.model';
+import { CalendarPage } from 'src/app/shared/native/calendar/calendar.page';
 import { ImdbService } from 'src/app/shared/services/imdb.service';
 import { ListService } from 'src/app/shared/services/list.service';
 import { SeenService } from 'src/app/shared/services/seen.service';
-import { OverlayEventDetail } from '@ionic/core/components';
-import { CalendarService } from 'src/app/shared/services/calendar.service';
-import * as moment from 'moment';
 
 @Component({
   selector: 'app-ver-detalles',
   templateUrl: './ver-detalles.page.html',
   styleUrls: ['./ver-detalles.page.scss'],
 })
-export class VerDetallesPage implements OnInit, OnDestroy {
+export class VerDetallesPage implements OnInit {
 
-  @ViewChild(IonModal) modal: IonModal;
   loadedMovie: any;
   loadedMovies: any;
-  loadedLists: any[] = [];
+  loadedLists: any;
   loadedId: string;
   loaded: boolean = false;
   seen: any;
@@ -29,13 +24,7 @@ export class VerDetallesPage implements OnInit, OnDestroy {
   option: string;
   chosenOpt: string;
   indexOfList: any;
-  movieData: MovieData;
-  unsub: Subject<void> = new Subject()
-  name: string;
-  message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
-  date: any;
-  todayDate: string = moment().format('YYYY-MM-DD')
-
+  movieData: MovieData
 // Prueba de push
   constructor(
     private router: ActivatedRoute,
@@ -44,40 +33,44 @@ export class VerDetallesPage implements OnInit, OnDestroy {
     private seenService: SeenService,
     public toastController: ToastController,
     private listService: ListService,
-    private calendarService: CalendarService 
-  ) { }
+    private modalCtrl: ModalController
+  ) { };
+
+  @ViewChild(IonModal) modal: IonModal;
+  
+  movie = JSON.parse(localStorage.getItem('movie'))
 
   ngOnInit() {
-    this.router.paramMap
-    .pipe(takeUntil(this.unsub))
-    .subscribe(pM => {
+    this.router.paramMap.subscribe(pM => {
       if (!pM.has('peliculaId')) {
         this.navCtrl.navigateBack('/peliculas/tabs/ver-todas')
       }
       this.loadedId = pM.get('peliculaId');
 
-      this.imdbService.findMovie(this.loadedId)
-      .pipe(takeUntil(this.unsub))
-      .subscribe(res => {
-        this.loadedMovie = res;
-        this.updateSeen();
-        this.loaded = true;
-      })
-    })
-    this.listService.displayExistingLists().pipe(map(response => {
-      for (let k in response) {
-        this.loadedLists.push(response[k])
-        console.log(this.loadedLists)
+      if(this.movie !== null){
+        this.loadedMovie = this.imdbService.findMovieLs(this.loadedId)
+        console.log(this.loadedId)
+        console.log(this.loadedMovie)
+        this.updateSeen()
+        this.loaded = true
       }
-    }))
-    .pipe(takeUntil(this.unsub))
-    .subscribe();
+      else{
+      this.imdbService.findMovie(this.loadedId).subscribe(res => {
+        this.loadedMovie = res;
+        console.log(this.loadedMovie)
+        this.updateSeen();
+        this.loaded = true
+        
+      })
+    }
+    })
+
+    this.loadedLists = this.listService.getAllLists();
+    console.log('Hola ' + this.loadedLists)
   }
 
   updateSeen() {
-    this.seenService.OnGetSeen(this.loadedId)
-    .pipe(takeUntil(this.unsub))
-    .subscribe({next: (bool: boolean) => {
+    this.seenService.OnGetSeen(this.loadedId).subscribe({next: (bool: boolean) => {
       this.seenObject = bool;
       this.seen = this.seenObject.seen;
     }})
@@ -94,9 +87,7 @@ export class VerDetallesPage implements OnInit, OnDestroy {
       this.option = 'vista'
     }
     this.presentToast();
-    this.seenService.OnSendRequest(this.loadedId, this.seen)
-    .pipe(takeUntil(this.unsub))
-    .subscribe()
+    this.seenService.OnSendRequest(this.loadedId, this.seen);
   }
 
   onShow() {
@@ -106,25 +97,17 @@ export class VerDetallesPage implements OnInit, OnDestroy {
     this.chosenOpt = this.chosenOpt.toLowerCase().replace(/\s/g, '-')
     console.log('Seleccionaste la opcion ' +  this.indexOfList)
     this.movieData = {
-      titulo: this.loadedMovie.title,
+      titulo: this.loadedMovie.title, 
       imagen: this.loadedMovie.image
     }
     this.onSend();
   }
 
-  setReminder() {
-    console.log(this.date)
-    console.log('Reminder set to: ' + moment(this.date).format('YYYY-MM-DD'))
-    this.calendarService.onAddReminder(this.loadedId, this.date).subscribe(next => {
-      console.log(next)
-      this.confirm()
-    })
-  }
-
   onSend(){
     this.listService.MovieToList(this.chosenOpt, this.loadedId, this.movieData)
-    .pipe(takeUntil(this.unsub))
-    .subscribe()
+  }
+  onNew() {
+    this.listService.newList(this.loadedLists[this.indexOfList], this.indexOfList)
   }
 
   async presentToast() {
@@ -136,24 +119,23 @@ export class VerDetallesPage implements OnInit, OnDestroy {
     toast.present()
   }
 
-  cancel() {
-    this.modal.dismiss(null, 'cancel');
-  }
 
-  confirm() {
-    this.modal.dismiss(this.name, 'confirm');
+  calendarModal(){
+    this.modalCtrl
+    .create({
+      component: CalendarPage
+    })
+    .then(modal =>{
+      modal.present();
+      return modal.onDidDismiss()})
+    .then((res:
+      {
+        role:string
+      })=>{
+        if(res.role === 'confirm'){
+          
+        }
+      })
   }
-
-  onWillDismiss(event: Event) {
-    const ev = event as CustomEvent<OverlayEventDetail<string>>;
-    if (ev.detail.role === 'confirm') {
-      console.log(this.date)
-    }
-  }
-
-  ngOnDestroy() {
-    this.unsub.next();
-    this.unsub.unsubscribe();
-  }
-
+  
 }

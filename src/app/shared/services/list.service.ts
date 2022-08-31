@@ -1,36 +1,74 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Lista, } from '../models/list.model';
 import { map } from 'rxjs/operators';
-import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListService {
-  constructor(
-    private http: HttpClient,
-    private authService: AuthService
-    ) { }
 
-  private userId: string = this.authService.userKey;
-  private baseUrl = `${environment.URL_USERS}/${this.userId}/listas/`
-  private plainUrl = `${environment.URL_USERS}/${this.userId}/listas.json`
 
-  OnCreateNewList(data, folderName) {
-    console.log('poniendo lista en ' + this.baseUrl + folderName + '.json', data)
-    return this.http.put(this.baseUrl + folderName + '.json', data)
+  private baseUrl = environment.URL_BD_LIST
+  private plainUrl = environment.URL_BD_LIST_PLAIN
+
+  constructor(private http: HttpClient) { }
+
+  userId: string = 'a1';
+
+  allLists: Lista[] = [
+    {
+      listName: 'Lista por ver',
+      listContent: [
+        'tt0441773',
+        'tt10648342',
+        'tt5251328',
+        'tt9411972'
+      ]
+    },
+    {
+      listName: 'Lista de las buenas',
+      listContent: [
+        'tt10648342',
+        'tt1649418'
+      ]
+    },
+  ]
+
+  getMyList() {
+    console.log(this.allLists + 'askdjaslkdjaslk')
+    return this.allLists;
+  }
+
+  nuevaLista(data, folderName) {
+    this.http.put(this.baseUrl + folderName + '.json', data).subscribe({next: respuesta => {
+      console.log(respuesta);
+    }})
+  }
+
+  newList(data: any, id: number) {
+    this.http.put(this.baseUrl + id + '.json', data).subscribe({next: respuesta => {
+    }})
   }
   
-  deleteList(id: string){
-    return this.http.delete(this.baseUrl + id + '.json')
-  }
-
-  displayExistingLists() {
-    return this.http.get(this.plainUrl)
+  newListDeep(data: any, id: number) {
+    this.http.put(this.baseUrl + id + '/listContent.json', data).subscribe({next: respuesta => {
+    }})
   }
 
   getAllLists() {
+    let array: any[] = []
+    this.http.get(this.plainUrl).pipe(map(response => {
+      for (let k in response) {
+        array.push(response[k])
+      }
+    })).subscribe()
+    return array;
+  }
+
+
+  getAllLists2() {
     let array: any[] = []
     let arrayX: any[] = []
     this.http.get(this.plainUrl).pipe(map(response => {
@@ -53,6 +91,7 @@ export class ListService {
         }
       }
     })).subscribe()
+    console.log(arrayX)
     return arrayX;
   }
 
@@ -81,13 +120,13 @@ export class ListService {
         return s;
       }, [])
       console.log(x)
-      this.http.put(this.baseUrl + ind + '/listContent.json', x).subscribe({next: respuesta => {
-      }})
+      this.newListDeep(x, ind)
     })).subscribe()
   }
 
   MovieToList(chosenOpt: string, loadedId: string, data) {
-    return this.http.put(this.baseUrl + '/' + chosenOpt +'/contenido/' + loadedId + '.json', data)
+    this.http.put(this.baseUrl + '/' + chosenOpt +'/contenido/' + loadedId + '.json', data).subscribe({next: respuesta => {
+      console.log(respuesta)
+    }})
   }
-
 }
