@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-title>Buscador</ion-title>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button class="button-asd" (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons>
+      <ion-button (click)="saveTest()">
+        <ion-icon slot="icon-only" name="save"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- [presentingElement]="presentingElement" -->
+<ion-content>
+<ion-toolbar>
+  <ion-title> Buscador</ion-title>
+      
+</ion-toolbar>
+<p class="ion-padding-horizontal">Elige el genero por el cual quieras filtrar</p>
+  <ion-accordion-group [multiple]="true">
+  <ion-accordion value="first">
+    <ion-item slot="header" color="light">
+    <ion-label>Generos</ion-label>
+  </ion-item>
+    <div class="ion-padding" slot="content">  
+  <ion-list >
+    <!-- *ngFor="let i of genero" -->
+    <ion-item *ngFor="let genero of generos">
+       <ion-label>{{genero}}</ion-label>
+        <!-- <ion-select ="true"> -->
+          <!-- test -->
+          <ion-checkbox (ionChange)="TestG(genero)"></ion-checkbox>
+      <!-- </ion-select>  -->
+    </ion-item>
+  </ion-list>
+</div>
+</ion-accordion>
+<ion-accordion value="second">
+  <ion-item slot="header" color="light">
+    <ion-label>Directores</ion-label>
+  </ion-item>
+  <div class="ion-padding" slot="content">
+    <ion-list>
+      <ion-item *ngFor="let director of directores ">
+        <ion-label>{{director}}</ion-label>
+          <ion-checkbox  (ionChange)="TestD(director)"></ion-checkbox>
+      <!-- <ion-select [(ngModel)]="test" multiple="true">
+        <ion-select-option>{{director}}</ion-select-option> -->
+      <!-- </ion-select> -->
+    </ion-item>
+    </ion-list>
+  </div>
+</ion-accordion>
+</ion-accordion-group>
+<ion-buttons>
+  <ion-label>Peliculas vistas</ion-label>
+  <!-- <ion-button (click)="checkFilter()"></ion-button> -->
+</ion-buttons>
+    </ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ion-list>
+  <ion-item *ngFor="let i of filtersGenre">
+    <ion-label  ng-model="checkItems[i]" ng-value="i">{{i}}</ion-label>
+  </ion-item>
+</ion-list> -->
+
+
+
+
+  <!-- <ion-buttons slot="end">
+    <button (click)="saveTest()">Filtrar</button>
+  </ion-buttons>
+    
+        <button (click)="cancel()">Limpar</button> -->
+      
+  <!-- <ion-buttons slot="primary">
+    <button (click)="cancel()">Cancelar</button>
+  </ion-buttons> -->
