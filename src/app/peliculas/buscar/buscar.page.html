@@ -1,9 +1,58 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>buscar</ion-title>
+  <ion-buttons slot="start">
+    <ion-menu-button menu="main-menu"></ion-menu-button>
+  </ion-buttons>
+  <ion-buttons slot="end">
+    <ion-button href="/src/app/component/upper-toolbar/upper-toolbar.component.html">
+      <ion-icon name="notifications-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+      <ion-title>Buscador</ion-title>
   </ion-toolbar>
+
+  <ion-toolbar>
+      <ion-searchbar placeholder="Buscar Pelicula" animated (ionChange)="searchMovie($event)"></ion-searchbar>
+  </ion-toolbar>
+
 </ion-header>
 
-<ion-content>
+<!-- <ion-list *ngIf="loadedMovies.lenght === 0">
+<ion-row offset="1">
+  <ion-col size="6" *ngFor="let i of [1,1,1,1]">
+    <ion-card>
+      <ion-skeleton-text style="width: 100%; height: 190px"></ion-skeleton-text>
+      <ion-skeleton-text style="width:70%"></ion-skeleton-text>
+    </ion-card>
+  </ion-col>
+</ion-row>
+</ion-list> -->
 
+<!-- loadedMovies.lenght > 0 -->
+
+<ion-content>
+  <ion-button color="primary" margin (click)="filterModal()"  expand="block">Filtrar</ion-button>
+  
+
+  <!-- *ngFor="let i of loadedGenres" -->
+<!-- test -->
+  <ion-list *ngIf="status">
+      <ion-row offset="1">
+          <ion-col size="6" *ngFor="let movie of loadedMovies | filtro:searchTitle | genero:filterData">
+              <ion-card [routerLink]="['/', 'peliculas','tabs' ,'ver-todas', movie.id]">
+                  <ion-img src="{{ movie.image }}"></ion-img>
+                  <ion-card-header>
+                      <ion-label class="ion-text-center">{{ movie.title }}</ion-label>
+                  </ion-card-header>
+                  <ion-card-content>
+                      <ion-buttons>
+                          <ion-button [routerLink]="['/', 'peliculas','tabs' ,'ver-todas', movie.id]">
+                              <ion-icon name="arrow-forward-outline" color="primary"></ion-icon>
+                          </ion-button>
+                      </ion-buttons>
+                  </ion-card-content>
+              </ion-card>
+          </ion-col>
+      </ion-row>
+  </ion-list>
 </ion-content>
