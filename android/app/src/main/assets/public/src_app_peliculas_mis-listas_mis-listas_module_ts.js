@@ -169,17 +169,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MisListasPage": () => (/* binding */ MisListasPage)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! tslib */ 4929);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! tslib */ 4929);
 /* harmony import */ var _mis_listas_page_html_ngResource__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mis-listas.page.html?ngResource */ 9198);
 /* harmony import */ var _mis_listas_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mis-listas.page.scss?ngResource */ 4061);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/core */ 2560);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ 124);
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic/angular */ 3819);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ 2218);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ 5921);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ 124);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic/angular */ 3819);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ 2218);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ 5921);
 /* harmony import */ var src_app_shared_services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/services/auth.service */ 629);
-/* harmony import */ var src_app_shared_services_list_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/list.service */ 2499);
-/* harmony import */ var _crear_lista_crear_lista_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./crear-lista/crear-lista.component */ 9749);
+/* harmony import */ var src_app_shared_services_level_up_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/level-up.service */ 9916);
+/* harmony import */ var src_app_shared_services_list_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/list.service */ 2499);
+/* harmony import */ var _crear_lista_crear_lista_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./crear-lista/crear-lista.component */ 9749);
+
 
 
 
@@ -192,16 +194,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MisListasPage = class MisListasPage {
-    constructor(listService, modalCtrl, authService, router) {
+    constructor(listService, modalCtrl, authService, router, levelUpService) {
         this.listService = listService;
         this.modalCtrl = modalCtrl;
         this.authService = authService;
         this.router = router;
+        this.levelUpService = levelUpService;
         this.loadedMovies = [];
         this.allIds = [];
         this.isLoaded = false;
+        this.isLevel2 = this.levelUpService.getLevelUp();
         this.userKey = 'usuario1h18';
-        this.unsub = new rxjs__WEBPACK_IMPORTED_MODULE_5__.Subject();
+        this.unsub = new rxjs__WEBPACK_IMPORTED_MODULE_6__.Subject();
     }
     ngOnInit() {
     }
@@ -214,7 +218,7 @@ let MisListasPage = class MisListasPage {
     }
     onAddList() {
         this.modalCtrl
-            .create({ component: _crear_lista_crear_lista_component__WEBPACK_IMPORTED_MODULE_4__.CrearListaComponent, componentProps: { idUser: this.userKey } })
+            .create({ component: _crear_lista_crear_lista_component__WEBPACK_IMPORTED_MODULE_5__.CrearListaComponent, componentProps: { idUser: this.userKey } })
             .then(modalElement => {
             modalElement.present();
             modalElement.onDidDismiss().then((data) => {
@@ -227,7 +231,7 @@ let MisListasPage = class MisListasPage {
     onDelete(listNombre) {
         let listId = listNombre.toLowerCase().replace(/\s/g, '-');
         this.listService.deleteList(listId)
-            .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.takeUntil)(this.unsub))
+            .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_7__.takeUntil)(this.unsub))
             .subscribe();
     }
     onLogout() {
@@ -240,13 +244,14 @@ let MisListasPage = class MisListasPage {
     }
 };
 MisListasPage.ctorParameters = () => [
-    { type: src_app_shared_services_list_service__WEBPACK_IMPORTED_MODULE_3__.ListService },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.ModalController },
+    { type: src_app_shared_services_list_service__WEBPACK_IMPORTED_MODULE_4__.ListService },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.ModalController },
     { type: src_app_shared_services_auth_service__WEBPACK_IMPORTED_MODULE_2__.AuthService },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__.Router }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__.Router },
+    { type: src_app_shared_services_level_up_service__WEBPACK_IMPORTED_MODULE_3__.LevelUpService }
 ];
-MisListasPage = (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_10__.Component)({
+MisListasPage = (0,tslib__WEBPACK_IMPORTED_MODULE_10__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_11__.Component)({
         selector: 'app-mis-listas',
         template: _mis_listas_page_html_ngResource__WEBPACK_IMPORTED_MODULE_0__,
         styles: [_mis_listas_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_1__]
@@ -457,7 +462,7 @@ module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>Crea tu list
   \**********************************************************************/
 /***/ ((module) => {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>Ver mis listas</ion-title>\r\n    <ion-buttons slot=\"end\">\r\n      <ion-button (click)=\"onLogout()\">\r\n        <ion-icon name=\"log-out-outline\"></ion-icon>\r\n      </ion-button>\r\n      <ion-button (click)=\"onAddList()\">\r\n        <ion-icon name=\"add-outline\"></ion-icon>\r\n      </ion-button>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-accordion-group *ngFor=\"let list of loadedLists\">\r\n    <ion-accordion value=\"first\">\r\n      <ion-item slot=\"header\" color=\"light\">\r\n        <ion-label>{{list.nombre}}</ion-label>\r\n        <ion-buttons>\r\n          <ion-button slot=\"end\" (click)=\"onDelete(list.nombre)\">\r\n            <ion-icon name=\"trash-outline\"></ion-icon>\r\n          </ion-button>\r\n        </ion-buttons>\r\n      </ion-item>\r\n      <div class=\"ion-padding\" slot=\"content\" *ngFor=\"let content of list.contenido\" [routerLink]=\"['/', 'peliculas','tabs' ,'ver-todas', content.id]\">\r\n          {{ content.titulo }}\r\n      </div>\r\n    </ion-accordion>\r\n  </ion-accordion-group>\r\n</ion-content>\r\n";
+module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>Ver mis listas</ion-title>\r\n    <ion-buttons slot=\"end\">\r\n      <ion-button (click)=\"onLogout()\">\r\n        <ion-icon name=\"log-out-outline\"></ion-icon>\r\n      </ion-button>\r\n      <ion-button *ngIf=\"this.levelUpService.getLevelUp()\" (click)=\"onAddList()\">\r\n        <ion-icon name=\"add-outline\"></ion-icon>\r\n      </ion-button>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-accordion-group *ngFor=\"let list of loadedLists\">\r\n    <ion-accordion value=\"first\">\r\n      <ion-item slot=\"header\" color=\"light\">\r\n        <ion-label>{{list.nombre}}</ion-label>\r\n        <ion-buttons>\r\n          <ion-button slot=\"end\" (click)=\"onDelete(list.nombre)\">\r\n            <ion-icon name=\"trash-outline\"></ion-icon>\r\n          </ion-button>\r\n        </ion-buttons>\r\n      </ion-item>\r\n      <div class=\"ion-padding\" slot=\"content\" *ngFor=\"let content of list.contenido\" [routerLink]=\"['/', 'peliculas','tabs' ,'ver-todas', content.id]\">\r\n          {{ content.titulo }}\r\n      </div>\r\n    </ion-accordion>\r\n  </ion-accordion-group>\r\n</ion-content>\r\n";
 
 /***/ })
 

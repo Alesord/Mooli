@@ -66,20 +66,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppComponent": () => (/* binding */ AppComponent)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ 4929);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ 4929);
 /* harmony import */ var _app_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app.component.html?ngResource */ 3383);
 /* harmony import */ var _app_component_scss_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.component.scss?ngResource */ 9259);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _shared_services_level_up_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./shared/services/level-up.service */ 9916);
+
 
 
 
 
 let AppComponent = class AppComponent {
-    constructor() { }
+    constructor(levelUpService) {
+        this.levelUpService = levelUpService;
+        this.color = 'primary';
+    }
+    onLevelChange() {
+        this.levelUpService.whenLevelChange().then(res => {
+            let isLeveled = this.levelUpService.getLevelUp();
+            if (isLeveled) {
+                console.log(isLeveled + 'Danger');
+                this.color = 'danger';
+            }
+            else {
+                console.log(isLeveled + 'Primary');
+                this.color = 'primary';
+            }
+        });
+    }
 };
-AppComponent.ctorParameters = () => [];
-AppComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_3__.Component)({
+AppComponent.ctorParameters = () => [
+    { type: _shared_services_level_up_service__WEBPACK_IMPORTED_MODULE_2__.LevelUpService }
+];
+AppComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.Component)({
         selector: 'app-root',
         template: _app_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__,
         styles: [_app_component_scss_ngResource__WEBPACK_IMPORTED_MODULE_1__]
@@ -101,14 +121,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppModule": () => (/* binding */ AppModule)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ 4929);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 2560);
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ 4497);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ 124);
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ 3819);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ 4929);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ 4497);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ 124);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/angular */ 3819);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app.component */ 5041);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app-routing.module */ 158);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ 8987);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common/http */ 8987);
+/* harmony import */ var _component_component_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./component/component.module */ 5051);
+
 
 
 
@@ -119,11 +141,11 @@ __webpack_require__.r(__webpack_exports__);
 
 let AppModule = class AppModule {
 };
-AppModule = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_3__.NgModule)({
+AppModule = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.NgModule)({
         declarations: [_app_component__WEBPACK_IMPORTED_MODULE_0__.AppComponent],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__.BrowserModule, _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.IonicModule.forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_1__.AppRoutingModule, _angular_common_http__WEBPACK_IMPORTED_MODULE_6__.HttpClientModule],
-        providers: [{ provide: _angular_router__WEBPACK_IMPORTED_MODULE_7__.RouteReuseStrategy, useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.IonicRouteStrategy }],
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__.BrowserModule, _ionic_angular__WEBPACK_IMPORTED_MODULE_6__.IonicModule.forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_1__.AppRoutingModule, _angular_common_http__WEBPACK_IMPORTED_MODULE_7__.HttpClientModule, _component_component_module__WEBPACK_IMPORTED_MODULE_2__.ComponentModule],
+        providers: [{ provide: _angular_router__WEBPACK_IMPORTED_MODULE_8__.RouteReuseStrategy, useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__.IonicRouteStrategy }],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_0__.AppComponent],
     })
 ], AppModule);
@@ -193,6 +215,163 @@ AuthGuard = (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__decorate)([
         providedIn: 'root'
     })
 ], AuthGuard);
+
+
+
+/***/ }),
+
+/***/ 8809:
+/*!****************************************************!*\
+  !*** ./src/app/component/chart/chart.component.ts ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ChartComponent": () => (/* binding */ ChartComponent)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ 4929);
+/* harmony import */ var _chart_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./chart.component.html?ngResource */ 9297);
+/* harmony import */ var _chart_component_scss_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chart.component.scss?ngResource */ 5933);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 2560);
+
+
+
+
+let ChartComponent = class ChartComponent {
+    constructor() { }
+    ngOnInit() { }
+};
+ChartComponent.ctorParameters = () => [];
+ChartComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_3__.Component)({
+        selector: 'app-chart',
+        template: _chart_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__,
+        styles: [_chart_component_scss_ngResource__WEBPACK_IMPORTED_MODULE_1__]
+    })
+], ChartComponent);
+
+
+
+/***/ }),
+
+/***/ 5051:
+/*!***********************************************!*\
+  !*** ./src/app/component/component.module.ts ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ComponentModule": () => (/* binding */ ComponentModule)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ 4929);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ 4666);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ 2508);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic/angular */ 3819);
+/* harmony import */ var _chart_chart_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./chart/chart.component */ 8809);
+/* harmony import */ var _side_drawer_side_drawer_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./side-drawer/side-drawer.component */ 9869);
+/* harmony import */ var _upper_toolbar_upper_toolbar_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./upper-toolbar/upper-toolbar.component */ 1562);
+
+
+
+
+
+
+
+
+let ComponentModule = class ComponentModule {
+};
+ComponentModule = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.NgModule)({
+        declarations: [
+            _chart_chart_component__WEBPACK_IMPORTED_MODULE_0__.ChartComponent,
+            _side_drawer_side_drawer_component__WEBPACK_IMPORTED_MODULE_1__.SideDrawerComponent,
+            _upper_toolbar_upper_toolbar_component__WEBPACK_IMPORTED_MODULE_2__.UpperToolbarComponent
+        ],
+        imports: [
+            _angular_common__WEBPACK_IMPORTED_MODULE_5__.CommonModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_6__.FormsModule,
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.IonicModule
+        ],
+        exports: [_side_drawer_side_drawer_component__WEBPACK_IMPORTED_MODULE_1__.SideDrawerComponent]
+    })
+], ComponentModule);
+
+
+
+/***/ }),
+
+/***/ 9869:
+/*!****************************************************************!*\
+  !*** ./src/app/component/side-drawer/side-drawer.component.ts ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "SideDrawerComponent": () => (/* binding */ SideDrawerComponent)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ 4929);
+/* harmony import */ var _side_drawer_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./side-drawer.component.html?ngResource */ 6490);
+/* harmony import */ var _side_drawer_component_scss_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./side-drawer.component.scss?ngResource */ 6681);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 2560);
+
+
+
+
+let SideDrawerComponent = class SideDrawerComponent {
+    constructor() { }
+    ngOnInit() { }
+};
+SideDrawerComponent.ctorParameters = () => [];
+SideDrawerComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_3__.Component)({
+        selector: 'app-side-drawer',
+        template: _side_drawer_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__,
+        styles: [_side_drawer_component_scss_ngResource__WEBPACK_IMPORTED_MODULE_1__]
+    })
+], SideDrawerComponent);
+
+
+
+/***/ }),
+
+/***/ 1562:
+/*!********************************************************************!*\
+  !*** ./src/app/component/upper-toolbar/upper-toolbar.component.ts ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UpperToolbarComponent": () => (/* binding */ UpperToolbarComponent)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ 4929);
+/* harmony import */ var _upper_toolbar_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./upper-toolbar.component.html?ngResource */ 4481);
+/* harmony import */ var _upper_toolbar_component_scss_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./upper-toolbar.component.scss?ngResource */ 8815);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 2560);
+
+
+
+
+let UpperToolbarComponent = class UpperToolbarComponent {
+    constructor() { }
+    ngOnInit() { }
+};
+UpperToolbarComponent.ctorParameters = () => [];
+UpperToolbarComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_3__.Component)({
+        selector: 'app-upper-toolbar',
+        template: _upper_toolbar_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__,
+        styles: [_upper_toolbar_component_scss_ngResource__WEBPACK_IMPORTED_MODULE_1__]
+    })
+], UpperToolbarComponent);
 
 
 
@@ -389,6 +568,58 @@ AuthService.ctorParameters = () => [{
 AuthService = (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__decorate)([(0,_angular_core__WEBPACK_IMPORTED_MODULE_10__.Injectable)({
   providedIn: 'root'
 })], AuthService);
+
+
+/***/ }),
+
+/***/ 9916:
+/*!*****************************************************!*\
+  !*** ./src/app/shared/services/level-up.service.ts ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "LevelUpService": () => (/* binding */ LevelUpService)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ 4929);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @ionic/angular */ 3819);
+
+
+
+let LevelUpService = class LevelUpService {
+    constructor(loadingCtrl) {
+        this.loadingCtrl = loadingCtrl;
+        this._isLevelTwo = false;
+    }
+    getLevelUp() {
+        return this._isLevelTwo;
+    }
+    whenLevelChange() {
+        return this.loadingCtrl.create({
+            keyboardClose: true,
+            spinner: 'bubbles',
+            message: 'Cargando cambio de acceso...'
+        }).then(loadingEl => {
+            loadingEl.present();
+            this._isLevelTwo = !this._isLevelTwo;
+            console.log(this._isLevelTwo + ' Holaaaa');
+            loadingEl.dismiss();
+            return !this._isLevelTwo;
+        });
+    }
+};
+LevelUpService.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_0__.LoadingController }
+];
+LevelUpService = (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.Injectable)({
+        providedIn: 'root'
+    })
+], LevelUpService);
+
 
 
 /***/ }),
@@ -718,6 +949,39 @@ module.exports = "ion-toolbar {\n  --min-height:50px!important;\n}\n/*# sourceMa
 
 /***/ }),
 
+/***/ 5933:
+/*!*****************************************************************!*\
+  !*** ./src/app/component/chart/chart.component.scss?ngResource ***!
+  \*****************************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJjaGFydC5jb21wb25lbnQuc2NzcyJ9 */";
+
+/***/ }),
+
+/***/ 6681:
+/*!*****************************************************************************!*\
+  !*** ./src/app/component/side-drawer/side-drawer.component.scss?ngResource ***!
+  \*****************************************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzaWRlLWRyYXdlci5jb21wb25lbnQuc2NzcyJ9 */";
+
+/***/ }),
+
+/***/ 8815:
+/*!*********************************************************************************!*\
+  !*** ./src/app/component/upper-toolbar/upper-toolbar.component.scss?ngResource ***!
+  \*********************************************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJ1cHBlci10b29sYmFyLmNvbXBvbmVudC5zY3NzIn0= */";
+
+/***/ }),
+
 /***/ 3383:
 /*!***********************************************!*\
   !*** ./src/app/app.component.html?ngResource ***!
@@ -725,7 +989,40 @@ module.exports = "ion-toolbar {\n  --min-height:50px!important;\n}\n/*# sourceMa
 /***/ ((module) => {
 
 "use strict";
-module.exports = "<ion-app>\r\n  <ion-router-outlet></ion-router-outlet>\r\n</ion-app>\r\n";
+module.exports = "<ion-app>\r\n  <app-side-drawer></app-side-drawer>\r\n  <ion-router-outlet id=\"main\"></ion-router-outlet>\r\n  <ion-fab vertical=\"center\" horizontal=\"end\" slot=\"fixed\">\r\n    <ion-fab-button color=\"{{ color }}\" (click)=\"onLevelChange()\">\r\n      <ion-icon name=\"key-outline\"></ion-icon>\r\n    </ion-fab-button>\r\n  </ion-fab>\r\n</ion-app>\r\n";
+
+/***/ }),
+
+/***/ 9297:
+/*!*****************************************************************!*\
+  !*** ./src/app/component/chart/chart.component.html?ngResource ***!
+  \*****************************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = "<p>\r\n  chart works!\r\n</p>\r\n";
+
+/***/ }),
+
+/***/ 6490:
+/*!*****************************************************************************!*\
+  !*** ./src/app/component/side-drawer/side-drawer.component.html?ngResource ***!
+  \*****************************************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = "<ion-menu side=\"start\" menuId=\"main-menu\" contentId=\"main\">\r\n  <ion-header>\r\n    <ion-toolbar>\r\n      <ion-title> Mooli </ion-title>\r\n    </ion-toolbar>\r\n  </ion-header>\r\n\r\n  <ion-content>\r\n    <ion-list>\r\n      <ion-menu-toggle>\r\n        <ion-item RouterLink=\"\">\r\n          <!-- <ion-icon name=\"person-circle-outline\"></ion-icon> -->\r\n\r\n          <!-- <ion-label>{{usuario.imagen}}</ion-label>\r\n          <ion-label>{{usuario.nombre}}</ion-label> -->\r\n\r\n        </ion-item>\r\n        <ion-item RouterLink=\"\">\r\n          <ion-icon name=\"key-outline\" slot=\"start\"></ion-icon>\r\n          <ion-label> Recuperar contraseña</ion-label>\r\n        </ion-item>\r\n        <ion-item RouterLink=\"\">\r\n          <ion-icon name=\"finger-print-outline\" slot=\"start\"></ion-icon>\r\n          <ion-label> Acceso de nivel 2</ion-label>\r\n        </ion-item >\r\n        <ion-item RouterLink=\"\">\r\n          <ion-icon name=\"exit\" slot=\"start\"></ion-icon>\r\n          <ion-label>Cerrar sesion</ion-label>\r\n        </ion-item>\r\n      </ion-menu-toggle>\r\n    </ion-list>\r\n  </ion-content>\r\n</ion-menu>";
+
+/***/ }),
+
+/***/ 4481:
+/*!*********************************************************************************!*\
+  !*** ./src/app/component/upper-toolbar/upper-toolbar.component.html?ngResource ***!
+  \*********************************************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = "<ion-header>\r\n<!-- Notificaciones --><h1>Hi</h1>\r\n<ion-buttons>\r\n    <ion-button routerLink=\"\">\r\n        <ion-icon>\r\n\r\n        </ion-icon>\r\n    </ion-button>\r\n</ion-buttons>\r\n</ion-header>";
 
 /***/ })
 

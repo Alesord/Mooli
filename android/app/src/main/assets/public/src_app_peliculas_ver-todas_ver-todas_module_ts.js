@@ -167,7 +167,7 @@ let VerTodasPage = class VerTodasPage {
                         this.imdbService.findMovie(i).subscribe(nextEl => {
                             let movie = JSON.parse(JSON.stringify(nextEl));
                             console.log('Tienes una alerta para ver ' + movie.title);
-                            this.notificationsService.createNotification('Tenés un recordatorio', `${movie.title} te espera para ver`, movie.title);
+                            this.notificationsService.createNotification('Tenés un recordatorio', `${movie.title} te espera HOY para que la veas y disfrutés de una tarde de película`, movie.title);
                         });
                     }
                 }
@@ -388,7 +388,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
   \********************************************************************/
 /***/ ((module) => {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>Todas las Peliculas</ion-title>\r\n    <ion-buttons slot=\"end\">\r\n      <ion-button (click)=\"onLogout()\">\r\n        <ion-icon name=\"log-out-outline\"></ion-icon>\r\n      </ion-button>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content >\r\n <ion-grid *ngIf=\"status\">\r\n  <ion-row offset=\"1\">\r\n    <ion-col size=\"6\" *ngFor=\"let movie of loadedMovies\">\r\n      <ion-card [routerLink]=\"['/', 'peliculas','tabs' ,'ver-todas', movie.id]\">\r\n        <ion-img src=\"{{ movie.image }}\"></ion-img>\r\n        <ion-card-header>\r\n          <ion-label class=\"ion-text-center\">{{ movie.title }}</ion-label>\r\n        </ion-card-header>\r\n        <ion-card-content>\r\n          <ion-buttons>\r\n            <ion-button [routerLink]=\"['/', 'peliculas','tabs' ,'ver-todas', movie.id]\">\r\n              <ion-icon name=\"arrow-forward-outline\" color=\"primary\"></ion-icon>\r\n            </ion-button>\r\n          </ion-buttons>\r\n        </ion-card-content>\r\n      </ion-card>\r\n    </ion-col>\r\n  </ion-row>\r\n </ion-grid>\r\n</ion-content>\r\n";
+module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button menu=\"main-menu\"></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title>Todas las Peliculas</ion-title>\r\n    <ion-buttons slot=\"end\">\r\n      <ion-button (click)=\"onLogout()\">\r\n        <ion-icon name=\"log-out-outline\"></ion-icon>\r\n      </ion-button>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n <ion-grid *ngIf=\"status\">\r\n  <ion-row offset=\"1\">\r\n    <ion-col size=\"6\" *ngFor=\"let movie of loadedMovies\">\r\n      <ion-card [routerLink]=\"['/', 'peliculas','tabs' ,'ver-todas', movie.id]\">\r\n        <ion-img src=\"{{ movie.image }}\"></ion-img>\r\n        <ion-card-header>\r\n          <ion-label class=\"ion-text-center\">{{ movie.title }}</ion-label>\r\n        </ion-card-header>\r\n        <ion-card-content>\r\n          <ion-buttons>\r\n            <ion-button [routerLink]=\"['/', 'peliculas','tabs' ,'ver-todas', movie.id]\">\r\n              <ion-icon name=\"arrow-forward-outline\" color=\"primary\"></ion-icon>\r\n            </ion-button>\r\n          </ion-buttons>\r\n        </ion-card-content>\r\n      </ion-card>\r\n    </ion-col>\r\n  </ion-row>\r\n </ion-grid>\r\n</ion-content>\r\n";
 
 /***/ })
 

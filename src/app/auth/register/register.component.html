@@ -25,14 +25,17 @@
         <ion-col size-md="6" offset-md="3" class="ion-text-center">
           <ion-item>
             <ion-label position="floating">Contraseña</ion-label>
-            <ion-input type="password" formControlName='password' autocomplete="new-password"></ion-input>
+            <ion-input type="password" formControlName='password' autocomplete="new-password" *ngIf="opt === 1"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-button expand="block" color="primary" (click)="registrar()" [disabled]="!registerForm.valid">
+          <ion-button expand="block" color="primary" (click)="registrar()" [disabled]="!registerForm.valid" *ngIf="opt === 1">
             Registrarme
+          </ion-button>
+          <ion-button expand="block" color="primary" (click)="registrar()" [disabled]="!registerForm.valid" *ngIf="opt === 2">
+            Recuperar contraseña
           </ion-button>
         </ion-col>
       </ion-row>

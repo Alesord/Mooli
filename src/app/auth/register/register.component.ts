@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { AuthService } from 'src/app/shared/services/auth.service';
@@ -9,14 +9,16 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-
+  @Input('opt') opt;
   alreadyRegistered: boolean = false;
   constructor(
     private modalCtrl: ModalController,
     private authService: AuthService
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.opt)
+  }
   
   registerForm = new FormGroup({
     username: new FormControl

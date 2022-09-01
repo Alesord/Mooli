@@ -216,10 +216,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "RegisterComponent": () => (/* binding */ RegisterComponent)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ 4929);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ 4929);
 /* harmony import */ var _register_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./register.component.html?ngResource */ 4966);
 /* harmony import */ var _register_component_scss_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./register.component.scss?ngResource */ 8041);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 2560);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ 2508);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ 3819);
 /* harmony import */ var src_app_shared_services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/services/auth.service */ 629);
@@ -246,7 +246,9 @@ let RegisterComponent = class RegisterComponent {
             })
         });
     }
-    ngOnInit() { }
+    ngOnInit() {
+        console.log(this.opt);
+    }
     registrar() {
         this.authService.registrar(this.registerForm.value.username, this.registerForm.value.password).subscribe(res => {
             console.log(res);
@@ -261,8 +263,11 @@ RegisterComponent.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__.ModalController },
     { type: src_app_shared_services_auth_service__WEBPACK_IMPORTED_MODULE_2__.AuthService }
 ];
-RegisterComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.Component)({
+RegisterComponent.propDecorators = {
+    opt: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_5__.Input, args: ['opt',] }]
+};
+RegisterComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_5__.Component)({
         selector: 'app-register',
         template: _register_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__,
         styles: [_register_component_scss_ngResource__WEBPACK_IMPORTED_MODULE_1__]
@@ -309,7 +314,7 @@ module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>auth</ion-ti
   \******************************************************************/
 /***/ ((module) => {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>Registráte</ion-title>\r\n    <ion-buttons slot=\"end\">\r\n      <ion-button (click)=\"onCancel()\">\r\n        <ion-icon name=\"close-outline\"></ion-icon>\r\n      </ion-button>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <form [formGroup]=\"registerForm\">\r\n    <ion-grid>\r\n      <ion-row>\r\n        <ion-col size-md=\"6\" offset-md=\"3\" class=\"ion-text-center\">\r\n          <ion-item>\r\n            <ion-label position=\"floating\">Username</ion-label>\r\n            <ion-input formControlName='username' autocomplete=\"new-password\"></ion-input>\r\n            <span slot=\"error\" *ngIf=\"alreadyRegistered\">Usuario ya registrado</span>\r\n          </ion-item>\r\n        </ion-col>\r\n      </ion-row>\r\n      <ion-row>\r\n        <ion-col size-md=\"6\" offset-md=\"3\" class=\"ion-text-center\">\r\n          <ion-item>\r\n            <ion-label position=\"floating\">Contraseña</ion-label>\r\n            <ion-input type=\"password\" formControlName='password' autocomplete=\"new-password\"></ion-input>\r\n          </ion-item>\r\n        </ion-col>\r\n      </ion-row>\r\n      <ion-row>\r\n        <ion-col>\r\n          <ion-button expand=\"block\" color=\"primary\" (click)=\"registrar()\" [disabled]=\"!registerForm.valid\">\r\n            Registrarme\r\n          </ion-button>\r\n        </ion-col>\r\n      </ion-row>\r\n    </ion-grid>\r\n  </form>\r\n</ion-content>";
+module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>Registráte</ion-title>\r\n    <ion-buttons slot=\"end\">\r\n      <ion-button (click)=\"onCancel()\">\r\n        <ion-icon name=\"close-outline\"></ion-icon>\r\n      </ion-button>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <form [formGroup]=\"registerForm\">\r\n    <ion-grid>\r\n      <ion-row>\r\n        <ion-col size-md=\"6\" offset-md=\"3\" class=\"ion-text-center\">\r\n          <ion-item>\r\n            <ion-label position=\"floating\">Username</ion-label>\r\n            <ion-input formControlName='username' autocomplete=\"new-password\"></ion-input>\r\n            <span slot=\"error\" *ngIf=\"alreadyRegistered\">Usuario ya registrado</span>\r\n          </ion-item>\r\n        </ion-col>\r\n      </ion-row>\r\n      <ion-row>\r\n        <ion-col size-md=\"6\" offset-md=\"3\" class=\"ion-text-center\">\r\n          <ion-item>\r\n            <ion-label position=\"floating\">Contraseña</ion-label>\r\n            <ion-input type=\"password\" formControlName='password' autocomplete=\"new-password\" *ngIf=\"opt === 1\"></ion-input>\r\n          </ion-item>\r\n        </ion-col>\r\n      </ion-row>\r\n      <ion-row>\r\n        <ion-col>\r\n          <ion-button expand=\"block\" color=\"primary\" (click)=\"registrar()\" [disabled]=\"!registerForm.valid\" *ngIf=\"opt === 1\">\r\n            Registrarme\r\n          </ion-button>\r\n          <ion-button expand=\"block\" color=\"primary\" (click)=\"registrar()\" [disabled]=\"!registerForm.valid\" *ngIf=\"opt === 2\">\r\n            Recuperar contraseña\r\n          </ion-button>\r\n        </ion-col>\r\n      </ion-row>\r\n    </ion-grid>\r\n  </form>\r\n</ion-content>";
 
 /***/ })
 
