@@ -1,10 +1,13 @@
 import { Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { CheckboxCustomEvent, IonModal, ModalController } from '@ionic/angular';
+import { Subject } from 'rxjs';
 import { ChartComponent } from 'src/app/component/chart/chart.component';
 import { UpperToolbarComponent } from 'src/app/component/upper-toolbar/upper-toolbar.component';
 import { Filtros } from 'src/app/shared/models/movie.model';
 import { ImdbService } from 'src/app/shared/services/imdb.service';
-
+import { takeUntil } from 'rxjs/operators'
+import { NotificationsService } from 'src/app/shared/services/notifications.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-buscar',
@@ -31,10 +34,13 @@ export class BuscarPage implements OnInit {
   @ViewChild(IonModal) modal: IonModal;
 
   movie= localStorage.getItem('movie')
-
+  unsub: Subject<void> = new Subject()
+  
   constructor(
       private imdbService: ImdbService,
       public modalCtrl: ModalController,
+      private notificationsService: NotificationsService,
+      private authService: AuthService
       // private navParams: NavParams
   ) {
   }
@@ -48,18 +54,28 @@ export class BuscarPage implements OnInit {
       this.status=true
       console.log('LS')
       this.filters()
-      console.log('AAJSLKDJASKLDJASLK')
-      console.log(localStorage.getItem('movie'))
+
+      // console.log(localStorage.getItem('movie'))
     }
     else
     {
-    this.imdbService.getMovies().subscribe(res => {
-    this.loadedMovies = res;
-    console.log(this.loadedMovies);
+    // this.imdbService.getMovies().subscribe(res => {
+    // this.loadedMovies = res;
+    // console.log(this.loadedMovies);
+    // this.status = true;
+    // this.filters();
+    // });
+    // console.log('Sv')
+    this.imdbService.getMovies()
+    .pipe(takeUntil(this.unsub))
+    .subscribe(res => {
+      console.log(res)
+      for(let key in res){
+        this.loadedMovies.push(res[key])
+      }
+    })
     this.status = true;
-    this.filters();
-    });
-    console.log('Sv')
+    this.notificationsService.inicializar()
     };  
   };
   
@@ -148,4 +164,11 @@ export class BuscarPage implements OnInit {
       });
       
     };
+    ngOnDestroy() {
+      this.unsub.next();
+      this.unsub.unsubscribe();
+    }
+    onLogout() {
+      this.authService.logout();
+    }
   };

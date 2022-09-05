@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Preferences } from '@capacitor/preferences';
 import { Router } from '@angular/router';
-import { Storage } from '@capacitor/storage'
 import { BehaviorSubject, from } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -59,7 +59,7 @@ export class AuthService {
 
   logout() {
     this._userAutenticado = false;
-    Storage.remove({key: 'authData'})
+    Preferences.remove({key: 'authData'})
     this.router.navigateByUrl('/auth');
   }
 
@@ -81,7 +81,7 @@ export class AuthService {
 
   async autoLogin2(): Promise<boolean> {
   console.log('Intentando autologin')
-  const storedData = await Storage.get({key: 'authData'})
+  const storedData = await Preferences.get({key: 'authData'})
   const loadedData = JSON.parse(storedData.value)
 
   if(!loadedData){
@@ -114,7 +114,7 @@ export class AuthService {
 
   private storeAuthData(userId: string, token: string, tokenExpDate: string, email: string) {
     const data = {userId: userId, token: token, tokenExpDate: tokenExpDate, email: email};
-    Storage.set({key: 'authData', value: JSON.stringify(data)})
+    Preferences.set({key: 'authData', value: JSON.stringify(data)})
   }
 
   private setUserData(userData: AuthResponseData) {
