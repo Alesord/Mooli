@@ -28,8 +28,7 @@
       </ion-item>
       <ion-list class="ion-padding" slot="content" *ngFor="let content of list.contenido">
         <ion-item-sliding>
-          <!-- *ngIf="this.levelUpService.getLevelUp()" -->
-          <ion-item-options side="start">
+          <ion-item-options side="start" *ngIf="this.levelUpService.getLevelUp()">
             <ion-item-option color="danger" (click)="onRemoveMovie(list, content)">
               BORRAR
               <ion-icon slot="end" name="close-outline"></ion-icon>
