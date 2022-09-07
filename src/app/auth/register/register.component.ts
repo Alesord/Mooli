@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
@@ -13,26 +13,40 @@ export class RegisterComponent implements OnInit {
   alreadyRegistered: boolean = false;
   constructor(
     private modalCtrl: ModalController,
-    private authService: AuthService
+    private authService: AuthService,
+    private formBuilder: FormBuilder
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.creatForm("","")
+  }
   
-  registerForm = new FormGroup({
-    username: new FormControl
-      (null, {
-        updateOn: 'blur',
-        validators: [Validators.email, Validators.required]
-      }),
-    password: new FormControl
-      (null, {
-        updateOn: 'blur',
-        validators: [Validators.required, Validators.min(5)]
-      })
-  })
+  // registerForm = new FormGroup({
+  //   username: new FormControl
+  //     (null, {
+  //       updateOn: 'blur',
+  //       validators: [Validators.email, Validators.required]
+  //     }),
+  //   password: new FormControl
+  //     (null, {
+  //       updateOn: 'blur',
+  //       validators: [Validators.required, Validators.min(5)]
+  //     })
+  // })
+usuarioForm!: FormGroup
+
+  creatForm(
+    username:string,
+    password:string
+  ){
+    this.usuarioForm = this.formBuilder.group({
+      username:[username,[Validators.required, Validators.email]],
+      password:[password,[Validators.required, Validators.minLength(5)]]
+    })
+  }
 
   registrar() {
-    this.authService.registrar(this.registerForm.value.username, this.registerForm.value.password).subscribe(res => {
+    this.authService.registrar(this.usuarioForm.value.username, this.usuarioForm.value.password).subscribe(res => {
       console.log(res)
       this.modalCtrl.dismiss()
     })
@@ -40,5 +54,10 @@ export class RegisterComponent implements OnInit {
 
   onCancel() {
     this.modalCtrl.dismiss();
+  }
+
+  validfield(campo:string){
+    return this.usuarioForm.controls[campo].errors
+      && this.usuarioForm.controls[campo].touched
   }
 }

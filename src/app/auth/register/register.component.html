@@ -10,32 +10,56 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="registerForm">
-    <ion-grid>
-      <ion-row>
+  
+  <form [formGroup]="usuarioForm">
+    <div class="form-group">
+      <ion-row >
         <ion-col size-md="6" offset-md="3" class="ion-text-center">
           <ion-item>
             <ion-label position="floating">Username</ion-label>
-            <ion-input formControlName='username' autocomplete="new-password"></ion-input>
+            <ion-input formControlName='username'
+                       type="text"
+                       class="form-control"
+                       name="username"
+                       required>
+            <!-- autocomplete="new-password" -->
+          </ion-input>
+          <span *ngIf="validfield('username')" slot="error">
+            Introduzca un email valido
+          </span>
             <span slot="error" *ngIf="alreadyRegistered">Usuario ya registrado</span>
           </ion-item>
         </ion-col>
       </ion-row>
+    </div>
+
+    <div class="form-group">
       <ion-row>
         <ion-col size-md="6" offset-md="3" class="ion-text-center">
           <ion-item>
             <ion-label position="floating">Contraseña</ion-label>
-            <ion-input type="password" formControlName='password' autocomplete="new-password"></ion-input>
+            <ion-input type="password" 
+                       formControlName='password'
+                       class="form-control"
+                       name="password"
+                       required>
+                       <!-- autocomplete="new-password" -->
+                      </ion-input>
+                      <span *ngIf="validfield('password')" slot="error">
+                       La contraseña debe contener minimo 5 caracteres
+                      </span>
           </ion-item>
         </ion-col>
       </ion-row>
+    </div>
+    <div>
       <ion-row>
         <ion-col>
-          <ion-button expand="block" color="primary" (click)="registrar()" [disabled]="!registerForm.valid">
+          <ion-button expand="block" color="primary" (click)="registrar()" [disabled]="!usuarioForm.valid">
             Registrarme
           </ion-button>
         </ion-col>
       </ion-row>
-    </ion-grid>
+    </div>
   </form>
 </ion-content>
