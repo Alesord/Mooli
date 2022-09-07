@@ -43,6 +43,8 @@ export class MisListasPage implements OnInit, OnDestroy {
       console.log(this.loadedLists)
       console.log(this.loadedLists.find(x => x.nombre === 'Test'))
       this.isLoaded = true;
+      console.log('Mostrando Listas')
+      console.log(this.loadedLists)
   }
 
   onAddList() {
@@ -58,11 +60,22 @@ export class MisListasPage implements OnInit, OnDestroy {
     })
   }
 
-  onDelete(listNombre: string){
-    let listId: string = listNombre.toLowerCase().replace(/\s/g, '-')
+  onDelete(listaSeleccionada){
+    let listIndex: number = this.loadedLists.indexOf(listaSeleccionada)
+    let listId: string = listaSeleccionada.nombre.toLowerCase().replace(/\s/g, '-')
+    
+    this.loadedLists.splice(listIndex, 1)
     this.listService.deleteList(listId)
     .pipe(takeUntil(this.unsub))
     .subscribe()
+  }
+
+  onRemoveMovie(listaSeleccionada, peliculaSeleccionada) {
+    let movieIndex: number = listaSeleccionada.contenido.indexOf(peliculaSeleccionada)
+    let listId: string = listaSeleccionada.nombre.toLowerCase().replace(/\s/g, '-')
+    let movieId: string = listaSeleccionada.contenido[movieIndex].id
+    listaSeleccionada.contenido.splice(movieIndex, 1)
+    this.listService.removeMovie(listId, movieId).subscribe()
   }
 
   onLogout() {
