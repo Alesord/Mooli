@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ingreso nivel 2</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="level2AuthForm">
+    <ion-row>
+      <ion-col class="ion-text-center" size="10" offset="1">
+        <h2>Ingresá tu contraseña de nivel 2</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating" *ngIf="!tokenExist">Token nuevo (4 Caracteres)</ion-label>
+          <ion-label position="floating" *ngIf="tokenExist">Ingresá tu token</ion-label>
+          <ion-input type="password" formControlName='password' autocomplete="new-password"></ion-input>
+          <span slot="error" *ngIf="!level2AuthForm.valid && level2AuthForm.touched">El token debe ser de 4 numeros</span>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" color="primary" (click)="onTokenLogin()" [disabled]="!level2AuthForm.valid">
+          Ingresar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

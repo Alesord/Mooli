@@ -22,6 +22,7 @@ const routes: Routes = [
     loadChildren: () => import('./shared/modals/agregar-a-lista/agregar-a-lista.module').then( m => m.AgregarAListaPageModule),
     canLoad: [AuthGuard]
   }
+
 ];
 
 @NgModule({

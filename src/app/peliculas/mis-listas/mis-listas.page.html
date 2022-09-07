@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
     <ion-title>Ver mis listas</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="onLogout()">
@@ -17,15 +20,26 @@
     <ion-accordion value="first">
       <ion-item slot="header" color="light">
         <ion-label>{{list.nombre}}</ion-label>
-        <ion-buttons>
-          <ion-button slot="end" (click)="onDelete(list.nombre)">
+        <ion-buttons *ngIf="this.levelUpService.getLevelUp()">
+          <ion-button slot="end" (click)="onDelete(list)">
             <ion-icon name="trash-outline"></ion-icon>
           </ion-button>
         </ion-buttons>
       </ion-item>
-      <div class="ion-padding" slot="content" *ngFor="let content of list.contenido" [routerLink]="['/', 'peliculas','tabs' ,'ver-todas', content.id]">
-          {{ content.titulo }}
-      </div>
+      <ion-list class="ion-padding" slot="content" *ngFor="let content of list.contenido">
+        <ion-item-sliding>
+          <!-- *ngIf="this.levelUpService.getLevelUp()" -->
+          <ion-item-options side="start">
+            <ion-item-option color="danger" (click)="onRemoveMovie(list, content)">
+              BORRAR
+              <ion-icon slot="end" name="close-outline"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+          <ion-item [routerLink]="['/', 'peliculas','tabs' ,'ver-todas', content.id]">
+            <p slot="start">{{ content.titulo }}</p>
+          </ion-item>
+        </ion-item-sliding>
+      </ion-list>
     </ion-accordion>
   </ion-accordion-group>
 </ion-content>

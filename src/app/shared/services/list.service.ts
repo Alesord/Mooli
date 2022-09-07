@@ -22,8 +22,14 @@ export class ListService {
     return this.http.put(this.baseUrl + folderName + '.json', data)
   }
   
-  deleteList(id: string){
-    return this.http.delete(this.baseUrl + id + '.json')
+  deleteList(listId: string){
+    return this.http.delete(this.baseUrl + listId + '.json')
+  }
+
+  removeMovie(listId: string, movieId: string){
+    console.log(movieId)
+    console.log(`${this.baseUrl}${listId}/contenido/${movieId}.json`)
+    return this.http.delete(`${this.baseUrl}${listId}/contenido/${movieId}.json`)
   }
 
   displayExistingLists() {

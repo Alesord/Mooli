@@ -31,18 +31,23 @@ export class AuthService {
   private _userAutenticado: boolean = false;
   public userKey: string = '';
   private _user = new BehaviorSubject<Usuario>(null);
+  estado = this._user.asObservable()
 
   get userIsAuthenticated() {
     return this._user.asObservable().pipe(
       map(user => {
+        console.log(user)
         if (user) {
+          console.log('HOLA HOLA HOLA')
           return !!user.token;
         } else {
+          console.log('FALSO FALSO FALSO')
           return false;
         }
       })
     );
   }
+
   get userAutenticado() {
     return this._userAutenticado
   }
@@ -105,6 +110,7 @@ export class AuthService {
     this.userKey = loadedData.userId
     if (!this._user.getValue()) {
       this._user.next(usuario);
+      console.log(this._user)
       this._userAutenticado = true;
     }
     return usuario ? true : false
