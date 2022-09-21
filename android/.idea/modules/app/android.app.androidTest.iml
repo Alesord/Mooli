@@ -36,9 +36,13 @@
     <orderEntry type="module" module-name="android.capacitor-android.main" scope="TEST" />
     <orderEntry type="module" module-name="android.capacitor-cordova-android-plugins.main" scope="TEST" />
     <orderEntry type="module" module-name="android.capacitor-app.main" scope="TEST" />
+    <orderEntry type="module" module-name="android.capacitor-camera.main" scope="TEST" />
+    <orderEntry type="module" module-name="android.capacitor-filesystem.main" scope="TEST" />
     <orderEntry type="module" module-name="android.capacitor-haptics.main" scope="TEST" />
     <orderEntry type="module" module-name="android.capacitor-keyboard.main" scope="TEST" />
     <orderEntry type="module" module-name="android.capacitor-local-notifications.main" scope="TEST" />
+    <orderEntry type="module" module-name="android.capacitor-network.main" scope="TEST" />
+    <orderEntry type="module" module-name="android.capacitor-preferences.main" scope="TEST" />
     <orderEntry type="module" module-name="android.capacitor-push-notifications.main" scope="TEST" />
     <orderEntry type="module" module-name="android.capacitor-status-bar.main" scope="TEST" />
     <orderEntry type="module" module-name="android.capacitor-storage.main" scope="TEST" />

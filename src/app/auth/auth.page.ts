@@ -5,6 +5,7 @@ import { AlertController, LoadingController, ModalController } from '@ionic/angu
 import { Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { AuthResponseData, AuthService } from '../shared/services/auth.service';
+import { FotosService } from '../shared/services/fotos.service';
 import { RegisterComponent } from './register/register.component';
 
 @Component({
@@ -19,13 +20,15 @@ export class AuthPage implements OnInit {
     private router: Router,
     private modalCtrl: ModalController,
     private alertController: AlertController,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private fotoService: FotosService
   ) { }
 
   isLoading: boolean = false;
 
   ngOnInit() {
-    this.loginForm.reset() 
+    console.log(this.fotoService.urlnj);
+    this.loginForm.reset() ;
     console.log('El usuario está autenticado? : ' + this.authService.userAutenticado)
     console.log(this.authService.autoLogin2().then(res => {
       console.log(!!res)

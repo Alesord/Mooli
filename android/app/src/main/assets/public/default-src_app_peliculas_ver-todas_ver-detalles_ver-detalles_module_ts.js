@@ -310,8 +310,13 @@ let ListService = class ListService {
         console.log('poniendo lista en ' + this.baseUrl + folderName + '.json', data);
         return this.http.put(this.baseUrl + folderName + '.json', data);
     }
-    deleteList(id) {
-        return this.http.delete(this.baseUrl + id + '.json');
+    deleteList(listId) {
+        return this.http.delete(this.baseUrl + listId + '.json');
+    }
+    removeMovie(listId, movieId) {
+        console.log(movieId);
+        console.log(`${this.baseUrl}${listId}/contenido/${movieId}.json`);
+        return this.http.delete(`${this.baseUrl}${listId}/contenido/${movieId}.json`);
     }
     displayExistingLists() {
         return this.http.get(this.plainUrl);

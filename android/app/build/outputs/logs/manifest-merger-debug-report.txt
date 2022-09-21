@@ -16,20 +16,26 @@ INJECTED from C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\andro
 INJECTED from C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:2:1-45:12
 INJECTED from C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:2:1-45:12
 MERGED from [:capacitor-app] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:capacitor-camera] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-15:12
+MERGED from [:capacitor-filesystem] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\filesystem\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:capacitor-haptics] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\haptics\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:capacitor-keyboard] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\keyboard\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-27:12
+MERGED from [:capacitor-network] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\network\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:capacitor-preferences] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\preferences\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-19:12
 MERGED from [:capacitor-status-bar] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\status-bar\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:capacitor-storage] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:capacitor-android] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\android\capacitor\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:capacitor-cordova-android-plugins] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.android.material:material:1.6.1] C:\Users\Alejandro\.gradle\caches\transforms-3\052d5d9ee34c75143d4072776a78918e\transformed\material-1.6.1\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\16305e53c06fb4047b3ecf87632aca46\transformed\constraintlayout-2.0.1\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.4.2] C:\Users\Alejandro\.gradle\caches\transforms-3\06a802e0842d25c2aa97c1fb6600b6a8\transformed\appcompat-1.4.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] C:\Users\Alejandro\.gradle\caches\transforms-3\6ac176ea318d22d869977ace7011b07f\transformed\coordinatorlayout-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core-splashscreen:1.0.0-rc01] C:\Users\Alejandro\.gradle\caches\transforms-3\a4f37f58276cd36104850e4fd4000287\transformed\jetified-core-splashscreen-1.0.0-rc01\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\97055cbfe3e7b3ce43c8b51cf231400f\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat-resources:1.4.2] C:\Users\Alejandro\.gradle\caches\transforms-3\85a2000b1c664c921e2762479516ee46\transformed\jetified-appcompat-resources-1.4.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\1575ac3ebbd68cd8492201403befde18\transformed\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\7b3e122e96360a25f9bbfd37faa2372f\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:17:1-61:12
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\21263c8fd96109c5399b59077362b28f\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:16:1-24:12
 MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\eab62fca639f6ba2359cce8e4622ffd4\transformed\jetified-play-services-cloud-messaging-17.0.1\AndroidManifest.xml:2:1-13:12
@@ -48,20 +54,26 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\A
 MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\Alejandro\.gradle\caches\transforms-3\0b568098e57f495f0f461db36b34aab5\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\d8851cf4c33da8dad3f18550ae37b29e\transformed\jetified-emoji2-views-helper-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\f4944b5407b552542b0fe673a15b273d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:17:1-37:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\1c845aa01a88f8a5915cdea774a87e3e\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\06b1d943beb43c14c15d47ff3376fe4c\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\6228c85a50cd811231390c7ff254686b\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\Alejandro\.gradle\caches\transforms-3\9ae6b2939e1f87ab33d39879f0a5b4ad\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\07f8bc6d3f6f01d420756e74e3539a41\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\83c5cc9299e5e7495671d97de6bf8d7d\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.webkit:webkit:1.4.0] C:\Users\Alejandro\.gradle\caches\transforms-3\60468ba8820a584d8c18809cfce1d377\transformed\webkit-1.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Alejandro\.gradle\caches\transforms-3\9a27b66931928888f6d728f9004c55ff\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Alejandro\.gradle\caches\transforms-3\7a9e77755fabeebc24de094c284876b5\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core-ktx:1.2.0] C:\Users\Alejandro\.gradle\caches\transforms-3\15f32c6c30227254e3e7abf3a7070e57\transformed\jetified-core-ktx-1.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\07f8bc6d3f6f01d420756e74e3539a41\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\Alejandro\.gradle\caches\transforms-3\35181c98b8fc7bee9a019bfa221fef9f\transformed\drawerlayout-1.1.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\Alejandro\.gradle\caches\transforms-3\e25e533658afdb881154c7cc9b7b9476\transformed\transition-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Alejandro\.gradle\caches\transforms-3\c77b88f12a6f5f6f5a22aaab0c80566a\transformed\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\Alejandro\.gradle\caches\transforms-3\beaad2a554bcfd884ebd30f2a88d756c\transformed\customview-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core:1.8.0] C:\Users\Alejandro\.gradle\caches\transforms-3\0d4249d9f661c4c44bb5f0f8b0f9182b\transformed\core-1.8.0\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.3] C:\Users\Alejandro\.gradle\caches\transforms-3\040ce486079e847f419f22f24f62cbe2\transformed\exifinterface-1.3.3\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Alejandro\.gradle\caches\transforms-3\46b89e6d5c990cb398aaccebf88eb94c\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Alejandro\.gradle\caches\transforms-3\a6ebe1c416f1dd5706a30739450a39f9\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:17:1-37:12
 MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\77fbaddb697d9431483ba785f337b79b\transformed\jetified-startup-runtime-1.0.0\AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\046a480abfd0019ee5d2321d89dc56c1\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\2d72d2b5344a3c47d2fae23999b382f9\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b8aacee0ba1866c7b0f96f23963ed368\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:15:1-38:12
 MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b73ca5da648d83bd6aa81dfce24b5c38\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:15:1-41:12
 MERGED from [com.google.android.datatransport:transport-api:3.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\33cf2c996e1830b9f69124541e92e832\transformed\jetified-transport-api-3.0.0\AndroidManifest.xml:15:1-22:12
@@ -116,6 +128,10 @@ MERGED from [:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi gro
 MERGED from [:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-17:19
 MERGED from [:capacitor-cordova-android-plugins] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-11:19
 MERGED from [:capacitor-cordova-android-plugins] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-11:19
+MERGED from [com.google.android.material:material:1.6.1] C:\Users\Alejandro\.gradle\caches\transforms-3\052d5d9ee34c75143d4072776a78918e\transformed\material-1.6.1\AndroidManifest.xml:24:5-20
+MERGED from [com.google.android.material:material:1.6.1] C:\Users\Alejandro\.gradle\caches\transforms-3\052d5d9ee34c75143d4072776a78918e\transformed\material-1.6.1\AndroidManifest.xml:24:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\16305e53c06fb4047b3ecf87632aca46\transformed\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\16305e53c06fb4047b3ecf87632aca46\transformed\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
 MERGED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:30:5-59:19
 MERGED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:30:5-59:19
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\21263c8fd96109c5399b59077362b28f\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:19:5-23:19
@@ -196,12 +212,20 @@ INJECTED from C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\andro
 INJECTED from C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml
 MERGED from [:capacitor-app] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-app] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-camera] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-camera] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-filesystem] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\filesystem\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-filesystem] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\filesystem\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-haptics] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\haptics\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-haptics] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\haptics\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-keyboard] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\keyboard\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-keyboard] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\keyboard\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-network] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\network\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-network] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\network\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-preferences] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\preferences\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:capacitor-preferences] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\preferences\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-status-bar] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\status-bar\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
@@ -212,6 +236,10 @@ MERGED from [:capacitor-android] C:\Users\Alejandro\Documents\Ayi group\Indep\Pr
 MERGED from [:capacitor-android] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\android\capacitor\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:capacitor-cordova-android-plugins] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:6:5-8:41
 MERGED from [:capacitor-cordova-android-plugins] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.android.material:material:1.6.1] C:\Users\Alejandro\.gradle\caches\transforms-3\052d5d9ee34c75143d4072776a78918e\transformed\material-1.6.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.6.1] C:\Users\Alejandro\.gradle\caches\transforms-3\052d5d9ee34c75143d4072776a78918e\transformed\material-1.6.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\16305e53c06fb4047b3ecf87632aca46\transformed\constraintlayout-2.0.1\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\16305e53c06fb4047b3ecf87632aca46\transformed\constraintlayout-2.0.1\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.appcompat:appcompat:1.4.2] C:\Users\Alejandro\.gradle\caches\transforms-3\06a802e0842d25c2aa97c1fb6600b6a8\transformed\appcompat-1.4.2\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.4.2] C:\Users\Alejandro\.gradle\caches\transforms-3\06a802e0842d25c2aa97c1fb6600b6a8\transformed\appcompat-1.4.2\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] C:\Users\Alejandro\.gradle\caches\transforms-3\6ac176ea318d22d869977ace7011b07f\transformed\coordinatorlayout-1.2.0\AndroidManifest.xml:20:5-22:41
@@ -222,8 +250,8 @@ MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Alejandro\.gra
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\97055cbfe3e7b3ce43c8b51cf231400f\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.4.2] C:\Users\Alejandro\.gradle\caches\transforms-3\85a2000b1c664c921e2762479516ee46\transformed\jetified-appcompat-resources-1.4.2\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.4.2] C:\Users\Alejandro\.gradle\caches\transforms-3\85a2000b1c664c921e2762479516ee46\transformed\jetified-appcompat-resources-1.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\1575ac3ebbd68cd8492201403befde18\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\1575ac3ebbd68cd8492201403befde18\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\7b3e122e96360a25f9bbfd37faa2372f\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\7b3e122e96360a25f9bbfd37faa2372f\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:21:5-23:41
 MERGED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:21:5-23:41
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\21263c8fd96109c5399b59077362b28f\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:18:5-43
@@ -260,16 +288,14 @@ MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\Alejandro\.grad
 MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\d8851cf4c33da8dad3f18550ae37b29e\transformed\jetified-emoji2-views-helper-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\f4944b5407b552542b0fe673a15b273d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\f4944b5407b552542b0fe673a15b273d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\1c845aa01a88f8a5915cdea774a87e3e\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\1c845aa01a88f8a5915cdea774a87e3e\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\06b1d943beb43c14c15d47ff3376fe4c\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\06b1d943beb43c14c15d47ff3376fe4c\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\6228c85a50cd811231390c7ff254686b\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\6228c85a50cd811231390c7ff254686b\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\Alejandro\.gradle\caches\transforms-3\9ae6b2939e1f87ab33d39879f0a5b4ad\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\Alejandro\.gradle\caches\transforms-3\9ae6b2939e1f87ab33d39879f0a5b4ad\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\07f8bc6d3f6f01d420756e74e3539a41\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\07f8bc6d3f6f01d420756e74e3539a41\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\83c5cc9299e5e7495671d97de6bf8d7d\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\83c5cc9299e5e7495671d97de6bf8d7d\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.webkit:webkit:1.4.0] C:\Users\Alejandro\.gradle\caches\transforms-3\60468ba8820a584d8c18809cfce1d377\transformed\webkit-1.4.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.webkit:webkit:1.4.0] C:\Users\Alejandro\.gradle\caches\transforms-3\60468ba8820a584d8c18809cfce1d377\transformed\webkit-1.4.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Alejandro\.gradle\caches\transforms-3\9a27b66931928888f6d728f9004c55ff\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -278,8 +304,20 @@ MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Alejandro\.g
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Alejandro\.gradle\caches\transforms-3\7a9e77755fabeebc24de094c284876b5\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core-ktx:1.2.0] C:\Users\Alejandro\.gradle\caches\transforms-3\15f32c6c30227254e3e7abf3a7070e57\transformed\jetified-core-ktx-1.2.0\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.core:core-ktx:1.2.0] C:\Users\Alejandro\.gradle\caches\transforms-3\15f32c6c30227254e3e7abf3a7070e57\transformed\jetified-core-ktx-1.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\07f8bc6d3f6f01d420756e74e3539a41\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\07f8bc6d3f6f01d420756e74e3539a41\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\Alejandro\.gradle\caches\transforms-3\35181c98b8fc7bee9a019bfa221fef9f\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\Alejandro\.gradle\caches\transforms-3\35181c98b8fc7bee9a019bfa221fef9f\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\Alejandro\.gradle\caches\transforms-3\e25e533658afdb881154c7cc9b7b9476\transformed\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\Alejandro\.gradle\caches\transforms-3\e25e533658afdb881154c7cc9b7b9476\transformed\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Alejandro\.gradle\caches\transforms-3\c77b88f12a6f5f6f5a22aaab0c80566a\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Alejandro\.gradle\caches\transforms-3\c77b88f12a6f5f6f5a22aaab0c80566a\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\Alejandro\.gradle\caches\transforms-3\beaad2a554bcfd884ebd30f2a88d756c\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\Alejandro\.gradle\caches\transforms-3\beaad2a554bcfd884ebd30f2a88d756c\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core:1.8.0] C:\Users\Alejandro\.gradle\caches\transforms-3\0d4249d9f661c4c44bb5f0f8b0f9182b\transformed\core-1.8.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core:1.8.0] C:\Users\Alejandro\.gradle\caches\transforms-3\0d4249d9f661c4c44bb5f0f8b0f9182b\transformed\core-1.8.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.3] C:\Users\Alejandro\.gradle\caches\transforms-3\040ce486079e847f419f22f24f62cbe2\transformed\exifinterface-1.3.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.3] C:\Users\Alejandro\.gradle\caches\transforms-3\040ce486079e847f419f22f24f62cbe2\transformed\exifinterface-1.3.3\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Alejandro\.gradle\caches\transforms-3\46b89e6d5c990cb398aaccebf88eb94c\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Alejandro\.gradle\caches\transforms-3\46b89e6d5c990cb398aaccebf88eb94c\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Alejandro\.gradle\caches\transforms-3\a6ebe1c416f1dd5706a30739450a39f9\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:21:5-23:41
@@ -288,6 +326,8 @@ MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\Alejandro\.gradle\
 MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\77fbaddb697d9431483ba785f337b79b\transformed\jetified-startup-runtime-1.0.0\AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\046a480abfd0019ee5d2321d89dc56c1\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\046a480abfd0019ee5d2321d89dc56c1\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\2d72d2b5344a3c47d2fae23999b382f9\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Alejandro\.gradle\caches\transforms-3\2d72d2b5344a3c47d2fae23999b382f9\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b8aacee0ba1866c7b0f96f23963ed368\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b8aacee0ba1866c7b0f96f23963ed368\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b73ca5da648d83bd6aa81dfce24b5c38\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:18:5-20:41
@@ -334,6 +374,14 @@ ADDED from C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\
 		ADDED from C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:38:17-51
 	android:name
 		ADDED from C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\android\app\src\main\AndroidManifest.xml:37:17-67
+queries
+ADDED from [:capacitor-camera] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-13:15
+intent#action:name:android.media.action.IMAGE_CAPTURE
+ADDED from [:capacitor-camera] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-12:18
+action#android.media.action.IMAGE_CAPTURE
+ADDED from [:capacitor-camera] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-73
+	android:name
+		ADDED from [:capacitor-camera] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:21-70
 uses-permission#android.permission.VIBRATE
 ADDED from [:capacitor-haptics] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\haptics\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-66
 	android:name
@@ -380,6 +428,20 @@ action#android.intent.action.QUICKBOOT_POWERON
 ADDED from [:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:22:17-82
 	android:name
 		ADDED from [:capacitor-local-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\local-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:22:25-79
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [:capacitor-network] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\network\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-79
+MERGED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:25:5-79
+MERGED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\eab62fca639f6ba2359cce8e4622ffd4\transformed\jetified-play-services-cloud-messaging-17.0.1\AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\eab62fca639f6ba2359cce8e4622ffd4\transformed\jetified-play-services-cloud-messaging-17.0.1\AndroidManifest.xml:7:5-79
+MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\adccee1a84a267afcc5f44b3e9cb6307\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:10:5-79
+MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\adccee1a84a267afcc5f44b3e9cb6307\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:10:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b8aacee0ba1866c7b0f96f23963ed368\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b8aacee0ba1866c7b0f96f23963ed368\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b73ca5da648d83bd6aa81dfce24b5c38\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b73ca5da648d83bd6aa81dfce24b5c38\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from [:capacitor-network] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\network\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-76
 service#com.capacitorjs.plugins.pushnotifications.MessagingService
 ADDED from [:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-16:19
 	android:exported
@@ -392,18 +454,6 @@ action#com.google.firebase.MESSAGING_EVENT
 ADDED from [:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:17-78
 	android:name
 		ADDED from [:capacitor-push-notifications] C:\Users\Alejandro\Documents\Ayi group\Indep\Proyectos\Mooli\node_modules\@capacitor\push-notifications\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:25-75
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:25:5-79
-MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\eab62fca639f6ba2359cce8e4622ffd4\transformed\jetified-play-services-cloud-messaging-17.0.1\AndroidManifest.xml:7:5-79
-MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\eab62fca639f6ba2359cce8e4622ffd4\transformed\jetified-play-services-cloud-messaging-17.0.1\AndroidManifest.xml:7:5-79
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\adccee1a84a267afcc5f44b3e9cb6307\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:10:5-79
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\adccee1a84a267afcc5f44b3e9cb6307\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:10:5-79
-MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b8aacee0ba1866c7b0f96f23963ed368\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:25:5-79
-MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b8aacee0ba1866c7b0f96f23963ed368\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:25:5-79
-MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b73ca5da648d83bd6aa81dfce24b5c38\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:22:5-79
-MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Alejandro\.gradle\caches\transforms-3\b73ca5da648d83bd6aa81dfce24b5c38\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:22:5-79
-	android:name
-		ADDED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:25:22-76
 uses-permission#com.google.android.c2dm.permission.RECEIVE
 ADDED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\Alejandro\.gradle\caches\transforms-3\d4652b31877ab0285bba5de89f8f6935\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:28:5-82
 MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.1] C:\Users\Alejandro\.gradle\caches\transforms-3\eab62fca639f6ba2359cce8e4622ffd4\transformed\jetified-play-services-cloud-messaging-17.0.1\AndroidManifest.xml:11:5-82

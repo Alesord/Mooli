@@ -1,7 +1,79 @@
 "use strict";
 (self["webpackChunkapp"] = self["webpackChunkapp"] || []).push([["vendor"],{
 
-/***/ 5099:
+/***/ 4830:
+/*!****************************************************************!*\
+  !*** ./node_modules/@capacitor/camera/dist/esm/definitions.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CameraDirection": () => (/* binding */ CameraDirection),
+/* harmony export */   "CameraResultType": () => (/* binding */ CameraResultType),
+/* harmony export */   "CameraSource": () => (/* binding */ CameraSource)
+/* harmony export */ });
+var CameraSource;
+
+(function (CameraSource) {
+  /**
+   * Prompts the user to select either the photo album or take a photo.
+   */
+  CameraSource["Prompt"] = "PROMPT";
+  /**
+   * Take a new photo using the camera.
+   */
+
+  CameraSource["Camera"] = "CAMERA";
+  /**
+   * Pick an existing photo from the gallery or photo album.
+   */
+
+  CameraSource["Photos"] = "PHOTOS";
+})(CameraSource || (CameraSource = {}));
+
+var CameraDirection;
+
+(function (CameraDirection) {
+  CameraDirection["Rear"] = "REAR";
+  CameraDirection["Front"] = "FRONT";
+})(CameraDirection || (CameraDirection = {}));
+
+var CameraResultType;
+
+(function (CameraResultType) {
+  CameraResultType["Uri"] = "uri";
+  CameraResultType["Base64"] = "base64";
+  CameraResultType["DataUrl"] = "dataUrl";
+})(CameraResultType || (CameraResultType = {}));
+
+/***/ }),
+
+/***/ 4241:
+/*!**********************************************************!*\
+  !*** ./node_modules/@capacitor/camera/dist/esm/index.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Camera": () => (/* binding */ Camera),
+/* harmony export */   "CameraDirection": () => (/* reexport safe */ _definitions__WEBPACK_IMPORTED_MODULE_1__.CameraDirection),
+/* harmony export */   "CameraResultType": () => (/* reexport safe */ _definitions__WEBPACK_IMPORTED_MODULE_1__.CameraResultType),
+/* harmony export */   "CameraSource": () => (/* reexport safe */ _definitions__WEBPACK_IMPORTED_MODULE_1__.CameraSource)
+/* harmony export */ });
+/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @capacitor/core */ 6549);
+/* harmony import */ var _definitions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./definitions */ 4830);
+
+const Camera = (0,_capacitor_core__WEBPACK_IMPORTED_MODULE_0__.registerPlugin)('Camera', {
+  web: () => __webpack_require__.e(/*! import() */ "node_modules_capacitor_camera_dist_esm_web_js").then(__webpack_require__.bind(__webpack_require__, /*! ./web */ 1327)).then(m => new m.CameraWeb())
+});
+
+
+
+/***/ }),
+
+/***/ 6549:
 /*!****************************************************!*\
   !*** ./node_modules/@capacitor/core/dist/index.js ***!
   \****************************************************/
@@ -540,6 +612,225 @@ const WebView = /*#__PURE__*/registerPlugin('WebView');
 
 /***/ }),
 
+/***/ 3568:
+/*!********************************************************************!*\
+  !*** ./node_modules/@capacitor/filesystem/dist/esm/definitions.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Directory": () => (/* binding */ Directory),
+/* harmony export */   "Encoding": () => (/* binding */ Encoding),
+/* harmony export */   "FilesystemDirectory": () => (/* binding */ FilesystemDirectory),
+/* harmony export */   "FilesystemEncoding": () => (/* binding */ FilesystemEncoding)
+/* harmony export */ });
+var Directory;
+
+(function (Directory) {
+  /**
+   * The Documents directory
+   * On iOS it's the app's documents directory.
+   * Use this directory to store user-generated content.
+   * On Android it's the Public Documents folder, so it's accessible from other apps.
+   * It's not accesible on Android 10 unless the app enables legacy External Storage
+   * by adding `android:requestLegacyExternalStorage="true"` in the `application` tag
+   * in the `AndroidManifest.xml`.
+   * It's not accesible on Android 11 or newer.
+   *
+   * @since 1.0.0
+   */
+  Directory["Documents"] = "DOCUMENTS";
+  /**
+   * The Data directory
+   * On iOS it will use the Documents directory.
+   * On Android it's the directory holding application files.
+   * Files will be deleted when the application is uninstalled.
+   *
+   * @since 1.0.0
+   */
+
+  Directory["Data"] = "DATA";
+  /**
+   * The Library directory
+   * On iOS it will use the Library directory.
+   * On Android it's the directory holding application files.
+   * Files will be deleted when the application is uninstalled.
+   *
+   * @since 1.1.0
+   */
+
+  Directory["Library"] = "LIBRARY";
+  /**
+   * The Cache directory
+   * Can be deleted in cases of low memory, so use this directory to write app-specific files
+   * that your app can re-create easily.
+   *
+   * @since 1.0.0
+   */
+
+  Directory["Cache"] = "CACHE";
+  /**
+   * The external directory
+   * On iOS it will use the Documents directory
+   * On Android it's the directory on the primary shared/external
+   * storage device where the application can place persistent files it owns.
+   * These files are internal to the applications, and not typically visible
+   * to the user as media.
+   * Files will be deleted when the application is uninstalled.
+   *
+   * @since 1.0.0
+   */
+
+  Directory["External"] = "EXTERNAL";
+  /**
+   * The external storage directory
+   * On iOS it will use the Documents directory
+   * On Android it's the primary shared/external storage directory.
+   * It's not accesible on Android 10 unless the app enables legacy External Storage
+   * by adding `android:requestLegacyExternalStorage="true"` in the `application` tag
+   * in the `AndroidManifest.xml`.
+   * It's not accesible on Android 11 or newer.
+   *
+   * @since 1.0.0
+   */
+
+  Directory["ExternalStorage"] = "EXTERNAL_STORAGE";
+})(Directory || (Directory = {}));
+
+var Encoding;
+
+(function (Encoding) {
+  /**
+   * Eight-bit UCS Transformation Format
+   *
+   * @since 1.0.0
+   */
+  Encoding["UTF8"] = "utf8";
+  /**
+   * Seven-bit ASCII, a.k.a. ISO646-US, a.k.a. the Basic Latin block of the
+   * Unicode character set
+   * This encoding is only supported on Android.
+   *
+   * @since 1.0.0
+   */
+
+  Encoding["ASCII"] = "ascii";
+  /**
+   * Sixteen-bit UCS Transformation Format, byte order identified by an
+   * optional byte-order mark
+   * This encoding is only supported on Android.
+   *
+   * @since 1.0.0
+   */
+
+  Encoding["UTF16"] = "utf16";
+})(Encoding || (Encoding = {}));
+/**
+ * @deprecated Use `Directory`.
+ * @since 1.0.0
+ */
+
+
+const FilesystemDirectory = Directory;
+/**
+ * @deprecated Use `Encoding`.
+ * @since 1.0.0
+ */
+
+const FilesystemEncoding = Encoding;
+
+/***/ }),
+
+/***/ 1662:
+/*!**************************************************************!*\
+  !*** ./node_modules/@capacitor/filesystem/dist/esm/index.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Directory": () => (/* reexport safe */ _definitions__WEBPACK_IMPORTED_MODULE_1__.Directory),
+/* harmony export */   "Encoding": () => (/* reexport safe */ _definitions__WEBPACK_IMPORTED_MODULE_1__.Encoding),
+/* harmony export */   "Filesystem": () => (/* binding */ Filesystem),
+/* harmony export */   "FilesystemDirectory": () => (/* reexport safe */ _definitions__WEBPACK_IMPORTED_MODULE_1__.FilesystemDirectory),
+/* harmony export */   "FilesystemEncoding": () => (/* reexport safe */ _definitions__WEBPACK_IMPORTED_MODULE_1__.FilesystemEncoding)
+/* harmony export */ });
+/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @capacitor/core */ 6549);
+/* harmony import */ var _definitions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./definitions */ 3568);
+
+const Filesystem = (0,_capacitor_core__WEBPACK_IMPORTED_MODULE_0__.registerPlugin)('Filesystem', {
+  web: () => __webpack_require__.e(/*! import() */ "node_modules_capacitor_filesystem_dist_esm_web_js").then(__webpack_require__.bind(__webpack_require__, /*! ./web */ 4046)).then(m => new m.FilesystemWeb())
+});
+
+
+
+/***/ }),
+
+/***/ 7909:
+/*!*****************************************************************!*\
+  !*** ./node_modules/@capacitor/network/dist/esm/definitions.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+
+
+/***/ }),
+
+/***/ 4984:
+/*!***********************************************************!*\
+  !*** ./node_modules/@capacitor/network/dist/esm/index.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Network": () => (/* binding */ Network)
+/* harmony export */ });
+/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @capacitor/core */ 6549);
+/* harmony import */ var _definitions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./definitions */ 7909);
+
+const Network = (0,_capacitor_core__WEBPACK_IMPORTED_MODULE_0__.registerPlugin)('Network', {
+  web: () => __webpack_require__.e(/*! import() */ "node_modules_capacitor_network_dist_esm_web_js").then(__webpack_require__.bind(__webpack_require__, /*! ./web */ 5442)).then(m => new m.NetworkWeb())
+});
+
+
+
+/***/ }),
+
+/***/ 4970:
+/*!*********************************************************************!*\
+  !*** ./node_modules/@capacitor/preferences/dist/esm/definitions.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+
+
+/***/ }),
+
+/***/ 5191:
+/*!***************************************************************!*\
+  !*** ./node_modules/@capacitor/preferences/dist/esm/index.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Preferences": () => (/* binding */ Preferences)
+/* harmony export */ });
+/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @capacitor/core */ 6549);
+/* harmony import */ var _definitions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./definitions */ 4970);
+
+const Preferences = (0,_capacitor_core__WEBPACK_IMPORTED_MODULE_0__.registerPlugin)('Preferences', {
+  web: () => __webpack_require__.e(/*! import() */ "node_modules_capacitor_preferences_dist_esm_web_js").then(__webpack_require__.bind(__webpack_require__, /*! ./web */ 7333)).then(m => new m.PreferencesWeb())
+});
+
+
+
+/***/ }),
+
 /***/ 7394:
 /*!*****************************************************************!*\
   !*** ./node_modules/@capacitor/storage/dist/esm/definitions.js ***!
@@ -561,7 +852,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Storage": () => (/* binding */ Storage)
 /* harmony export */ });
-/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @capacitor/core */ 5099);
+/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @capacitor/core */ 6549);
 /* harmony import */ var _definitions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./definitions */ 7394);
 
 const Storage = (0,_capacitor_core__WEBPACK_IMPORTED_MODULE_0__.registerPlugin)('Storage', {
@@ -18794,7 +19085,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Subscription": () => (/* binding */ Subscription)
 /* harmony export */ });
 /* harmony import */ var _util_isArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./util/isArray */ 4327);
-/* harmony import */ var _util_isObject__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./util/isObject */ 6549);
+/* harmony import */ var _util_isObject__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./util/isObject */ 5550);
 /* harmony import */ var _util_isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./util/isFunction */ 1900);
 /* harmony import */ var _util_UnsubscriptionError__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util/UnsubscriptionError */ 7875);
 
@@ -19531,7 +19822,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Observable */ 2378);
 /* harmony import */ var _util_isArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/isArray */ 4327);
 /* harmony import */ var _operators_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../operators/map */ 6942);
-/* harmony import */ var _util_isObject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/isObject */ 6549);
+/* harmony import */ var _util_isObject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/isObject */ 5550);
 /* harmony import */ var _from__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./from */ 4383);
 
 
@@ -21753,7 +22044,7 @@ function isIterable(input) {
 
 /***/ }),
 
-/***/ 6549:
+/***/ 5550:
 /*!**************************************************************!*\
   !*** ./node_modules/rxjs/_esm2015/internal/util/isObject.js ***!
   \**************************************************************/
@@ -21863,7 +22154,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _subscribeToObservable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./subscribeToObservable */ 1492);
 /* harmony import */ var _isArrayLike__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./isArrayLike */ 5122);
 /* harmony import */ var _isPromise__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./isPromise */ 5192);
-/* harmony import */ var _isObject__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./isObject */ 6549);
+/* harmony import */ var _isObject__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./isObject */ 5550);
 /* harmony import */ var _symbol_iterator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../symbol/iterator */ 2803);
 /* harmony import */ var _symbol_observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../symbol/observable */ 6831);
 

@@ -6,6 +6,7 @@ import { ChartComponent } from './chart/chart.component';
 import { SideDrawerComponent } from './side-drawer/side-drawer.component';
 import { UpperToolbarComponent } from './upper-toolbar/upper-toolbar.component';
 import { Nivel2Component } from './side-drawer/nivel2/nivel2.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -20,7 +21,8 @@ import { Nivel2Component } from './side-drawer/nivel2/nivel2.component';
     CommonModule,
     FormsModule,
     IonicModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule,
   ],
   exports:[SideDrawerComponent]
 })

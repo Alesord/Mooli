@@ -28,6 +28,10 @@ const routes: Routes = [
       {
         path: 'mis-listas',
         loadChildren: () => import('./mis-listas/mis-listas.module').then( m => m.MisListasPageModule)
+      },
+      {
+        path: 'mi-perfil',
+        loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
       }
     ]
   },
@@ -35,7 +39,8 @@ const routes: Routes = [
     path: '',
     redirectTo: '/peliculas/tabs/ver-todas',
     pathMatch: 'full'
-  }
+  },
+
 ];
 
 @NgModule({

@@ -9,6 +9,7 @@ import { ImdbService } from 'src/app/shared/services/imdb.service';
 import { NotificationsService } from 'src/app/shared/services/notifications.service';
 import { SeenService } from 'src/app/shared/services/seen.service';
 import * as moment from 'moment';
+import { FotosService } from 'src/app/shared/services/fotos.service';
 
 @Component({
   selector: 'app-ver-todas',
@@ -28,7 +29,8 @@ export class VerTodasPage implements OnInit, OnDestroy {
     private notificationsService: NotificationsService,
     private authService: AuthService,
     private router: Router,
-    private calendarService: CalendarService
+    private calendarService: CalendarService,
+    private fotoService: FotosService
     ) {}
 
   ngOnInit() {
@@ -41,8 +43,10 @@ export class VerTodasPage implements OnInit, OnDestroy {
     this.onNotificationCreate()
     this.checkReminder()
   })
+  this.fotoService.checkLoadExist();
+  this.fotoService.loadSaved();
   this.status = true;
-  this.notificationsService.inicializar()
+  this.notificationsService.inicializar();
 
   
   }

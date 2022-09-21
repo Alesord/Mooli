@@ -10,10 +10,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentModule } from './component/component.module';
 import { LevelUpService } from './shared/services/level-up.service';
 import { NetworkService } from './shared/services/network.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, ComponentModule],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule, 
+    HttpClientModule, 
+    ComponentModule,
+    FormsModule
+  ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     LevelUpService,

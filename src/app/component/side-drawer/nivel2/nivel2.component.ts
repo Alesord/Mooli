@@ -25,10 +25,10 @@ export class Nivel2Component implements OnInit {
 
   ionViewWillEnter() {
     this.levelUp.checkTokenExist().subscribe(res => {
-      if (!!res) {
+      let resParsed = JSON.parse(JSON.stringify(res)).token
+      if (!!resParsed) {
         console.log('Existe')
         this.tokenExist = true
-        this.token = JSON.parse(JSON.stringify(res)).token
         console.log(this.token)
       } else {
         console.log('No existe')

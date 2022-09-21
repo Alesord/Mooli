@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from './shared/services/auth.service';
 import { Network } from '@capacitor/network';
 import { Router } from '@angular/router';
+import { FotosService } from './shared/services/fotos.service';
 
 @Component({
   selector: 'app-root',
@@ -12,15 +13,13 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit{
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
   ) {}
 
   isAuth: boolean
 
   
   ngOnInit(): void {
-    this.isAuth = !this.authService.estado
-    console.log(this.isAuth)
     Network.addListener('networkStatusChange', status => {
       console.log('Network status changed', status);
       this.router.navigateByUrl('/peliculas/tabs/mis-listas')

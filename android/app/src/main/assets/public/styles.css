@@ -1408,5 +1408,8 @@ sub {
 .ion-align-items-baseline {
   align-items: baseline !important;
 }
+.transparent-modal .modal-wrapper {
+  --background: rgba(44, 39, 45, 0.7);
+}
 
 /*# sourceMappingURL=styles.css.map*/

@@ -28,7 +28,7 @@ export class LevelUpService {
     this.baseUrl = `${environment.URL_USERS}/${this.userId}/datos/`
     this.plainUrl = `${environment.URL_USERS}/${this.userId}/datos.json`
 
-    return this.http.get(this.plainUrl)
+    return this.http.get(this.baseUrl + 'token.json')
   }
 
   setLevelUpToken(data: number) {      

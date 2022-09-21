@@ -44,6 +44,10 @@ const routes = [
             {
                 path: 'mis-listas',
                 loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_peliculas_mis-listas_mis-listas_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./mis-listas/mis-listas.module */ 9655)).then(m => m.MisListasPageModule)
+            },
+            {
+                path: 'mi-perfil',
+                loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_peliculas_perfil_perfil_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./perfil/perfil.module */ 9113)).then(m => m.PerfilPageModule)
             }
         ]
     },
@@ -51,7 +55,7 @@ const routes = [
         path: '',
         redirectTo: '/peliculas/tabs/ver-todas',
         pathMatch: 'full'
-    }
+    },
 ];
 let PeliculasPageRoutingModule = class PeliculasPageRoutingModule {
 };
@@ -160,7 +164,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
   \**********************************************************/
 /***/ ((module) => {
 
-module.exports = "<ion-tabs>\r\n  <ion-tab-bar>\r\n\r\n    <ion-tab-button tab=\"ver-todas\">\r\n      <ion-label>Inicio</ion-label>\r\n      <ion-icon name=\"home-outline\"></ion-icon>\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"mis-listas\">\r\n      <ion-label>Mis Listas</ion-label>\r\n      <ion-icon name=\"albums-outline\"></ion-icon>\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"buscar\">\r\n      <ion-label>Buscar</ion-label>\r\n      <ion-icon name=\"search-outline\"></ion-icon>\r\n    </ion-tab-button>\r\n\r\n  </ion-tab-bar>\r\n</ion-tabs>";
+module.exports = "\r\n<ion-tabs>\r\n  <ion-tab-bar>\r\n\r\n    <ion-tab-button tab=\"ver-todas\">\r\n      <ion-label>Inicio</ion-label>\r\n      <ion-icon name=\"home-outline\"></ion-icon>\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"mis-listas\">\r\n      <ion-label>Mis Listas</ion-label>\r\n      <ion-icon name=\"albums-outline\"></ion-icon>\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"buscar\">\r\n      <ion-label>Buscar</ion-label>\r\n      <ion-icon name=\"search-outline\"></ion-icon>\r\n    </ion-tab-button>\r\n\r\n  </ion-tab-bar>\r\n</ion-tabs>";
 
 /***/ })
 

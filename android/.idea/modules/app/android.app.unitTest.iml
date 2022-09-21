@@ -31,9 +31,13 @@
     <orderEntry type="module" module-name="android.capacitor-android.main" scope="TEST" />
     <orderEntry type="module" module-name="android.capacitor-cordova-android-plugins.main" scope="TEST" />
     <orderEntry type="module" module-name="android.capacitor-app.main" scope="TEST" />
+    <orderEntry type="module" module-name="android.capacitor-camera.main" scope="TEST" />
+    <orderEntry type="module" module-name="android.capacitor-filesystem.main" scope="TEST" />
     <orderEntry type="module" module-name="android.capacitor-haptics.main" scope="TEST" />
     <orderEntry type="module" module-name="android.capacitor-keyboard.main" scope="TEST" />
     <orderEntry type="module" module-name="android.capacitor-local-notifications.main" scope="TEST" />
+    <orderEntry type="module" module-name="android.capacitor-network.main" scope="TEST" />
+    <orderEntry type="module" module-name="android.capacitor-preferences.main" scope="TEST" />
     <orderEntry type="module" module-name="android.capacitor-push-notifications.main" scope="TEST" />
     <orderEntry type="module" module-name="android.capacitor-status-bar.main" scope="TEST" />
     <orderEntry type="module" module-name="android.capacitor-storage.main" scope="TEST" />
@@ -60,7 +64,7 @@
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.fragment:fragment:1.4.1@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.core:core-ktx:1.2.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.viewpager:viewpager:1.0.0@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.customview:customview:1.0.0@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.customview:customview:1.1.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.loader:loader:1.0.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.lifecycle:lifecycle-livedata:2.0.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.arch.core:core-runtime:2.1.0@aar" level="project" />
@@ -68,7 +72,7 @@
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.vectordrawable:vectordrawable:1.1.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.vectordrawable:vectordrawable-animated:1.1.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.interpolator:interpolator:1.0.0@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.drawerlayout:drawerlayout:1.0.0@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.drawerlayout:drawerlayout:1.1.1@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.coordinatorlayout:coordinatorlayout:1.2.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.core:core-splashscreen:1.0.0-rc01@aar" level="project" />
   </component>

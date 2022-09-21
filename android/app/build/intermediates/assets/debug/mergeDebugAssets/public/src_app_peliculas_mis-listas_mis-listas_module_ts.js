@@ -215,6 +215,8 @@ let MisListasPage = class MisListasPage {
         console.log(this.loadedLists);
         console.log(this.loadedLists.find(x => x.nombre === 'Test'));
         this.isLoaded = true;
+        console.log('Mostrando Listas');
+        console.log(this.loadedLists);
     }
     onAddList() {
         this.modalCtrl
@@ -228,11 +230,20 @@ let MisListasPage = class MisListasPage {
             });
         });
     }
-    onDelete(listNombre) {
-        let listId = listNombre.toLowerCase().replace(/\s/g, '-');
+    onDelete(listaSeleccionada) {
+        let listIndex = this.loadedLists.indexOf(listaSeleccionada);
+        let listId = listaSeleccionada.nombre.toLowerCase().replace(/\s/g, '-');
+        this.loadedLists.splice(listIndex, 1);
         this.listService.deleteList(listId)
             .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_7__.takeUntil)(this.unsub))
             .subscribe();
+    }
+    onRemoveMovie(listaSeleccionada, peliculaSeleccionada) {
+        let movieIndex = listaSeleccionada.contenido.indexOf(peliculaSeleccionada);
+        let listId = listaSeleccionada.nombre.toLowerCase().replace(/\s/g, '-');
+        let movieId = listaSeleccionada.contenido[movieIndex].id;
+        listaSeleccionada.contenido.splice(movieIndex, 1);
+        this.listService.removeMovie(listId, movieId).subscribe();
     }
     onLogout() {
         this.authService.logout();
@@ -296,8 +307,13 @@ let ListService = class ListService {
         console.log('poniendo lista en ' + this.baseUrl + folderName + '.json', data);
         return this.http.put(this.baseUrl + folderName + '.json', data);
     }
-    deleteList(id) {
-        return this.http.delete(this.baseUrl + id + '.json');
+    deleteList(listId) {
+        return this.http.delete(this.baseUrl + listId + '.json');
+    }
+    removeMovie(listId, movieId) {
+        console.log(movieId);
+        console.log(`${this.baseUrl}${listId}/contenido/${movieId}.json`);
+        return this.http.delete(`${this.baseUrl}${listId}/contenido/${movieId}.json`);
     }
     displayExistingLists() {
         return this.http.get(this.plainUrl);
@@ -462,7 +478,7 @@ module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>Crea tu list
   \**********************************************************************/
 /***/ ((module) => {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>Ver mis listas</ion-title>\r\n    <ion-buttons slot=\"end\">\r\n      <ion-button (click)=\"onLogout()\">\r\n        <ion-icon name=\"log-out-outline\"></ion-icon>\r\n      </ion-button>\r\n      <ion-button *ngIf=\"this.levelUpService.getLevelUp()\" (click)=\"onAddList()\">\r\n        <ion-icon name=\"add-outline\"></ion-icon>\r\n      </ion-button>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-accordion-group *ngFor=\"let list of loadedLists\">\r\n    <ion-accordion value=\"first\">\r\n      <ion-item slot=\"header\" color=\"light\">\r\n        <ion-label>{{list.nombre}}</ion-label>\r\n        <ion-buttons>\r\n          <ion-button slot=\"end\" (click)=\"onDelete(list.nombre)\">\r\n            <ion-icon name=\"trash-outline\"></ion-icon>\r\n          </ion-button>\r\n        </ion-buttons>\r\n      </ion-item>\r\n      <div class=\"ion-padding\" slot=\"content\" *ngFor=\"let content of list.contenido\" [routerLink]=\"['/', 'peliculas','tabs' ,'ver-todas', content.id]\">\r\n          {{ content.titulo }}\r\n      </div>\r\n    </ion-accordion>\r\n  </ion-accordion-group>\r\n</ion-content>\r\n";
+module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button menu=\"main-menu\"></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title>Ver mis listas</ion-title>\r\n    <ion-buttons slot=\"end\">\r\n      <ion-button (click)=\"onLogout()\">\r\n        <ion-icon name=\"log-out-outline\"></ion-icon>\r\n      </ion-button>\r\n      <ion-button *ngIf=\"this.levelUpService.getLevelUp()\" (click)=\"onAddList()\">\r\n        <ion-icon name=\"add-outline\"></ion-icon>\r\n      </ion-button>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-accordion-group *ngFor=\"let list of loadedLists\">\r\n    <ion-accordion value=\"first\">\r\n      <ion-item slot=\"header\" color=\"light\">\r\n        <ion-label>{{list.nombre}}</ion-label>\r\n        <ion-buttons *ngIf=\"this.levelUpService.getLevelUp()\">\r\n          <ion-button slot=\"end\" (click)=\"onDelete(list)\">\r\n            <ion-icon name=\"trash-outline\"></ion-icon>\r\n          </ion-button>\r\n        </ion-buttons>\r\n      </ion-item>\r\n      <ion-list class=\"ion-padding\" slot=\"content\" *ngFor=\"let content of list.contenido\">\r\n        <ion-item-sliding>\r\n          <ion-item-options side=\"start\" *ngIf=\"this.levelUpService.getLevelUp()\">\r\n            <ion-item-option color=\"danger\" (click)=\"onRemoveMovie(list, content)\">\r\n              BORRAR\r\n              <ion-icon slot=\"end\" name=\"close-outline\"></ion-icon>\r\n            </ion-item-option>\r\n          </ion-item-options>\r\n          <ion-item [routerLink]=\"['/', 'peliculas','tabs' ,'ver-todas', content.id]\">\r\n            <p slot=\"start\">{{ content.titulo }}</p>\r\n          </ion-item>\r\n        </ion-item-sliding>\r\n      </ion-list>\r\n    </ion-accordion>\r\n  </ion-accordion-group>\r\n</ion-content>\r\n";
 
 /***/ })
 

@@ -395,10 +395,6 @@ let ImdbService = class ImdbService {
     getMovies() {
         return this.http.get(this.baseUrl);
     }
-    done(data) {
-        console.log(data[0]);
-        return data;
-    }
     findMovie(id) {
         return this.http.get(this.expUrl + '/' + id + '.json');
     }

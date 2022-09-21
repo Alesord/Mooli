@@ -19,11 +19,6 @@ export class ImdbService {
     return this.http.get(this.baseUrl)
   }
 
-  done(data) {
-    console.log(data[0])
-    return data
-  }
-
   findMovie(id: string) {
     return this.http.get(this.expUrl + '/' + id + '.json')
   }

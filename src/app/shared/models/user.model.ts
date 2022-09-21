@@ -1,9 +1,3 @@
-export interface User {
-    login: string;
-    password: string | number;
-    token: string;
-}
-
 export class Usuario {
     constructor(
         public userId: string,
@@ -18,4 +12,8 @@ export class Usuario {
         }
         return this._token;
     }
+}
+
+export interface UsuarioPerfilData {
+    nickname: string;
 }
